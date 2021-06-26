@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        通过属性选择器选择元素
+        [属性名]选择含有指定属性的元素
+        span[title]{
+            color: red;
+        }
+        [属性名=属性值]选择含有指定属性为指定值的元素
+        span[title=abc]{
+            color: red;
+        }
+        [属性名^=属性值] 选择属性值以属性值为开头的元素
+        span[title^=ab]{
+            color: red;
+        }
+        [属性名$=属性值] 选择属性名以属性值为结尾的元素
+        span[title$=d]{
+            color: red;
+        }
+        [属性名*=属性值] 选择属性名中存在属性值的元素
+        span[title*=c]{
+            color: red;
+        }
+        */
+
+    </style>
+</head>
+<body>
+
+    <span class="title">静夜思</span>
+    <span class="title">李白</span>
+    <span title="abc">床前明月光</span>
+    <span title="abcd">疑是地上霜</span>
+    <span title="zz">举头望明月</span>
+    <span title="sks">低头思故乡</span>
+
+</body>
+</html>

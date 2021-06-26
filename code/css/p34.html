@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        伪类选择器
+        1， 将ul里面的第一个li 设置为红色
+        ul > li:first-child {
+            color: red;
+        } 
+        2， 将ul里面的第n个元素 设置为红色
+        nth-child(n)    全都选
+        nth-child(2n) ，nth-child(even)  偶数
+        nth-child(2n+1)，nth-child(odd) 奇数
+        
+        注意： 
+        xx-child 这些伪类都是根据所有的子元素记进行排序的
+        ul > li:first-child 这种是ul下的第一个子元素,还得是li
+        与这个相反的是 ：first-of-type 
+        first-of-type 是同类型之间进行排序， 
+
+        ul > li:first-of-type {  ul的同类型子元素li们，第一个开始排序;
+        所以li中的第一个就行
+            color: red;
+        }
+        x-child 是大的排序，所有的元素都在排序里面
+        -of-type 是小的排序， 在同类型的元素排序
+ 
+        // li中的第一个变成红色的
+        ul > li:first-of-type {
+            color: red;
+        }
+
+        再说一个伪类 否定伪类  :not() 否定， 去除， 
+
+        ul > li:not(:nth-of-type(2))  除了li中的第二个li , 所有的li都变红；
+        ul > li:not(:nth-child(2))    除了所有子元素中第二个子元素 ，其他的li都红
+
+
+
+        */
+
+        ul > li:not(:nth-child(2)) {
+            color: yellowgreen;
+        }
+
+        
+
+
+    </style>
+</head>
+<body>
+
+    <ul>
+        <span>span</span>
+        <li>第一个</li>
+        <li>第二个</li>
+        <li>第三个</li>
+        <li>第四个</li>
+        <li>第五个</li>
+    </ul>
+    
+</body>
+</html>

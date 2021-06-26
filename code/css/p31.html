@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 复合选择器*/
+        /* 将class为title的div设置为red，
+        这种就是交集选择器，
+         作用： 同时符合多个条件的元素才会被设置， 
+         语法： 选择器1选择器2选择器3 （ 并且的关系）
+         注意： 交集选择器中如果有元素选择器， 那必须用元素选择器开头。
+        */
+        div.title {
+            color: red;
+        }
+
+        /*  选择器分组（并集选择器）
+            作用，同时选择多个选择器的元素， 
+            语法： 选择器1,选择器2,选择器3 （或者的关系） 
+        */
+        span {
+            color: blue;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="title">静夜思</div>
+    <span class="title">李白</span>
+    <h1>床前明月光</h1>
+    <span>疑是地上霜</span>
+    <span>举头望明月</span>
+    <span>低头思故乡</span>
+</body>
+
+</html>

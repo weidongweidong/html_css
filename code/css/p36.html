@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        需求： 比如一个段落， 我想让第一个字大一些，这时候就要用伪元素了， 
+        这种显然是不行的， 不够灵活 字母不能换， 还要重新设置属性，： 
+        传统写法： 
+        span{
+            font-size: 30px;
+        }
+        伪元素：  表示页面中一些特殊的并不真实的元素，（特殊的位置）
+        伪元素使用:: 开头
+        ::first-letter 表示第一个字母
+            p::first-letter{
+                color: red;
+            }
+        ::first-line 表示第一行
+            p::first-line{
+                background-color: red;
+            }
+        ::selection 表示选中， 用鼠标选中， 
+            p::selection{
+                background-color: red;
+            }   
+        ::before   表示元素的最开始
+        ::after 表示元素的最结束
+            因为这两个都在元素的边缘， 看不出来， 所有只能使用content属性来使用了
+            并且用这俩伪元素添加的内容是不能够被选中的，因为他俩不是正规的 ， 他俩是通过css加的。 
+        p::before{
+            content: 'aaa';
+            color: red;
+        }
+        p::after{
+            content: 'bbb';
+            color: red;
+        }
+
+        before 和after 是开发中使用很频繁的 。 
+        比如我们的q标签， 正常情况他是有个双引号， 但是为什么有这个东西呢？ 就是默认用的伪元素，
+        我们可以给他改个默认的开始和结束， 
+        比如这样：  
+        q::after{
+            content: "**";
+        }
+        q::before{
+            content: "**";
+        }
+
+        
+        */
+        
+        
+
+    </style>
+</head>
+<body>
+    <q>hello world!</q>
+    <!-- <p><span>我</span>是一个段落！</p> -->
+    <p>我是一个段落是一个段落是一个段落是一个段落是一个段落是一个段落是一个段落是一个段落是一个段落是一个段落是一个段落是一个段落是一个段落是一个段落是一个段落！</p>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 关系选择器*/
+
+        /*
+        子元素选择器
+        作用： 选中指定父元素的指定子元素
+        为div的子元素span设置一个字体为红色
+        div > span {
+            color: red;
+        }
+
+        后代元素选择器
+            作用： 选中指定元素内的指定后代元素
+            语法： 祖先 后代
+        div span {
+            color: red;
+        }
+
+        选择下一个兄弟元素  
+        选择 p 的 紧挨着的后面的 span兄弟 , 不是后面不行 不是兄弟不行，不是span不行， 不是紧挨着的不行， 都要满足才行。 
+        p + span {
+            color: red;
+        }
+
+ 
+        选择p 所有的span兄弟元素  不是后面的不行， 不是span的不行， 不是兄弟不行， 紧不紧挨着都行，
+        p ~ span {
+            color: red;
+        }    
+
+        */
+
+        
+
+
+
+
+
+        
+
+    </style>
+</head>
+<body>
+    <div>
+        我是一个div 
+        <p>我是div中的p元素
+            <span>我是div中p中的span元素</span>
+        </p>
+        
+        <span>我是div中的span元素</span>
+        <div>dd</div>
+        <span>我是div中的span元素</span>
+    </div>
+</body>
+</html>
