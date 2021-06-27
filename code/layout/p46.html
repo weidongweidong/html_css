@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        盒子模型的边框
+                border-color: blue; 边框颜色
+                border-style: dashed; 边框风格
+                border-width: 10px; 边框宽度
+        border-width ，有默认值， 3个像素
+        如果写一个值， 那么就是上下左右都是这个值的宽度， 
+        border-width: 10px;
+        如果写4个值？ 那么 按上右下左 来设置的。 
+        border-width: 10px 20px 30px 40px;
+        如果写3个值？ 那么 按 上，左右， 下， 来设置宽度， 右和左都用中间的值了
+        border-width: 10px 20px 30px ;
+        如果写2个值？ 那么， 按 上下， 左右 来设置的， 
+        border-width: 10px 20px ;
+        如果写1个值？ 那么 上下左右都是这个值了，
+        border-width: 10px;
+
+        除了上面的这种border-width设置， 还有一组： 
+        border-xxx-width 可以使用， 
+        这种是 可以单独设置 上下左右其一，
+        top 上面， left左面， rigth 右面， bottom 下面
+        就像这样： border-bottom-width: 15px;
+
+
+        border-color: blue; 用来指定边框的颜色， 同样可以分别指定四个边的边框， 
+        规则和上面的一样。 
+        border-color 也可以省略， 默认就是 color的值， 如果没有设置那默认就是黑色的， 
+
+
+        border-style 指定边框的样式
+            值有： solid 实线， dotted 点虚线， dashed 虚线， double 双线
+        规则和上面的一样，    
+        它可没有默认值， 没有就看不出来。 
+
+
+        如果像上面一样都要设置3个属性， 有点麻烦， 
+        所以我们可以使用 border的 简写属性， 通过该属性可以
+        同时设置边框的所有相关样式， 并且没有顺序要求， 
+        border: blue dashed 10px;
+        除了border 以外，
+        还有4个， border-xxx,  这几个就是对4个边框单独设置样式， 
+        如果不想设置一个边，那就将一个边， 设置为 none ,这样就咩有了， 
+        border-left: none;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        */
+        .box1{
+            background-color: red;
+            width: 200px;
+            height: 200px;
+            /*border-color: blue;
+            border-style: dashed;
+            border-width: 10px;*/
+            border: blue dashed 10px;
+            border-right: none;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

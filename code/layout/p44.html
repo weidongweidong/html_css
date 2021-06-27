@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        文档流
+        网页是一个多层的结构， 一层摞着一层
+        通过css 可以分别为每一层来设置样式， 
+        作为用户来讲 只能看到最上面的一层， 
+        有很多层，最底下的一层称为 文档流， 文档流是网页的基础， 
+        文档流是一个位置，是网页的最低层，
+          我们所创建的元素默认都是在 文档流中进行排列， 
+        对于我们来说，元素主要有两个状态， 
+            1，在文档流中， 
+            2， 不再文档流中， （脱离文档流）
+        元素在文档流中有什么特点？ 
+            就快元素来说
+              1，块元素会在页面都是独占一行 （自上而下垂直排列）
+              2， 默认宽度是父元素的全部， （会把父元素撑满）
+              3， 默认高度是被内容撑开， （子元素）
+              即便宽度很小， 块元素仍然会独占一行，
+            就行内元素来说： 
+              1， 行内元素不会独占页面的一行，只占自身的大小，
+              2， 行内元素在页面中自左向右水平排列， 如果一行中不能容纳下所有的行内元素， 
+              则元素会换到第二行继续自左向右排列，（书写习惯一致） 
+              3， 行内元素的默认宽度和默认高度，都是被内容撑开， 内容是多宽多高，他就多款多高， 
+              
+
+
+
+        */
+        .box1{
+            background-color: red;
+        }
+        .box2{
+            background-color: blue;
+        }
+        span{
+            background-color: silver;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">我是div1</div>
+    <div class="box2">我是div2</div>
+    <span>我是span1</span>
+    <span>我是span1</span><span>我是span1</span>
+    <span>我是span1</span>
+    <span>我是span1</span>
+    <span>我是span1</span>
+    <span>我是span2</span>
+</body>
+</html>
