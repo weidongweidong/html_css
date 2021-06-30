@@ -8,16 +8,46 @@
     <style>
         /*
         盒子模型的内边距 padding
+        内边距（padding）
+            内容区 和边框之间的距离是内边距， 
+            一共有4个方向的 内边距
+            padding-top , 上
+            padding-rigth ,右， 
+            padding-left ,左
+            padding-bottom  下
+            padding的设置和之前的规则一样， 
+            4个参数， 3个参数，2， 参数， 1个参数， 都是分别设置 上下左右的
+
+
+
+            内边距的设置是会影响到盒子的大小
+            背景颜色会延伸到内边距上， 
+            内边距会影响到盒子的大小， 如果内边距设置了100px, 那盒子就变大了
+
+            由此可见： 
+             一个盒子的可见框的大小，是由这个盒子的内容区，内边距 和边框共同决定了， 
+             计算盒子大小时， 要将这三个区域加到一起计算；
+             可见框就是我们通过设置可以看到的盒子边框， 
+             
+
         */
+        .inner{
+            width: 100%;
+            height: 100%;
+            background-color: red;
+        }
         .box1{
             width: 200px;
             height: 200px;
-            padding: 10px;
             background-color: green;
+            padding: 20px;
+            
         }
     </style>
 </head>
 <body>
-    <div class="box1"></div>
+    <div class="box1">
+        <div class="inner"></div>
+    </div>
 </body>
 </html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        .news-swapper{
+            width: 300px;
+            background-color: #bfa;
+            margin: 10px auto;
+            border-top: 1px black solid;
+        }
+        .news-swapper h2{
+            border-top: red 1px solid;
+            margin-top: -1px;
+            height:39px;
+            padding-top: 5px;
+            padding-left: 10px;
+            display: inline-block;
+        }
+        .news-img{
+            height: 130px;
+        }
+        .news-img img{
+           width: 280px; 
+           margin-left: 10px;
+        }
+        .news-img h3{
+            color: white;
+            margin-left: 10px;
+            margin-top: -32px;
+            padding-left: 90px;
+        }
+        .news-list a:hover{
+            color: burlywood;
+        }
+        .news-list a:active{
+            color: blue;
+        }
+        .news-list li{
+            font-size: 14px;
+            list-style: none;
+            padding: 10px 15px;
+            
+        }
+        .news-list li::before{
+            content: "♦️";
+            font-size:2px;
+            padding-right: 4px;
+        }
+      
+
+
+    </style>
+</head>
+<body>
+    <div class="news-swapper">
+        <h2><a href="javascript:;">体育</a></h2>
+        <div class="news-img">
+            <a href="javascript:;">
+                <img src="https://img.haoyunbang.cn/cooperate_file/images/page_index_baoxi01.png" alt="开始测试图片">
+                <h3>测试就测试</h3>
+            </a>
+        </div>
+        <ul class="news-list">
+            <li><a href="javascript:;">我内膜就薄，还有子宫内膜异位，排卵内膜不同步，卵泡发育不良我内膜就薄，还有子宫内膜异位，排卵内膜不同步，卵泡发育不良</a></li>
+            <li><a href="javascript:;">我内膜就薄，还有子宫内膜异位，排卵内膜不同步，卵泡发育不良</a></li>
+            <li><a href="javascript:;">我内膜就薄，还有子宫内膜异位，排卵内膜不同步，卵泡发育不良</a></li>
+            <li><a href="javascript:;">我内膜就薄，还有子宫内膜异位，排卵内膜不同步，卵泡发育不良</a></li>
+        </ul>
+    </div>
+</body>
+</html>

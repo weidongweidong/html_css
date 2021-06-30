@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        浮动的一些其他特点：
+            1浮动元素不会盖住文字
+            2元素设置浮动以后，将会从文档流中脱离，从文档流中脱离以后，元素的一些特点也会发生变化。
+                脱离文档流的特点： 
+                    块元素： 
+                        1块元素不再独占页面的一行
+                        2脱离文档流以后，块元素的宽度和高度默认都会被内容撑开
+                    行内元素
+                        1行内元素脱离文档流以后会变成块元素，特点和块元素一样，
+                        还是之前一样大小被内容撑开， 但是设置宽高了，脱离文档流之前行内元素设置宽高可是无效的，
+                        脱离后可以设置了！ 
+                    脱离文档流以后， 不需要再区分块和行内了，一样了，
+
+        */
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: #baf;
+            float: left;
+        }
+        .box2{
+            background-color: yellow;
+            float: left;
+        }
+        .box3{
+            background-color: red;
+        }
+        .s1{
+            height: 100px;
+            background-color: #bfa;
+        }
+        
+    </style>
+</head>
+<body>
+    <span class="s1">我是一个span</span>
+    <!-- <div class="box1"></div>
+    <p>aa我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签我是p标签</p> -->
+    <!-- <div class="box2">text</div>
+    <div class="box3">hellohelo</div> -->
+</body>
+</html>

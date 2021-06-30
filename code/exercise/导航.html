@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        */
+        body{
+            /*背景颜色*/
+            background-color: #bfa;
+        }
+        .left-nav{
+            /* 外面的块级元素 div, */
+            width: 190px;
+            height: 450px;
+            padding: 10px 10px;
+            background-color: cornsilk;
+            margin: 50px auto;
+        }
+        .left-nav .item{
+            height: 25px;
+             /* 要想让子元素在父元素中垂直居中，那就将父元素的line-height 设置为和父元素heigth 一样的值*/
+            line-height: 25px;
+            /* 设置item的左内边距 ，将文字向右移动 */
+            padding-left: 18px;
+        }
+        .left-nav .item:hover{
+            background-color: cyan;
+        }
+        .item a {
+            color: black;
+            font-size: 14px;
+            /* 文本修饰 */
+            text-decoration: none;
+        }
+        /* 点击变颜色*/
+        .item a:active{
+            color:red;
+        }
+        /* 移入变颜色*/
+        .item a:hover{
+            color: blue;
+        }
+        
+        .item span {
+            font-size: 12px;
+            padding: 2px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="left-nav">
+        <div class="item">
+            <a href="">手抓饼</a><span>/</span><a href="">手抓饼</a><span>/</span><a href="">手抓饼</a>
+        </div>
+        <div class="item">
+            <a href="">手抓饼</a><span>/</span><a href="">手抓饼</a><span>/</span><a href="">手抓饼</a>
+        </div>
+        <div class="item">
+            <a href="">手抓饼</a><span>/</span><a href="">手抓饼</a><span>/</span><a href="">手抓饼</a>
+        </div>
+        <div class="item">
+            <a href="">手抓饼</a><span>/</span><a href="">手抓饼</a><span>/</span><a href="">手抓饼</a>
+        </div>
+        <div class="item">
+            <a href="">手抓饼</a><span>/</span><a href="">手抓饼</a><span>/</span><a href="">手抓饼</a>
+        </div>
+        <div class="item">
+            <a href="">手抓饼</a><span>/</span><a href="">手抓饼</a><span>/</span><a href="">手抓饼</a>
+        </div>
+        <div class="item">
+            <a href="">手抓饼</a><span>/</span><a href="">手抓饼</a><span>/</span><a href="">手抓饼</a>
+        </div>
+        <div class="item">
+            <a href="">手抓饼</a><span>/</span><a href="">手抓饼</a><span>/</span><a href="">手抓饼</a>
+        </div>
+    </div>
+</body>
+</html>

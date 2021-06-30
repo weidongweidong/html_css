@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        浏览器的默认样式
+            我们会发现 ，在页面中写元素， 元素并不与浏览器紧紧贴合， 但我们并没有设置外边距， p元素也是， 看起来有外边距，
+            实际上我们啥也没有设置， 
+            这就是默认样式，
+                通常浏览器都会为元素设置一些默认样式， 
+                默认样式的存在会影响到页面的布局， 通常情况下 编写网页时必须去掉浏览器的默认样式，（pc端页面）；
+                body 有， p 有， ul 有， 但是这些都是手找的， 这样的话，开发时候如果一个一个找太麻烦了
+                怎么办？ 
+                *{
+                  margin:0;
+                  padding:0;  
+                }   
+                这样行， 但是不完美， 可能有残留
+                最好的办法， 引入一个 去除默认样式的css, 让这个css 把所有的标签 清空下默认样式就好了， 
+
+        */
+        body{
+            margin: 0;
+        }
+        p{
+            margin: 0;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            padding-left: 20px;
+            /* 去除项目符号*/
+            list-style: none;
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            border: 1px black solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <p>我是段落</p>
+    <p>我是段落</p>
+    <p>我是段落</p>
+    <p>我是段落</p>
+    <ul>
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+    </ul>
+
+</body>
+</html>

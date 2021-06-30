@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        盒子模型-外边距的折叠
+        正常来说我们设置上面的div, 下外边距是100px ，于是下面的div 被挤下去100
+        设置下面的div 上外边距100px, 那下div 应该再下去100才对的， 但是为什么没有变化的呢？ 
+
+        这种情况就是： 
+            垂直外边距的重叠（折叠）
+                相邻的垂直方向外边距会发送重叠现象；
+                分两种情况： 
+                    兄弟元素
+                        兄弟元素间的相邻垂直外边距会取两者之间的较大值（两者都是正值的情况下)，
+                        特殊情况  
+                            如果相邻的外边距一正一负，则取两者的和， 
+                            如果相邻的外边距都是负值， 则取两者中绝对值较大的。
+                        兄弟元素之间的外边距的重叠， 是对于开发有利的， 所有我们不需要进行处理。
+
+                    父子元素
+                        父子元素相邻外边距，子元素的会传递给父元素 （上外边距）
+                        父子外边距的折叠会影响到页面的布局， 必须要进行处理
+                        div3,div4的例子， 将div4移到div3 左下面
+                        目前就学过的知识没有什么好办法
+                         1， 不让父子的外边距相邻， 
+                         父元素设置一个border-top, 外边框，这样的话， 父子元素的外边距 就不相邻了，就不会有折叠现象了。
+                         但是父元素加border 父盒子会变大，我们需要在高度里面减去bordr宽度，并且把子元素的margin-top 也减去一个border宽度，要不让子元素就漏到父元素外边去了。  
+                         2， 里面设置padding 内边距
+                         设置父元素的上内边距 padding-top 50px， 然后将父元素高度设置减少50 ，这样绿框就下来了， 
+
+        */
+        .box1,.box2{
+            width: 200px;
+            height: 200px;
+        }
+        .box1{
+            background-color: red;
+            margin-bottom: -100px;
+        }
+        .box2{
+            background-color: green;
+            margin-top: 120px;
+        }
+        
+        .box3{
+            width: 100px;
+            height: 99px;
+            background-color: red;
+            border-top: 1px red solid;
+         
+        }
+        .box4{
+            width: 50px;
+            height: 50px;
+            background-color: green;
+            margin-top: 49px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="box1"></div>
+    <div class="box2"></div> -->
+    <div class="box3">
+        <div class="box4"></div>
+    </div>
+</body>
+</html>

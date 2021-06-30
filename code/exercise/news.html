@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0px;
+            padding: 0px;
+        }
+        a {
+            text-decoration: none;
+        }
+        .news-wrapper{
+            border-top: 1px black solid;
+            width: 300px;
+            background-color: #bfa;
+            margin: 10px auto;
+        }
+        .news-title{
+            height: 40px;
+            display: inline-block;
+            border-top: 1px red solid;
+            margin-top: -1px;
+            padding-top: 10px;
+            padding-left: 10px;
+        }
+        .news-title a{
+            text-decoration: none;
+            color: black;
+            /* 标签超链接 文字加粗*/
+            font-weight: bold;
+        }
+        .news-img{
+           height:  116px; 
+        }
+        .news-img img{
+            width: 280px;
+            padding-left: 10px;
+        }
+        /* 设置图片中的那个title文字效果 */
+        .news-img .img-title{
+            /* 设置图片中标题颜色*/
+            color: #fff;
+            /*向上移动文字*/
+            margin-top: -30px;
+            padding-left: 90px;
+        }
+        .news-list{
+            margin-top: 15px;
+        } 
+        .news-list li{
+            list-style: none;
+            margin:  0px 17px;
+            padding-bottom: 10px;
+        }
+
+        .news-list li::before{
+            content: "♦️";
+            color: rgb(218, 218, 218);
+            font-size: 12px;
+            margin-right: 4px;
+        } 
+        
+        .news-list a {
+            font-size: 14px;
+            color: black;
+        }
+
+        .news-list a:hover{
+            color: red;
+        }
+
+      
+
+
+     
+
+        
+    </style>
+</head>
+<body>
+    <div class="news-wrapper">
+       <h2 class="news-title"><a href="#">体育</a></h2>
+       <div class="news-img">
+           <img src="https://img.haoyunbang.cn/cooperate_file/images/page_index_baoxi01.png" alt="">
+           <h3 class="img-title">好孕帮-开始测试</h3>
+       </div>
+       <ul class="news-list">
+           <li><a href="javascript:;">我内膜就薄，还有子宫内膜异位，排卵内膜不同步，卵泡发育不良我内膜就薄，还有子宫内膜异位，排卵内膜不同步，卵泡发育不良</a></li>
+           <li><a href="javascript:;">我内膜就薄，还有子宫内膜异位，排卵内膜不同步，卵泡发育不良</a></li>
+           <li><a href="javascript:;">我内膜就薄，还有子宫内膜异位，排卵内膜不同步，卵泡发育不良</a></li>
+           <li><a href="javascript:;">我内膜就薄，还有子宫内膜异位，排卵内膜不同步，卵泡发育不良</a></li>
+       </ul>
+    </div>
+</body>
+</html>

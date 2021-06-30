@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /*
+        水平布局
+        元素在水平方法的布局；
+            元素在其父元素中水平方向的位置由一下几个属性共同决定
+                margin-left 
+                border-left 
+                padding-left
+                width
+                border-rigth 
+                padding-rigth
+                margin-rigth 
+            由这七个值共同决定这个元素在父元素中的水平位置
+            一个元素在其父元素中，水平布局必须要满足以下等式：
+margin-left+border-left+padding-left+width+border-rigth+padding-rigth+margin-rigth =  其父元素内容区宽度，
+        以上这个等式必须满足， 如果相加结果使等式不成立，则称为过度约束， 则等式会自动调整为相等， 
+            调整的情况： 
+                如果这7个值中没有auto 的情况，那么浏览器会自动调整为 margin-rigth 值，使等式满足， 
+                如果有auto的情况： 
+                  这里7个值中 ，有3个可以为auto:  width ,margin-left, margin-right,
+                  如果某个值为auto, 则会自动调整为auto的那个值以使等式成立。如果不设置 width 的值，那width 默认就
+                  是auto,
+                0 + 0 + 0 + auto + 0 + 0+ 0 = 800  那么auto = 800
+                0 + 0 + 0 + auto + 0 + 0 + 200 = 800 那么auto = 600
+                200 + 0 + 0 + auto + 0 + 0 + 200 = 800 那么auto = 400
+            如果将一个width和一个外边距设置为auto, 则width会调整到最大， 另一个外边距会自动为0，
+            如果将3个值， 两个外边距和一个winth 都设置为auto, 那么width 调整最大， 两个外边距为0，
+            反正是优先调整width
+            如果windth 设置固定值， 把两个外边距设置为auto,那么浏览器会把两个外边距设置为相同的值
+            所以我们经常使用这个特点 来使一个元素在其父元素中水平居中
+            例如:
+                width: 100px;
+                margin:0 auto;
+            这样这个元素就在父元素中水平居中了;
+            有个问题，如果我们手动把子元素的width设置的超过了父元素的元素的宽度会怎么样呢？
+            等式同样成立， 那么浏览器同样会调整margin-right 使它成为负值，使 7个长度相加等于800
+
+
+        所以margin-rigth 一般没用，都是浏览器自己就设置了
+
+        */
+        .outer{
+            width: 800px;
+            height: 200px;
+            border: 10px red solid;
+        }
+        .inner{
+            width: 200px;
+            height: 200px;
+            margin: 0 -300px 0 auto; /*这种情况就超出去了， 因为右边距大了向左走， 负了就向右走了，*/
+            background-color: #bfa;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>

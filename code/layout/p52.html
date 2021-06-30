@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        行内元素的盒模型
+            -行内元素不支持设置宽度，和高度，   他的宽高就是被内容撑开的，无法手动设置，
+            -行内元素可以设置padding ， 但是垂直方向的padding不会影响到页面布局， 
+            -行内元素可以设置border, 垂直方向的border 不会影响到页面的布局，
+            -行内元素可以设置margin, 垂直方向的margin 不会影响到页面的布局， 
+            不会影响到页面的布局的意思就是： 不像块元素一样自己盒子大了之后就挤别人，它盖住别人也不挤
+
+        行内元素的margin 外边距没有合并的问题， 就是两个外边距的和的问题
+
+        例子： 
+            假设，我们现在有个需求，要一个大个的a标签， 怎么搞一个
+            设置宽高显然不行，因为行内元素不能设置宽高
+            于是我们引入一个新的属性，
+            dispaly , 用来设置元素显示的类型， 
+                可选值： inline  将元素设置为行内元素， 
+                        block  将元素设置为块级元素， 
+                        inline-block  
+                            将元素设置为行内快元素， 行内快，既可以设置宽高，又不会独占一行，
+                            但是这种最好不用，因为它既然兼具两种元素优点， 也有两种的缺点 
+                        table 将元素设置为一个表格。 
+                        none， 元素不在页面中显示 隐藏就用这个
+            还有一个 用来隐藏的属性是 ：
+            visibility: 用来设置元素的显示状态， 
+                可选值： 
+                    visible 默认值， 元素在页面中正常显示
+                    hidden 元素在页面中隐藏，不显示， 
+                    不显示是不显示，但是要注意， 它占的位置还在， 这个和display:none 不一样， 
+                    dispaly none 是啥都没了， 位置也不留着了，， visibility 是东西没了，依然占据页面的位置。
+            
+        */
+        a{
+            width: 100px;
+            height: 100px;
+            display: block;
+            visibility: visible;
+        }
+
+        .s1{
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            background-color: blue;
+            border: seashell 2px solid;
+            margin: 20px;
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <a href="javascript:;">超链接</a>
+    <a href="javascript:;">超链接</a>
+    <span class="s1">我是span</span>
+    <span class="s1">我是span</span>
+    <div class="box1"></div>
+</body>
+</html>

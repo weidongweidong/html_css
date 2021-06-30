@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        外边距（margin)
+            他不会影响到盒子可见框的大小
+            但是外边距会影响到盒子的位置 
+            一共有4个方向的外边距， 
+                margin-top 上外边距,  设置一个正值， 元素会向下移动 ,负值会向上移动
+                margin-left 左外边距,  设置一个正值， 元素会向右移动， 负值会向左移动， 
+                margin-rigth 右外边距,  默认的时候没用
+                margin-bottom 下外边距 设置一个正值， 其下边的元素会向下移动， 就是挤别人 设置一个负值下面的元素会挤上来
+
+            margin 也可以设置负值， 如果是负值则元素会向相反的方向移动，
+            margin 也有简写属性， margin 可以同时设置四个方向的外边距， 用法和padding一样的， 
+            4个值， 3个值， 2个值， 1个值， 都上右下左的顺序 挨个设置的。
+
+
+            
+            要注意一点： 
+                元素在页面中是按照自左向右的顺序排列的
+                    所以默认情况下，如果我们设置的左和上外边距则是会移动本身盒子，
+                    而设置下和右外边距会移动其他元素，就是不动自己，去挤别的盒子。
+
+            margin 虽然不会影响到我们盒子的可见框大小， 但是他会影响到我们盒子实际占用空间大小， 
+
+
+        */
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border: blue 10px solid;
+            margin-top: 100px;
+            margin-left: 100px;
+            margin-bottom: 100px;
+            margin-right: 100px;
+
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: cornsilk;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+</html>
