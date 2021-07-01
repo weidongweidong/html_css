@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        网页的简单布局
+        上中下结构
+        */
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        header,
+        main,
+        footer {
+            width: 1000px;
+            margin: 0px auto;
+        }
+
+        header {
+            height: 150px;
+            background-color: red;
+        }
+
+        main {
+            height: 400px;
+            background-color: blue;
+            margin: 10px auto;
+        }
+
+        nav,
+        article,
+        aside {
+            height: 100%;
+            float: left;
+        }
+
+        nav {
+            width: 200px;
+            background-color: cadetblue;
+        }
+
+        article {
+            width: 580px;
+            background-color: coral;
+            margin: 0px 10px;
+        }
+
+        aside {
+            width: 200px;
+            background-color: cyan;
+        }
+
+        footer {
+            height: 150px;
+            background-color: burlywood;
+        }
+        .article_inner{
+            width: 100%;
+            height: 200px;
+            float: left;
+        }
+        .article_inner:first-child{
+            background-color: cyan;
+        }
+        .article_inner:last-child{
+            background-color:rgb(18, 7, 7);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header></header>
+    <main>
+        <nav></nav>
+        <article>
+            <div class="article_inner"></div>
+            <div class="article_inner"></div>
+        </article>
+        <aside></aside>
+    </main>
+    <footer></footer>
+
+</body>
+
+</html>

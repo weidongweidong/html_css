@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        BFC的演示： 
+        ·开启BFC的元素不会被浮动元素所覆盖，
+            用了overfow : hidden 的开启了BFC的元素 确实不会被浮动的元素所覆盖了
+            用overfow 开启了 不会被浮动元素盖住， 
+            用float ：left 也不会被浮动元素， 其实也是因为它开启了BFC
+        ·开启BFC的元素子元素和父元素外边距不会重叠 
+            确实是
+        */
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            /*float: left;*/
+            overflow: hidden;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            background-color: #bfa;
+        }
+        .box3{
+            width: 100px;
+            height: 100px;
+            margin-top: 100px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box3"></div>
+    </div>
+    <!-- <div class="box2"></div> -->
+</body>
+</html>

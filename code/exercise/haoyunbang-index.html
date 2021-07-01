@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>好孕帮</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        .header,.main,.footer{
+            width: 1180px;
+            margin: 10px auto;
+        }
+        .header{
+            height: 154px;
+            background-color: blanchedalmond;
+        }
+        .header-top{
+            background-color: black;
+            height: 95px;
+        }
+        .header-bottom{
+            background-color: blue;
+            margin-top: 15px;
+            height: 44px;
+        }
+        .main{
+            height: 430px;
+            background-color: cadetblue;
+            overflow: hidden;
+        }
+        .banner{
+            height: 300px;
+            background-color: cornflowerblue;
+        }
+        .img-list{
+            height: 110px;
+            margin-top: 20px;
+            background-color: darkkhaki;
+            margin-right: -15px;
+        }
+        .img-list .img-item{
+            float: left;
+            background-color: rgb(6, 6, 6);
+            margin-right: 15px;
+            width: calc(25% - 15px);
+            height: 100%;
+        }
+        /* 在中间的黑框练习中，想让4个黑框平均落在父元素中并且中间有个间隙，
+        我们需要动态的设置黑框的宽度 因为是4个框， 所以每个 框是 25%宽 ，
+        但是我们有个右外边距， 所有 一个黑框应该是 25% - 15 ， 
+        然后我们再设置上右外边距15， 那么一个黑框+ 一个间隙， 应该是总的25%了， 
+        但是都这样设置的话， 最后一个黑框就会超出一个15%， 我们将最后一个超出的裁剪掉，就好了， 
+        
+        
+
+        
+        */
+        .footer{
+            height: 154px;
+            background-color: crimson;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-top"></div>
+        <div class="header-bottom"></div>
+    </div>
+    <div class="main">
+        <div class="banner"></div>
+        <div class="img-list">
+            <div class="img-item"></div>
+            <div class="img-item"></div>
+            <div class="img-item"></div>
+            <div class="img-item"></div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-top"></div>
+    </div>
+</body>
+</html>

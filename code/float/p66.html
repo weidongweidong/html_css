@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        clear
+            由于box1的浮动， 导致了box3元素位置的上移， 
+                也就是说box3受到了box1浮动的影响， 位置发生了改变。
+            如果我们不希望某个元素因为其他元素浮动的影响而改变位置，
+            可以通过clear属性来清除元素对当前元素所产生的影响， 
+            clear, 
+                作用： 清除浮动元素对当前元素所产生的影响。
+                可选值： 
+                    left , 清除左侧浮动元素对当前元素的影响。
+                    rigth , 清除右侧浮动元素对当前元素的影响。
+                    both , 清除影响更大的那册对当前元素的影响。 
+                原理： 
+                    设置清除浮动以后， 浏览器会自动为元素添加一个上外边距， 
+                    影响它的那个高度是多大， 那浏览器就为当前元素添加一个多大的上外边距， 
+                    使其位置不受其他元素的影响， （因为影响只在垂直方向，所以加个上外边距就行了）
+        */
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            float: left;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            float: right;
+            background-color:blue;
+        }
+        .box3{
+            width: 100px;
+            height: 100px;
+            clear: right;
+            background-color: orangered;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+</body>
+</html>

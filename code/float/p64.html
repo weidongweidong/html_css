@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        浮动的缺点问题：
+        高度塌陷 和 BFC
+        很多时候，页面布局中的div 高度不能写死 里面东西可能多，也可能少的 
+        如果不设置父元素的高度， 子元素浮动前父元素的高度是子元素撑起来的，当其中的子元素浮动后， 子元素已经脱离文档流了，不在父元素中了， 
+        那父元素中就没有东西了， 又没有给父元素设置宽度 ，那父元素就扁了， 这就是高度塌陷的问题
+        父元素高度丢失之后， 其下的元素会自动上移， 导致页面的布局混乱了，
+        所以高度塌陷是浮动布局中比较常见的问题，这个问题我们须要处理一下才行；
+        
+        BFC (Block Formatting Context) 块级格式化环境。
+            BFC是一个css中的一个隐含的属性， 可以为一个元素开启BFC 
+             元素开启BFC之后的特点： 
+                ·开启BFC的元素不会被浮动元素所覆盖，
+                ·开启BFC的元素子元素和父元素外边距不会重叠， 
+                ·开启BFC的元素可以包含浮动的子元素
+             可以通过一些特殊方法来开启元素的BFC ，这个隐含的属性我们并不能直接开启。 
+                1，设置元素的浮动， float:left  缺点是宽度丢了， 并且仍然会导致布局乱了，下面的元素会上来。 
+                2，将元素设置为行内快元素， display: inline-block  缺点是 该元素宽度也丢了，
+                前两种都不推荐用，
+                3，将元素的overflow 设置为一个非 visible的值， 
+                    常用的方式 为元素设置 overflow : hidden 开启其BFC 以使其可以包含浮动元素， 
+                这只是一个临时的解决方案， 并不是十分完美的方法， 因为它也是有副作用的
+
+
+        
+
+        
+
+        */
+        .outer{
+            border: 10px red solid;
+            overflow: hidden;
+        }
+        .inner{
+            background-color: #bfa;
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+    <div style="width: 100px;height:150px;background-color:blue"></div>
+</body>
+</html>
