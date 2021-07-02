@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        如何用clear 来开启BFC 解决高度塌陷的问题？ 
+            我们可以给box3来一个clear 清除了浮动对当前元素的影响，那么
+            box3始终在box2下面，即使box2浮动了， 但它因为clear了，所以加了一个上外边距， 
+            它不会上移，它不上移了，那就会撑起box1， 所以是它也会撑起box1解决高度塌陷的问题，  
+            但是我们不能写一个box3因为box3是html元素 ，我们应该用css的方法才对， 
+            所以
+                我们用伪元素， box1的：：after 是box3最后的伪元素， 
+                我们让伪元素变成一个块级元素， 然后清除它的浮动，
+                它就可以帮助box2来撑起box1了，从而解决高度塌陷的问题。 
+        */
+        .box1{
+            border: 1px red solid;
+            /*overflow: hidden;*/
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: #baf;
+            float: left;
+        }
+        .box1::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+        <!-- <div class="box3"></div> -->
+    </div>
+</body>
+</html>

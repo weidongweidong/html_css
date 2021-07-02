@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        相对定位
+
+        问题 将一个盒子放到任意位置，如果用之前的技术只能用margin等，而且任意位置的话，太麻烦！
+        先说定位的简介：
+            定位（position）
+                定位是一种更加高级的布局手段，
+                通过定位可以将元素摆放到页面的任意位置
+                使用position属性来设置定位。
+            position : 
+                可选值: 
+                    static 默认值， 元素是静止的， 没有开启定位， 
+                    relative 开启元素的相对定位，
+                    absolute 开启元素的绝对定位。
+                    fixed 开启元素的固定定位，
+                    sticky ,开启元素的粘滞定位， 
+             
+            1相对定位:relative
+                当元素的position属性值设置为relative时， 则开启了元素的相对定位。
+                相对定位的特点： 
+                    1元素开启相对定位以后，如果不设置偏移量元素不会发生任何的变化。
+                    2相对定位是参照于当前元素在文档流中的位置进行定位的。
+                    相对于自身的位置来定位的
+                    3相对定位会提升元素的层级。它会盖住别的元素， 
+                    4，相对定位不会使元素脱离文档流， 
+                    5，相对定位不会改变元素的性质，块还是块， 行内还是行内。只是看的位置变了
+
+                偏移量（offset）
+                    当元素开启了定位以后，可以通过偏移量来设置元素的位置。
+                    偏移量和之前的margin可不一样， margin left top 挤自己， rigth和bottom 挤别人， 
+                    偏移量不会挤别人，不会影响别的元素，
+                     top 
+                        定位元素和定位位置上边的距离
+                     bottom 
+                        定位元素和定位位置下边的距离
+
+                        定位元素垂直方向的位置由top和bottom两个属性来控制。
+                        通常我们只会使用其中之一就够用了， 
+                        top值越大，定位元素向下移动， bottom越大，定位元素向上移动
+                     left 
+                        定位元素和定位位置的左侧距离
+                     right 
+                        定位元素和定位位置的右侧距离
+
+                        定位元素水平方法的位置由left和right 两个属性控制
+                        通常情况下我们只会使用一个 就行了， 
+                        left越大，元素越靠右， right 元素越靠左， 
+            2绝对定位:absolute
+                当元素的position 属性值 为 absolute时，则开启了绝对定位
+                绝对定位的特点： 
+                    1，开启绝对定位后，如果不设置偏移量，元素的位置不会发生变化，
+                    2，开启绝对定位后，元素会从文档流中脱离， 
+                    3，绝对定位会改变元素的性质， 行内变成块元素了， 块的宽高被内容撑开， 
+                    4，绝对定位会提升元素的层级
+                    5，绝对定位元素是相对于其包含块进行定位的
+                
+                包含块（containing block ）
+                    正常情况下  包含块就是离当前元素最近的祖先块元素
+                        <div> <div></div></div> 里面的div的包含块是谁？ 外边的div,
+                        <div><span><em>hello</em></span></div>对于里面的em，它的包含块是谁？ 是外面的div，离当前元素的最近的祖先块元素， 注意是 块元素！
+                    绝对定位的包含块： 
+                        包含块就是离它最近的开启了定位的祖先元素（只要position不是static 就是开启了定位）
+                        如果所有的祖先元素都没有开启定位， 则根元素就是他的包含块
+                    html（根元素， 初始包含块） 
+            3固定定位：fixed,
+                当元素的position 属性设置为 fixed,则开启了元素的固定定位。
+                固定定位也是一种绝对定位，所以固定定位的大部分特点都和绝对定位一样， 
+                    唯一不同的是 固定定位永远参照于浏览器的视口进行定位， 
+                    固定定位的元素不会随网页的滚动条滚动，
+            4粘滞定位：sticky,
+                当元素的position属性设置为stickey 则开启了元素的粘滞定位
+                粘滞定位和相对定位的特点 基本一致， 
+                    不同的是粘滞定位可以在元素到达某个位置时将其固定。
+                兼容性不好，如果真做个这个效果的话， 还需要结合js去做的。
+
+        */
+        body{
+            height: 2000px;
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            position: fixed;
+            right: 20px;
+            top: 20px;
+        }
+        .box3{
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+        }
+
+
+
+
+
+
+
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .nav-left{
+            width: 1210px;
+            height: 48px;
+            background-color: #e8e7e3;
+            margin: 30px auto;
+            position: sticky;
+            top:10px;
+        }
+        .title{
+            float: left;
+            line-height: 48px;
+        }
+        .title a{
+            display: block;
+            color: #6c6c6c;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 0px 64px;
+        }
+        .title:last-child a{
+            padding: 0px 70px 0px 71px;
+        }
+        .title a:hover{
+            background-color: #6c6c6c;
+            color: #e5e3df;
+        }
+       
+
+    </style>
+</head>
+<body>
+    <!-- <div class="box1"></div>
+    <div class="box4">
+        <div class="box2"></div>
+    </div>
+    <div class="box3"></div>
+     -->
+     <div class="nav-left">
+        <div class="title"><a href="#">aaaaa</a></div>
+        <div class="title"><a href="#">bbb</a></div> 
+        <div class="title"><a href="#">ccccc</a></div>
+        <div class="title"><a href="#">sdddd</a></div>
+        <div class="title"><a href="#">eeee</a></div>
+        <div class="title"><a href="#">ffff</a></div>
+        <div class="title"><a href="#">ggggg</a></div>
+
+    </div
+
+
+    
+     
+    
+</body>
+</html>

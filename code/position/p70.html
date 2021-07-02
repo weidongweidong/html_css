@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        绝对定位元素的布局
+        
+        在开启绝对定位之前，水平方向布局是由7个值 = 包含块内容区的宽度，
+        在开启绝对定位之后， 变成了，( left+7个值+right) 9个值 = 包含块内容区的宽度
+        此时规则和之前一样 只是多添加了两个值， 
+            当发生过度约束时，
+                如果9个值中没有auto 则自动调整right值以使等式满足执，9个值的时候，是调整margin-rigth的，
+                如果有auto, 则自动调整auto的值， 以使等式满足， 
+            可以设置auto的值， 
+                margin  width , left, right ,
+            因为left 和 right 的值默认是auto, 所以如果不指定left 和right ， 则等式不满足时， 会自动调整这两个值，
+            就是说， 如果 windth 为auto 则默认先调整windth, 
+                    如果 left 和right ,为auto ,则默认先 rigth, 
+                    如果 前两都指定了，margin 还auto ,则调整margin， 
+        在绝对定位中： 
+        垂直方向布局的等式 也必须要满足了！！
+        top + margin-top / bottom + pading-top /bottom + border-top / bottom + height = 包含块的高度，
+
+
+
+
+
+
+
+
+
+        */
+        .box1{
+            width: 500px;
+            height: 500px;
+            background-color: #bfa;
+            position: relative;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: #baf;
+            position: absolute;
+            left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+</html>
