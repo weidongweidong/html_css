@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        /*
+        问题： a标签 为什么不能设置移入变颜色
+
+        */
         * {
             margin: 0px;
             padding: 0px;
@@ -15,7 +19,7 @@
         a {
             text-decoration: none;
         }
-
+        
         ul li {
             list-style: none;
         }
@@ -56,7 +60,8 @@
             margin-right: 10px;
             margin-left: 12px;
         }
-        .hearder-top .search-input .keywords .keywords-item a{
+
+        .hearder-top .search-input .keywords .keywords-item a {
             color: #333;
         }
 
@@ -64,29 +69,34 @@
             float: right;
             margin-top: 20px;
         }
-        .hearder-top .app-upload .app-img img{
+
+        .hearder-top .app-upload .app-img img {
             width: 46px;
             height: 46px;
             display: block;
             float: left;
             margin-right: 6px;
         }
-        .hearder-top .app-upload .app-img{
+
+        .hearder-top .app-upload .app-img {
             float: left;
             font-size: 8px;
             overflow: hidden;
             width: 150px;
         }
-        .hearder-top .app-upload .app-img:first-of-type{
+
+        .hearder-top .app-upload .app-img:first-of-type {
             width: 130px;
         }
-        .hearder-top .app-upload .app-img span{
-           overflow: hidden;
-           margin-top: 3px;
-           display: block;
-           color: #333;
+
+        .hearder-top .app-upload .app-img span {
+            overflow: hidden;
+            margin-top: 3px;
+            display: block;
+            color: #333;
         }
-        .hearder-top .app-upload .app-img span:first-of-type{
+
+        .hearder-top .app-upload .app-img span:first-of-type {
             font-size: 15px;
             font-weight: bold;
         }
@@ -94,31 +104,160 @@
         .header-footer {
             height: 59px;
         }
-        .header-footer .titles  li{
+
+        .header-footer .titles li {
             float: left;
             line-height: 59px;
-           
-           
+
+
         }
-        .header-footer .titles  li a{
-            display:block;
+
+        .header-footer .titles li a {
+            display: block;
             color: #333;
             padding: 0px 11px 0px 70px;
         }
-        .main{
+
+        .main {
+            overflow: hidden;
+        }
+
+        .main .lunbo {
             height: 300px;
+            overflow: hidden;
         }
-       
-        .main .lunbo{
-            border: 1px red solid;
-           height: 300px;
-        }
-        .main .lunbo img a{
-            display: inline-block;
-        }
-        .main .lunbo img{
+
+        .main .lunbo img {
+            display: table;
             margin: 0px auto;
         }
+        .main .ad-list{
+            width: 1180px;
+            margin: 0px auto;
+            margin-top: 50px;
+            padding-left: 17px;
+            height: 130px;
+        } 
+        .main .ad-list .ad-item{
+            float: left;
+            margin-right: 25px;
+            width: calc(25% - 25px);
+            height: 130px;
+        }
+        .main .ad-list .ad-item img{
+           height: 100%;
+        }
+        .main .articles{
+            width: 1180px;
+            margin: 0px auto;
+            margin-top: 50px;
+            height: 581px;
+        } 
+        .main .articles .articles-title{
+            text-align: center;
+            border-bottom: 1px red solid;
+        }
+        .main .articles .border{
+            text-align: center;
+            width: 46px;
+            margin-left: 567px;
+            border: 3px red solid;
+        }
+        .main .articles-menu{
+            margin-left: 90px;
+        }
+        .main .articles-menu li{
+            line-height: 60px;
+            float: left;
+            padding: 0px 25px;
+        }
+        .main .articles-menu li a{
+            color: black;
+            font-size: 17px;
+        }
+        .main .articles-table{
+            clear: both;
+        }
+        .main .articles-table-img{
+            display: inline;
+            float: left;
+        }
+        .main .articles-table .articles-list{
+           width: 500px;
+           height: 320px;
+           float: left;
+           margin-left: 20px;
+           overflow: hidden;
+        }
+        .main .articles-table .articles-list a{
+            color: #8e8e8e;
+        }
+        .main .articles-table .articles-list li{
+            height: 78px;
+            box-sizing: border-box;
+        }
+        
+        .main .articles-table .articles-list span{
+            display: inline-block;
+            height: 30px;
+            line-height: 30px;
+            color: black;
+            font-weight: bold;
+            margin: 0px 12px;
+        }
+
+        .main .articles-table .articles-list p {
+            font-size: 10px;
+            margin: 0px 12px;
+        }
+
+        .main .articles-table .articles-imgs{
+            float:left;
+            width: 10px;
+            height: 320px;
+            width: 360px;
+        }
+        .main .articles-table .articles-imgs img{
+            height: 150px;
+            margin-bottom: 11px;
+        }
+
+        .main .articles-table .articless-question{
+            margin-left: 22px;
+            margin-top: 22px;
+            width: 860px;
+            height: 100px;
+        }
+
+        .main .question{
+            width: 1180px;
+            margin: 0px auto;
+            margin-top: 50px;
+            height: 600px;
+        }
+        .main .question .question-title{
+            text-align: center;
+            border-bottom: 1px red solid;
+        }
+        .main .question .border{
+            text-align: center;
+            width: 46px;
+            margin-left: 567px;
+            border: 3px red solid;
+        }
+        .main .question-menu{
+            margin-left: 170px;
+        }
+        .main .question-menu li{
+            line-height: 60px;
+            float: left;
+            padding: 0px 25px;
+        }
+        .main .question-menu li a{
+            color: black;
+            font-size: 17px;
+        }
+        
     </style>
 </head>
 
@@ -162,11 +301,97 @@
                 <li><a href="#">关于我们</a></li>
             </ul>
         </div>
-
     </div>
     <div class="main">
         <div class="lunbo">
-            <a href="#"><img src="http://img.haoyunbang.cn/materiels/2021/6/13f307b6-2263-4857-b881-6add51ed198e.jpg" alt=""></a>
+            <a href="#"><img src="http://img.haoyunbang.cn/materiels/2021/6/13f307b6-2263-4857-b881-6add51ed198e.jpg"
+                    alt=""></a>
+        </div>
+        <ul class="ad-list">
+            <li class="ad-item"><a href="#">
+                    <img src="https://img.haoyunbang.cn/cooperate_file/images/page_index_advert01.png?v=1" alt="">
+                </a></li>
+            <li class="ad-item"><a href="#">
+                    <img src="https://img.haoyunbang.cn/cooperate_file/images/page_index_advert02.png?v=1" alt="">
+                </a></li>
+            <li class="ad-item"><a href="#">
+                    <img src="https://img.haoyunbang.cn/cooperate_file/images/page_index_advert03.png?v=1" alt="">
+                </a></li>
+            <li class="ad-item"><a href="#">
+                    <img src="https://img.haoyunbang.cn/cooperate_file/images/page_index_advert04.png?v=1" alt="">
+                </a></li>
+        </ul>
+        <div class="articles">
+            <div class="articles-title">
+                <h2>她们在这里好孕</h2>
+                <div class="border"></div>
+            </div>
+            <ul class="articles-menu">
+                <li><a href="#">全部好孕</a></li>
+                <li><a href="#">输卵管问题</a></li>
+                <li><a href="#">卵巢问题</a></li>
+                <li><a href="#">多囊卵巢综合症</a></li>
+                <li><a href="#">精子问题</a></li>
+                <li><a href="#">子宫问题</a></li>
+                <li><a href="#">国内试管</a></li>
+                <li><a href="#">海外试管</a></li>
+            </ul>
+            <div class="articles-table">
+                <div class="articles-table-img">
+                    <img src="https://img.haoyunbang.cn/cooperate_file/images/article/index_diary_article00.png" alt="">
+                </div>
+                <ul class="articles-list">
+                    <li><a href="#"><span>一次生化，两次胎停，终于迎来了我的小棉袄</span><p>两次胎停，终于迎来了我的小棉袄一次生化，两次胎停，终于迎来了我的小棉袄一次生化，两次胎停，终于迎来了我的小棉袄一次生化，两次胎停，终于迎来了我的小棉袄</p></a></li>
+                    <li><a href="#"><span>一次生化，两次胎停，终于迎来了我的小棉袄</span><p>两次胎停，终于迎来了我的小棉袄一次生化，两次胎停，终于迎来了我的小棉袄</p></a></li>
+                    <li><a href="#"><span>一次生化，两次胎停，终于迎来了我的小棉袄</span><p>我的小棉袄一次生化，两次胎停，终于迎来了我的小棉袄一次生化，两次胎停，终于迎来了我的小棉袄一次生化，两次胎停，终于迎来了我的小棉袄</p></a></li>
+                    <li><a href="#"><span>一次生化，两次胎停，终于迎来了我的小棉袄</span><p>一次生化，两次胎停，终于迎来了我的小棉袄一次生化，两次胎停，终于迎来了我的小棉袄一次生化，两次胎停，终于迎来了我的小棉袄一次生化，两次胎停，终于迎来了我的小棉袄一次生化，两次胎停，终于迎来了我的小棉袄</p></a></li>
+                </ul>
+                <div class="articles-imgs">
+                    <a href="#"><img src="https://img.haoyunbang.cn/cooperate_file/images/page_index_baoxi01.png" alt=""></a>
+                    <a href="#"><img src="https://img.haoyunbang.cn/cooperate_file/images/page_index_baoxi02.png?v=2" alt=""></a>
+                </div>
+                <img class="articless-question" src="/code/imgs/01.jpg" alt="">
+            </div>
+        </div>
+
+
+        <div class="question">
+            <div class="question-title">
+                <h2>生殖专科三甲名医在线解答</h2>
+                <div class="border"></div>
+            </div>
+            <ul class="question-menu">
+                <li><a href="#">全部好孕</a></li>
+                <li><a href="#">卵巢问题</a></li>
+                <li><a href="#">子宫问题</a></li>
+                <li><a href="#">输卵管问题</a></li>
+                <li><a href="#">流产相关</a></li>
+                <li><a href="#">男科问题</a></li>
+                <li><a href="#">试管婴儿</a></li>
+            </ul>
+            <div class="question-main">
+                <!-- <div class="question-left">
+                    <ul class="questions-left-top">
+                        <li>
+                            <span>问题标题</span>
+                            <div class="ques">
+                                <p>问题详情</p>
+                                <div>
+                                    <img src="http://img.haoyunbang.cn/doctor/doct_man.jpg@!qa-header?x-oss-process=image/resize,m_fill,h_48,w_48" alt="">
+                                    <span> xxx,  xxxx， xxxxxx</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="questions-left-bottom"></div>
+                </div>
+                <div class="question-right">
+                    <div class="question-right-top"></div>
+                    <div class="question-right-bottom"></div>
+                </div> -->
+
+            </div>
+
         </div>
     </div>
 
