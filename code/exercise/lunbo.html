@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        轮播图练习
+        */
+        .lunbo{
+            width: 500px;
+            height: 400px;
+            margin: 10px auto;
+            background-color: #bfa;
+            position: relative;
+        }
+        .lunbo img{
+            position: absolute;
+            width: 500px;
+        }
+        .imgs{
+            position: absolute;
+            left: 10px;
+            bottom: 5px;
+            overflow: hidden;
+            z-index: 9;
+        }
+        .imgs li{
+            color: blue;
+            float: left;
+            margin-right: 30px;
+            font-size: 30px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="lunbo">
+        <img class="img" id="1" src="https://imgcps.jd.com/ling4/100019131146/57K-6YCJ5aW954mp/54iG5qy-56eS5p2A/p-5bd8253082acdd181d02f9d3/5917e5f7/cr/s/q.jpg" alt="">
+        <img class="img" id="2" src="https://img20.360buyimg.com/pop/s590x470_jfs/t1/178739/38/10886/93900/60d3fab6Ec433e9a3/bed88aaa3d142859.jpg.webp" alt="">
+        <img class="img" id="3" src="https://imgcps.jd.com/ling4/8526274/576O5aaG5oqk6IKk5LiT5Zy6/5bqX6ZO654Ot5Y2W5aW96LSn57K-6YCJ/p-5bd8253082acdd181d02fa50/58993fb2/cr/s/q.jpg" alt="">
+        <ul class="imgs">
+            <li onmouseover="myFunction(1)" onclick="myFunction(1)"></li>
+            <li onmouseover="myFunction(2)" onclick="myFunction(2)"></li>
+            <li onmouseover="myFunction(3)" onclick="myFunction(3)"></li>
+        </ul>
+    </div>
+</body>
+<script>
+   function myFunction(i){
+        let a =  document.getElementsByClassName("img");
+        for(let j=0 ;j<a.length ;j++){
+            a[j].style['z-index'] = 0;
+        }
+        document.getElementById(i+"").style['z-index'] = 1;
+   }
+
+</script>
+</html>

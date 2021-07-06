@@ -10,29 +10,32 @@
         绝对定位元素的布局
         
         在开启绝对定位之前，水平方向布局是由7个值 = 包含块内容区的宽度，
+        margin-left border-left padding-left width padding-right border-right margin-right 7个值， 
+
         在开启绝对定位之后， 变成了，( left+7个值+right) 9个值 = 包含块内容区的宽度
         此时规则和之前一样 只是多添加了两个值， 
             当发生过度约束时，
-                如果9个值中没有auto 则自动调整right值以使等式满足执，9个值的时候，是调整margin-rigth的，
+                如果9个值中没有auto 则自动调整right值以使等式满足，7个值的时候，是调整margin-rigth的，
                 如果有auto, 则自动调整auto的值， 以使等式满足， 
             可以设置auto的值， 
                 margin  width , left, right ,
-            因为left 和 right 的值默认是auto, 所以如果不指定left 和right ， 则等式不满足时， 会自动调整这两个值，
+            因为left 和 right 的值默认是auto, 所以如果不指定left 和right ， 则等式不满足时，会自动调整这两个值，
             就是说， 如果 windth 为auto 则默认先调整windth, 
                     如果 left 和right ,为auto ,则默认先 rigth, 
                     如果 前两都指定了，margin 还auto ,则调整margin， 
         在绝对定位中： 
-        垂直方向布局的等式 也必须要满足了！！
+        垂直方向布局的等式 
+        之前不需要强制满足， 但是在绝对定位中也必须要满足了！！
         top + margin-top / bottom + pading-top /bottom + border-top / bottom + height = 包含块的高度，
+        默认top 和 bottom 是auto ,如果这个等式不满足， 那么先调整这个bottom  以使等式成立。 
+        如果 top 和 bottom 都设置为0 ， 然后 width 设置auto， 那么自动调整windth,
+        如果 width 也设置值了， margin-top 或者 margin-bottom 为auto 那就调整这俩
 
+        这就能实现一个现象： 让一个元素在包含块中 水平垂直居中，
+        设置 为 position: absolute，  然后设置 left  right ,top bottom  都为0 , 然后设置 margin:auto, 它就垂直水平在包含块中居中了， 
 
-
-
-
-
-
-
-
+        如果这个包含块的定位被关闭了， 那他就在下一个包含块都居中， 如果都关了， 那就在根元素html中居中了， 
+        
         */
         .box1{
             width: 500px;
@@ -43,9 +46,16 @@
         .box2{
             width: 100px;
             height: 100px;
+            margin-left: 0px;
+            margin-right: 0px;
+            padding-left: 0px;
+            padding-right: 0px;
             background-color: #baf;
             position: absolute;
-            left: 50px;
+            left: 0px;
+            right: 0px;
+            top: 0px;
+            bottom: 0px;
         }
     </style>
 </head>

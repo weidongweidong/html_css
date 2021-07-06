@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        元素的层级
+            对于开启了定位的 元素， 可以通过z-index属性来指定元素的层级， 
+            z-index 需要一个整数作为参数， 值越大，元素的层级越高， 元素的层级越高，越在上层， 越优先展示，
+
+        开启了定位的元素， 都是脱离了文档流的， 那么他们就会盖住在文档流的元素， 这个是毋庸置疑的，
+        但是如果多个开了定位的脱离文档流的元素谁会盖住谁呢？ 
+        答案是， html 中 ，处于下方的元素会盖住上面写的元素， 
+        那除了改变写的顺序， 还想改变他们的层级， 那就需要z-index了 
+            如果设置z-index:0 ，没用， 
+        只要设置了1 它就跑到最上层了，脱离顺序的比较了， 
+        如果都设置了一样的数， 那就看写的顺序， 
+            如果元素的层级一样， 则优先显示靠下的元素。 
+            
+            绝对定位 比 相对定位 的层级高么？ 不是！ 只要是定位， 那层级就是一样的。
+
+            祖先的元素的层级在高， 也不会盖住后代元素， 因为后代在祖先的里面写的嘛， 水涨船高 后代一直在祖先的上面，
+            祖先高了， 后代更高。 
+
+        */
+        body{
+            font-size: 60px;
+        }
+
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            position: absolute;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+        .box3{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            z-index: 3;
+        }
+        .box4{
+            width: 100px;
+            height: 100px;
+            background-color: royalblue;
+            position: absolute;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3
+        <div class="box4">4</div>
+    </div>
+
+    
+   
+</body>
+</html>

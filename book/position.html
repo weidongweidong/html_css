@@ -84,16 +84,77 @@ p69
 
 
 
+
+
+中间插一个 好孕帮首页的练习页面
+<a href="/code/exercise/index2.html"></a>
+
+
 p70
 <a href="/code/position/p70.html"></a>
 绝对定位元素的布局
+    /*
+    绝对定位元素的布局
+    
+    在开启绝对定位之前，水平方向布局是由7个值 = 包含块内容区的宽度，
+    margin-left border-left padding-left width padding-right border-right margin-right 7个值， 
 
+    在开启绝对定位之后， 变成了，( left+7个值+right) 9个值 = 包含块内容区的宽度
+    此时规则和之前一样 只是多添加了两个值， 
+        当发生过度约束时，
+            如果9个值中没有auto 则自动调整right值以使等式满足，7个值的时候，是调整margin-rigth的，
+            如果有auto, 则自动调整auto的值， 以使等式满足， 
+        可以设置auto的值， 
+            margin  width , left, right ,
+        因为left 和 right 的值默认是auto, 所以如果不指定left 和right ， 则等式不满足时，会自动调整这两个值，
+        就是说， 如果 windth 为auto 则默认先调整windth, 
+                如果 left 和right ,为auto ,则默认先 rigth, 
+                如果 前两都指定了，margin 还auto ,则调整margin， 
+    在绝对定位中： 
+    垂直方向布局的等式 
+    之前不需要强制满足， 但是在绝对定位中也必须要满足了！！
+    top + margin-top / bottom + pading-top /bottom + border-top / bottom + height = 包含块的高度，
+    默认top 和 bottom 是auto ,如果这个等式不满足， 那么先调整这个bottom  以使等式成立。 
+    如果 top 和 bottom 都设置为0 ， 然后 width 设置auto， 那么自动调整windth,
+    如果 width 也设置值了， margin-top 或者 margin-bottom 为auto 那就调整这俩
 
-<a href="/code/exercise/index2.html"></a>
+    这就能实现一个现象： 让一个元素在包含块中 水平垂直居中，
+    设置 为 position: absolute，  然后设置 left  right ,top bottom  都为0 , 然后设置 margin:auto, 它就垂直水平在包含块中居中了， 
 
+    如果这个包含块的定位被关闭了， 那他就在下一个包含块都居中， 如果都关了， 那就在根元素html中居中了， 
+    
+    */
   
 
+p71
+元素的层级
+<a href="/code/position/p71.html"></a>
+    /*
+    元素的层级
+        对于开启了定位的 元素， 可以通过z-index属性来指定元素的层级， 
+        z-index 需要一个整数作为参数， 值越大，元素的层级越高， 元素的层级越高，越在上层， 越优先展示，
 
+    开启了定位的元素， 都是脱离了文档流的， 那么他们就会盖住在文档流的元素， 这个是毋庸置疑的，
+    但是如果多个开了定位的脱离文档流的元素谁会盖住谁呢？ 
+    答案是， html 中 ，处于下方的元素会盖住上面写的元素， 
+    那除了改变写的顺序， 还想改变他们的层级， 那就需要z-index了 
+        如果设置z-index:0 ，没用， 
+    只要设置了1 它就跑到最上层了，脱离顺序的比较了， 
+    如果都设置了一样的数， 那就看写的顺序， 
+        如果元素的层级一样， 则优先显示靠下的元素。 
+        
+        绝对定位 比 相对定位 的层级高么？ 不是！ 只要是定位， 那层级就是一样的。
+
+        祖先的元素的层级在高， 也不会盖住后代元素， 因为后代在祖先的里面写的嘛， 水涨船高 后代一直在祖先的上面，
+        祖先高了， 后代更高。 
+
+    */
+
+轮播图练习
+<a href="/code/exercise/lunbo.html"></a>
+
+
+p72
 
 
 
