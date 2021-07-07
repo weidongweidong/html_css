@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        老师的轮播图
+
+            如何让图片一层盖着一层的？ 将图片都开启定位， 就都脱离了文档流， 就一个盖着一个了 
+
+        为ul开启相对定位，目的是使ul的pointer可以相对于ul定位而不是相对于初始包含块html，
+        
+
+        */
+
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        ul li{
+            list-style: none;
+        }
+        .img-list{
+            height: 470px;
+            width: 590px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .img-list li{
+            position: absolute;
+        }
+        .img-list img{
+            height: 470px;
+            width: 590px;
+        }
+        /* 通过让元素重叠到一起， 通过改变元素的层级来显示指定的图片*/
+        .img-list li:nth-child(3){
+            z-index: 1;
+        }
+        /* 将这几个按钮，也开启定位 */
+        .pointer{
+            z-index: 999;
+            position: absolute;
+            bottom: 20px;
+            left:40px
+        }
+        .pointer a{
+            /* 设置元素的向左浮动， 并设置宽高*/
+            float: left;
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            margin: 0px 4px;
+            /*设置边框的背景颜色不是内容区颜色*/
+            background-clip: content-box;
+            /*设置边框为透明的2px */
+            border: 2px solid transparent;
+        }
+        .pointer a:active,
+        .pointer a:hover{
+            background-color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+
+    </style>
+</head>
+<body>
+    <ul class="img-list">
+        <li><a href="javascript:;"><img src="https://img20.360buyimg.com/pop/s1180x940_jfs/t1/186465/16/11130/98834/60dbdb21E29edfce8/d299401eb4248e08.jpg.webp" alt="#"></a></li>
+        <li><a href="javascript:;"><img src="https://imgcps.jd.com/img-cubic/creative_server_cia/v2/2000366/100014313896/FocusFullshop/CkNqZnMvdDEvMTY4OTE2LzE0LzE2OTkxLzY1MzY2LzYwNmRjZGFiRThkNzNhZjEwL2IzNmI0YmZhNTAzZDdhYjQuanBnEgo5OTktdHlfMF8xMAE47ot6/cr/s/q.jpg" alt="#"></a></li>
+        <li><a href="javascript:;"><img src="https://imgcps.jd.com/img-cubic/creative_server_cia/v2/2000366/100009064557/FocusFullshop/CkNqZnMvdDEvMTI4OTg0LzMwLzE5MDcyLzcyNDMxLzVmYjNkZWI1RWMzMGQ4NWE5LzgwOTYxY2U5YzViNmVhZWEuanBnEgo5OTktdHlfMF8xMAE47ot6/cr/s/q.jpg" alt="#"></a></li>
+        <li><a href="javascript:;"><img src="https://imgcps.jd.com/ling4/100019131146/57K-6YCJ5aW954mp/54iG5qy-56eS5p2A/p-5bd8253082acdd181d02fa7f/b12f3113/cr/s/q.jpg" alt="#"></a></li>
+        <li><a href="javascript:;"><img src="https://imgcps.jd.com/img-cubic/creative_server_cia/v2/2000366/28299778002/FocusFullshop/CkRqZnMvdDEvMTIwMDc4LzE5LzE0ODgxLzEwOTMyOC81Zjg1MzZmY0VhODE0MjFlYi9jN2Q5ZDY4OWEzZTg5ZjQwLmpwZxIKOTk5LXR5XzBfMTABOO6Leg/cr/s/q.jpg" alt="#"></a></li>
+        <li><a href="javascript:;"><img src="https://imgcps.jd.com/ling4/2922989/6LaF5YC85aW954mp5oOg5LiN5YGc/5aW96Iy25aW95rC05aW955Sf5rS7/p-5bd8253082acdd181d02fa7f/bb3b6968/cr/s/q.jpg" alt="#"></a></li>
+        <li><a href="javascript:;"><img src="https://img11.360buyimg.com/pop/s1180x940_jfs/t1/190203/29/11813/82238/60e27bf6Eb314c80d/06bfac00c47f4526.jpg.webp" alt="#"></a></li>
+        <li><a href="javascript:;"><img src="https://imgcps.jd.com/ling4/8526274/576O5aaG5oqk6IKk5LiT5Zy6/5bqX6ZO654Ot5Y2W5aW96LSn57K-6YCJ/p-5bd8253082acdd181d02fa42/af8c6fdf/cr/s/q.jpg" alt="#"></a></li>
+        <div class="pointer">
+            <a class="active" href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </ul>
+
+</body>
+</html>

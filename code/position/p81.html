@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*字体的简写属性
+        关于字体正常是这样写的： 
+            font-size: 100px;
+            line-height: 4;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+
+        简写的话，用属性 font: 
+            font: 11px/2 Georgia, 'Times New Roman', Times, serif;
+        这样说的是，字体大小11px 行高2 字体用 Georgia, 'Times New Roman', Times,  serif
+        
+        font 属性 前面还可以加两个属性， 一个是 bold 加粗， 一个是 italic 斜体
+        font: bold italic 30px/90px serif;
+        如果这么写， 之前写的设置都会被覆盖， 即使行高没有被设置 不写， 那也会覆盖之前设置好的行高， 
+        如果用font简写属性的话， 里面有两个是必须要写的， 字体大小， 和字体族，、
+        行高 和 加粗， 斜体 如果不写， 就是默认的， 他会覆盖之前设置好的值，覆盖成默认的。 
+
+
+        再说下 font-wegiht  加粗， bold 就是加粗。 
+        font-style 字体样式， italic 就是斜体。 
+        
+        */
+        div{
+            border: 1px black solid;
+            font-size: 100px;
+            line-height: 4;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font: bold italic 30px/90px serif;
+        }
+        
+    </style>
+</head>
+<body>
+    <div>今天天气挺好的，hello world!</div>
+</body>
+</html>

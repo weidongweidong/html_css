@@ -151,18 +151,142 @@ p71
     */
 
 轮播图练习
+自己写的： 
 <a href="/code/exercise/lunbo.html"></a>
+老师写的： 
+<a href="/code/exercise/luobo1.html"></a>
+自己新写的： 
+<a href="/code/exercise/lunbo2.html"></a>
+
+以上就是定位的知识， 
+布局中 ， 大局用的浮动，  细节用 定位， 
+
+
 
 
 p72
+字体 和 背景
+<a href="/code/position/p72.html"></a>
+    /*
+    字体 和 背景
+    color 前景色，字体颜色也是前景色
+    font-size 字体大小
+    em  相当于当前元素的一个字体大小，
+    rem  相对于根元素的一个字体大小
+    font-family， 字体族，（字体的格式）
+        可选值： 
+            serif 衬线字体  有顿笔
+            sans-serif 非衬线字体  横平竖直
+            monospace 等宽字体  字母还是中文都是一样宽的， 
+        注意。 这几种并不是说的 字体叫这个名， 这个是字体的分类， 
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        可以同时指定多个字体，多个字体间 使用，隔开， 
+        有哪个用哪个，最后一个是兜底了，肯定有， 前面有的， 就用前面的。
+
+        font-face 可以将服务器中字体直接提供给用户使用
+        
+        他有两个问题：
+        1 加载速度的问题 可能会闪 开始没有字体， 突然就有了， 
+        2，版权问题， 这都是别人做的；
+        
+        @font-face {
+            指定字体的名字
+            font-family: 'myFont';
+            /服务器中字体的路径/
+            src: url('/code/') format("truetype");
+        }
+
+
+    */
+    @font-face {
+        /* 指定字体的名字*/
+        font-family: 'myFont';
+        /* 服务器中字体的路径*/
+        src: url('./code/xxx.ttf') format("truetype") ;
+        /* 后面的format 就是告诉 浏览器 我这个字体是一个 truetype 格式的， 写不写都行，不写浏览器也知道。*/
+    }
+
+
+
+p77
+图标字体
+<a href="/code/position/p77.html"></a>
+    /*
+    图标字体
+    字体是一个矢量图， 不管放多大， 都不会失真， 还可以改变颜色， 
+    在网站 我们经常看到很多小的图标， 如果每个图标都是个小图片， 图片也需要改大小， 改颜色
+    那么是多费劲的一件事， 如果把这么多的小图片都弄个成一个字体形式去引用 那多省事， 改大小和改颜色像字体一样简单
+    那么  图标字体 出现了， 
+    图标字体 iconfont
+        在网页中 经常需要使用一些图标， 可以通过图片的形式引入图标。
+        但是这种图片大小本身比较大， 并且非常的不灵活，
+        所以， 在使用图标时， 我们还可以将图标直接设置为字体， 
+        然后通过 font face 的形式来对字体进行引入，
+        这样我们就可以通过使用字体的形式来使用图标了，这多方便。
+    
+    fontawesome 使用步骤
+        1，下载 https://fontawesome.com
+        2，解压
+        3，将css he webfonts 放到项目中同级。
+        4，将all.css 引入
+        5，使用
+        直接通过类名来使用图标字体。 
+        <i class="xx xxxxx"></i> 就可以用。 
+        这个图标字体， 放多大也不会像图片那样失真， 因为他是矢量图。 在网站中可以随便找很多很多。 
+
+        原理就是， 用 font-face 引入字体文件， 这些图都在这个字体文件中存放， 我们用类来让这个字体文件中的哪个图片显示。
+    */
+
+
+p78
+<a href="/code/position/p78.html"></a>
+    图标字体的其他使用方式
+    /*
+    图标字体的其他使用方式
+
+    可以通过伪元素来设置图片字体
+    xx::before{
+        content:"\f013";
+        font-family:"xxxxx"
+        font-weight:"",
+    }
+    就出来了， 
+    另一种使用方法： 
+    <span class="fa"> &#xf0f3; </span>
+    这也能出来
+    */
+
+p79
+    ali 矢量图标库  可以制作中css来， 一引入就能用了， 
+    https://www.iconfont.cn/
+<a href="/code/position/p79.html"></a>
 
 
 
 
+p80
+行高
+<a href="/code/position/p80.html"></a>
+    /*
+    行高(line-height)
+        行高指的就是文字占有的实际高度，
+        可以通过line-height 来设置行高。
+        行高可以直接指定一个大小（px em）
+        也可以直接为行高设置一个整数，
+            如果是一个整数的话 那么行高将会是字体的倍数。
+            默认是 1.4倍
+        行间距 = 行高 - 字体大小
+        比如font-size是 50px, line-height是200px, 那么
+        200里面有个50 ，剩下的150 的文字上下均匀分配就是上面75， 下面75，
+        所以两个行之间 行间距是 75 + 75 = 150  
+    字体框
+        -字体框就是字体存在的格子， 设置font-size 实际上就是在设置字体框的高度。 
+    行高会在字体框的上下平均分配
+    在单行文字中,我们可以将行高设置为和高度一样,使单行文字在一个元素中垂直居中
+    */
 
 
-
-
-
-
+p81 
+字体的简写属性
+<a href="/code/position/p81.html"></a>
 

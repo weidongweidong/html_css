@@ -1,0 +1,51 @@
+{
+  "id": "2658279",
+  "name": "weidong",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "10130768",
+      "name": "纸箱回收",
+      "font_class": "zhixianghuishou",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "10130836",
+      "name": "可回收-玻璃类",
+      "font_class": "kehuishou-bolilei",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "10130849",
+      "name": "湿垃圾",
+      "font_class": "shilaji",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "10135145",
+      "name": "其他垃圾-一次性餐具",
+      "font_class": "qitalaji-yicixingcanju",
+      "unicode": "e631",
+      "unicode_decimal": 58929
+    },
+    {
+      "icon_id": "10135414",
+      "name": "有害垃圾-过期药品",
+      "font_class": "youhailaji-guoqiyaopin",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "10135495",
+      "name": "可回收物-牛奶盒",
+      "font_class": "kehuishouwu-niunaihe",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    }
+  ]
+}

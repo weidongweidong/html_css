@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        字体 和 背景
+        color 前景色，字体颜色也是前景色
+        font-size 字体大小
+        em  相当于当前元素的一个字体大小，
+        rem  相对于根元素的一个字体大小
+        font-family， 字体族，（字体的格式）
+            可选值： 
+                serif 衬线字体  有顿笔
+                sans-serif 非衬线字体  横平竖直
+                monospace 等宽字体  字母还是中文都是一样宽的， 
+            注意。 这几种并不是说的 字体叫这个名， 这个是字体的分类， 
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            可以同时指定多个字体，多个字体间 使用，隔开， 
+            有哪个用哪个，最后一个是兜底了，肯定有， 前面有的， 就用前面的。
+
+            font-face 可以将服务器中字体直接提供给用户使用
+            
+            他有两个问题：
+            1 加载速度的问题 可能会闪 开始没有字体， 突然就有了， 
+            2，版权问题， 这都是别人做的；
+           
+            @font-face {
+                指定字体的名字
+                font-family: 'myFont';
+                /服务器中字体的路径/
+                src: url('/code/') format("truetype");
+            }
+
+
+        */
+        @font-face {
+            /* 指定字体的名字*/
+            font-family: 'myFont';
+            /* 服务器中字体的路径*/
+            src: url('./code/xxx.ttf') format("truetype") ;
+            /* 后面的format 就是告诉 浏览器 我这个字体是一个 truetype 格式的， 写不写都行，不写浏览器也知道。*/
+        }
+
+        p{
+            color: red;
+            font-size: 40px;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        今天天气真不错， hello old are you ? 
+    </p>
+    
+</body>
+</html>
