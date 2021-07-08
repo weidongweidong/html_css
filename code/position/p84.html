@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2658279_xuenc8x0iq.css">
+    <style>
+        /*
+        */
+        /* 解决高度塌陷问题*/
+        .clearfix::after,
+        .clearfix::before{
+            content: "";
+            display: table;
+            clear: both;
+        }
+        /* 设置字体的颜色*/
+        .top-bar a, .top-bar span .top-bar i{
+            color: #999;
+            text-decoration: none;
+        }
+        .top-bar a.higthLine,
+        .top-bar a:hover{
+            color: #f10215;
+        }
+
+        /* 外部大块级元素 背景颜色 下边框， 宽度 行高 */
+        .top-bar-wrapper{
+            background-color: #dfe0e1;
+            border-bottom: 1px #ddd solid;
+            width: 100%;
+            line-height: 30px;
+        }
+        /* 内部块级元素， 宽度， 居中在父元素中*/
+        .top-bar{
+            width: 1190px;
+            margin: 0px auto;
+        }
+        /* 地区 向左浮动， */
+        .location{
+            float: left;
+            position: relative;
+        }
+        /* ul 向右浮动 */
+        .shortcut{
+            float: right;
+        }
+        .line{
+            width: 1px;
+            height: 10px;
+            background-color: #999;
+            margin: 11px 12px 0px; 
+            
+        }
+        /* li 向左浮动 */
+        .shortcut li{
+            float: left;
+        }
+
+
+        .city-list {
+            display: none;
+            width: 320px;
+            height: 436px;
+            background-color: #fff;
+            border: 1px solid rgb(204, 204, 204);
+            position: absolute;
+        }
+        .location:hover > .city-list{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+   <div class="top-bar-wrapper">
+       <div class="top-bar clearfix">
+           <!-- 左侧菜单 -->
+           <div class="location">
+               <div class="current-city">
+                   <i class="iconfont icon-dizhi" style="color: red;"></i>
+                   <a href="javascript:;">北京</a>
+               </div>
+               <div class="city-list">
+
+                </div>
+           </div>
+
+           <!-- 右面的菜单-->
+           <ul class="shortcut">
+               <li>
+                   <a href="javascript:;">你好，请登录</a>
+                   <a class="higthLine" href="javascript:;">免费注册</a>
+               </li>
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;">我的订单</a>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;">我的京东</a>
+                    <i class="iconfont icon-down-active"></i>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;">京东会员</a>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <a class="higthLine" href="javascript:;">企业采购</a>
+                    <i class="iconfont icon-down-active"></i>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;">客服服务</a>
+                    <i class="iconfont icon-down-active"></i>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;">网站导航</a>
+                    <i class="iconfont icon-down-active"></i>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;">手机京东</a>
+                </li>
+           </ul>
+       </div>
+   </div>
+</body>
+</html>

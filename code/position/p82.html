@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /*文本的样式
+        文本的水平和垂直对齐
+        水平对齐
+          text-align 属性 是 控制文本的水平对齐，
+            可选值： left 左侧对齐
+                    right 右对齐
+                    center 居中对齐
+                    justify  两端对齐， 
+
+        垂直对齐
+          vertical-align 属性， 是控制文本垂直对齐的。
+            可选值： 默认值 baseline; 基线对齐， 就是文字底下的那条线。
+                    top  顶部对齐， 让子元素的顶部和父元素对齐，
+                    bottom 低部对齐， 让子元素底部和父元素对齐。
+                    middle 居中对齐， 与小写的x 的中线对齐。 
+        这里面有一点要注意， 就是图片对齐的方式， 
+        在p中放入一个图片会发现， 他的边不是挨着p标签的， 因为他是替换元素， 垂直对象默认也是按照基线对齐的。 
+        如果我们设置他不是基线对齐， 他才不会有那个空隙。 
+        
+        */
+        div{
+            width: 500px;
+            border: 1px black solid;
+            font-size: 30px;
+        }
+        span{
+            font-size: 10px;
+            vertical-align: middle;
+        }
+        
+        p{
+            border: 1px red solid;
+        }
+        img{
+            vertical-align: top;
+        }
+        
+    </style>
+</head>
+<body>
+    <div>
+        今天的天气真不戳呀， hello <span> 明天的呢 ？</span>
+    </div>
+    <!-- <div>
+        在这里，语文课、英语课、地理课是新奇的，不再是死记硬背，我们展开想像，像是在看一本童话书似的；数学课，我们在做思维游戏的同时，掌握了许多数学知识；美工课，我们制作了"水立方"模型，培养和提高了我们的团结意识；编程课，我们操作了小机器人，从中感受了科技的奇妙。除此之外，我们还有音乐课、武术课……在这些所有的课程中，最让人激动的莫过于周振、董嘉文两位老师的课了。在周振这位科学家老师的课上，我们学习了原子和分子的组成。在董嘉文这位专家老师的课上，我们学习了自动化与个人成长的经历，他讲的如何实现自我价值的观点，铭刻在我的脑海中，让我感触颇深。
+    </div> -->
+    
+    <p><img src="https://img2.baidu.com/it/u=2102736929,2417598652&fm=26&fmt=auto&gp=0.jpg" alt=""></p>
+</body>
+</html>

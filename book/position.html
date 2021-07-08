@@ -289,4 +289,86 @@ p80
 p81 
 字体的简写属性
 <a href="/code/position/p81.html"></a>
+    /*字体的简写属性
+    关于字体正常是这样写的： 
+        font-size: 100px;
+        line-height: 4;
+        font-family:Georgia, 'Times New Roman', Times, serif;
 
+    简写的话，用属性 font: 
+        font: 11px/2 Georgia, 'Times New Roman', Times, serif;
+    这样说的是，字体大小11px 行高2 字体用 Georgia, 'Times New Roman', Times,  serif
+    
+    font 属性 前面还可以加两个属性， 一个是 bold 加粗， 一个是 italic 斜体
+    font: bold italic 30px/90px serif;
+    如果这么写， 之前写的设置都会被覆盖， 即使行高没有被设置 不写， 那也会覆盖之前设置好的行高， 
+    如果用font简写属性的话， 里面有两个是必须要写的， 字体大小， 和字体族，、
+    行高 和 加粗， 斜体 如果不写， 就是默认的， 他会覆盖之前设置好的值，覆盖成默认的。 
+
+
+    再说下 font-wegiht  加粗， bold 就是加粗。 
+    font-style 字体样式， italic 就是斜体。 
+    */
+
+
+p82
+文本的样式
+文本的水平和垂直对齐。
+<a href="/code/position/p82.html"></a>
+    /*文本的样式
+    文本的水平和垂直对齐
+    水平对齐
+        text-align 属性 是 控制文本的水平对齐，
+        可选值： left 左侧对齐
+                right 右对齐
+                center 居中对齐
+                justify  两端对齐， 
+
+    垂直对齐
+        vertical-align 属性， 是控制文本垂直对齐的。
+        可选值： 默认值 baseline; 基线对齐， 就是文字底下的那条线。
+                top  顶部对齐， 让子元素的顶部和父元素对齐，
+                bottom 低部对齐， 让子元素底部和父元素对齐。
+                middle 居中对齐， 与小写的x 的中线对齐。 
+    这里面有一点要注意， 就是图片对齐的方式， 
+    在p中放入一个图片会发现， 他的边不是挨着p标签的， 因为他是替换元素， 垂直对象默认也是按照基线对齐的。 
+    如果我们设置他不是基线对齐， 他才不会有那个空隙。 
+    img{
+        vertical-align: top;
+    }
+    */
+
+
+
+p83
+其他的文本样式
+<a href="/code/position/p83.html"></a>
+    /*其他的文本样式
+    text-decoration 设置文本修饰
+        可选值： none 什么都没有， 
+                underline 下划线
+                line-through 删除线 ，中间一条杠
+                overline 上划线。
+        可以再加上 颜色 和 线的类型， 和边框差不多；
+
+    white-space 设置网页如何处理 文本的空白的
+        可选值：  normal 正常，正常显示
+                    nowrap 不换行， 那就长的  
+    
+    下面这种样式， 可以作出 文本溢出改成。。。
+    .box1{
+        设置一个宽度
+        width: 200px;
+        设置文本不换行
+        white-space: nowrap;
+        溢出要裁剪掉
+        overflow: hidden;
+        文本溢出搞成。。。
+        text-overflow: ellipsis;
+    }
+    */
+
+
+
+p84 京东上面的导航栏练习 
+<a href="/code/position/p84.html"></a>

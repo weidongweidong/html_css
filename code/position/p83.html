@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*其他的文本样式
+        text-decoration 设置文本修饰
+            可选值： none 什么都没有， 
+                    underline 下划线
+                    line-through 删除线 ，中间一条杠
+                    overline 上划线。
+            可以再加上 颜色 和 线的类型， 和边框差不多；
+
+        white-space 设置网页如何处理 文本的空白的
+            可选值：  normal 正常，正常显示
+                     nowrap 不换行， 那就长的  
+        
+        下面这种样式， 可以作出 文本溢出改成。。。
+        .box1{
+            设置一个宽度
+            width: 200px;
+            设置文本不换行
+            white-space: nowrap;
+            溢出要裁剪掉
+            overflow: hidden;
+            文本溢出搞成。。。
+            text-overflow: ellipsis;
+        }
+        */
+
+        .box{
+            font-size: 20px;
+            font-family: "微软雅黑";
+            text-decoration: overline red dotted;
+        }
+        .box1{
+            width: 200px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        今天的天气是真不错呀， 
+    </div>
+    <div class="box1">
+        今天的天气是真不错呀， 今天的天气是真不错呀， 今天的天气是真不错呀， 今天的天气是真不错呀， 今天的天气是真不错呀， 今天的天气是真不错呀， 今天的天气是真不错呀， 今天的天气是真不错呀， 今天的天气是真不错呀， 今天的天气是真不错呀， 今天的天气是真不错呀， 今天的天气是真不错呀， 今天的天气是真不错呀， 今天的天气是真不错呀， 今天的天气是真不错呀， 
+    </div>
+</body>
+</html>
