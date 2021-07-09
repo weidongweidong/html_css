@@ -39,11 +39,6 @@
             width: 1190px;
             margin: 0px auto;
         }
-        /* 地区 向左浮动， */
-        .location{
-            float: left;
-            position: relative;
-        }
         /* ul 向右浮动 */
         .shortcut{
             float: right;
@@ -61,17 +56,34 @@
         }
 
 
-        .city-list {
-            display: none;
-            width: 320px;
-            height: 436px;
-            background-color: #fff;
-            border: 1px solid rgb(204, 204, 204);
-            position: absolute;
+        /*
+        1 写一个城市列表的 div 放到那，  city-list
+
+        */
+        .location{
+            float: left;
         }
-        .location:hover > .city-list{
+        .city-list{
+            position: absolute;
+            width: 300px;
+            height: 400px;
+            background-color: #fff;
+            border: 1px solid rgb(204,204,204);
+            box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+        }
+        .current-city{
+            padding: 0px 10px;
+            border: 1px solid rgba(204,204,204);
+            border-bottom: none;
+            padding-bottom: 2px;
+        }
+        .location:hover >.city-list{
             display: block;
         }
+        .location:hover >.current-city{
+            background-color: #fff;
+        } 
+        
 
     </style>
 </head>
