@@ -370,5 +370,84 @@ p83
 
 
 
-p84 京东上面的导航栏练习 
+p84 京东上面的导航栏练习  
 <a href="/code/position/p84.html"></a>
+
+
+
+
+p87
+背景
+<a href="/code/position/p87.html"></a>
+    /*背景
+    background-color: #bfa;
+    这是背景颜色， 但是除了这个我们常用的设置还设置背景的图片
+    background-image 这个属性是用来设置背景图片
+    示例：
+    background-image: url(https://img1.baidu.com/it/u=223436314,3378407283&fm=26&fmt=auto&gp=0.jpg);
+        可以同时设置背景颜色 和背景图片， 这样背景颜色 将会成为图片的背景色
+    如果背景图片小于元素， 则背景图片会自动在元素中平铺 将元素铺满， 
+    如果背景的图片大于元素， 将会有一部分背景图片无法完全显示。 
+    如果背景图片和元素一样大， 则会直接正常显示，这就没有什么好说的了， 
+    background-repeat
+        这个属性是用来设置背景的重复方式的， 
+        可选值： 
+            repeat , 默认值，  背景会沿着x轴 y轴， 双方向重复，
+            repeat-x  沿着x轴重复而已， 
+            repeat-y 沿着y轴重复而已， 
+            no-repeat ， 背景图片不重复， 就显示一次，
+    background-position
+        设置方式 
+        通过 top left right ,bottom ,center ,九宫格的方式来设置图片的位置。 
+        在使用的时候， 必须要写两个词， 如果只写一个词的话， 则第二个词默认就是center
+        除了词， 还可以通过 偏移量来设置位置， 
+        就是两个值， 第一个值是x轴， 第二个值是y轴
+
+    */
+
+
+p88
+背景第二课
+<a href="/code/position/p88.html"></a>
+
+    /*背景第二课
+    background-clip 设置背景的范围
+        可选值： 
+            border-box 默认值 背景会出现在边框下面， 就是说背景会出现在边框的下面。 
+            padding-box 背景不会出现在边框， 只出现在内容区和内边距，
+            content-box 背景只会出现在内容区。 
+    
+    background-origin 设置背景图片的偏移量计算的原点，
+        可选值 ：
+            padding-box 默认值， backgroud-position（背景图片的偏移量） 从内边距开始计算，
+            content-box， backgroud-position 从内容区开始计算。 
+            border-box ,背景图片的偏移量 从边框处开始计算。
+
+    background-size： 设置背景图片的大小， 
+        第一个值是宽度， 第二个值是高度， 
+            如果只写一个， 那么另一个是auto , 
+        还有可选值： 
+            cover 图片的比例不变， 将元素铺满， 但是会显示不全
+            contain 也是图片比例不变， 将图片在元素完整显示
+
+
+    还有一个问题，实际上在我们的元素中如果出现滚动条的情况时， 背景是不会根滚动条去滚动的。 
+    backgroud-attachment  背景图片是否跟随元素移动
+        可选值： 
+            scroll 默认值 背景图片跟随元素移动
+            fixed  背景图片会固定在页面中， 不会随元素进行移动的，
+
+
+    这么多关于背景的属性， 
+    我们还有个背景的简写属性， 
+    backgroud， 
+    所有背景相关的样式都可以通过该样式来设置， 并且该样式没有顺序要求，也没有哪个属性是必须写的。
+    注意： 
+        backgroud-size 必须写在 backgroud-position 后面 并且使用/隔开
+        backgroud-origion  backgroud-clip 两个样式， orgin 要在clip的前面设置，
+        
+    */
+
+
+p90
+<a href=""></a>

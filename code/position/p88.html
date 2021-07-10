@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*背景第二课
+          
+        backgroud-clip 设置背景的范围
+            可选值： 
+                border-box 默认值 背景会出现在边框下面， 就是说背景会出现在边框的下面。 
+                padding-box 背景不会出现在边框， 只出现在内容区和内边距，
+                content-box 背景只会出现在内容区。 
+        
+        background-origin 设置背景图片的偏移量计算的原点，
+            可选值 ：
+                padding-box 默认值， backgroud-position（背景图片的偏移量） 从内边距开始计算，
+                content-box， backgroud-position 从内容区开始计算。 
+                border-box ,背景图片的偏移量 从边框处开始计算。
+
+        backgroud-size： 设置背景图片的大小， 
+            第一个值是宽度， 第二个值是高度， 
+                如果只写一个， 那么另一个是auto , 
+            还有可选值： 
+                cover 图片的比例不变， 将元素铺满， 但是会显示不全
+                contain 也是图片比例不变， 将图片在元素完整显示
+
+
+        还有一个问题，实际上在我们的元素中如果出现滚动条的情况时， 背景是不会根滚动条去滚动的。 
+        backgroud-attachment  背景图片是否跟随元素移动
+            可选值： 
+                scroll 默认值 背景图片跟随元素移动
+                fixed  背景图片会固定在页面中， 不会随元素进行移动的，
+
+
+        这么多关于背景的属性， 
+        我们还有个背景的简写属性， 
+        backgroud， 
+        所有背景相关的样式都可以通过该样式来设置， 并且该样式没有顺序要求，也没有哪个属性是必须写的。
+        注意： 
+            backgroud-size 必须写在 backgroud-position 后面 并且使用/隔开
+            backgroud-origion  backgroud-clip 两个样式， orgin 要在clip的前面设置，
+            
+
+
+        */
+    
+        .box1{
+            width: 500px;
+            height: 500px;
+            background-color: #bfa;
+            background-image: url(https://img1.baidu.com/it/u=223436314,3378407283&fm=26&fmt=auto&gp=0.jpg);
+            background-repeat: no-repeat;
+            background-clip: content-box;
+            padding: 10px;
+            border: 10px red double;
+            background-origin: content-box;
+            
+        }
+        
+
+
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+    </div>
+</body>
+</html>

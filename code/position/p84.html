@@ -32,12 +32,16 @@
             background-color: #dfe0e1;
             border-bottom: 1px #ddd solid;
             width: 100%;
+            /* 这样设置高度就限定了 30px, 加上当前城市的padding 2px 高度就是32px */
             line-height: 30px;
+            /* 不希望操作子元素的时候， 父元素也跟着动 */
+            height: 32px;
         }
         /* 内部块级元素， 宽度， 居中在父元素中*/
         .top-bar{
             width: 1190px;
             margin: 0px auto;
+            position: relative;
         }
         /* ul 向右浮动 */
         .shortcut{
@@ -48,7 +52,6 @@
             height: 10px;
             background-color: #999;
             margin: 11px 12px 0px; 
-            
         }
         /* li 向左浮动 */
         .shortcut li{
@@ -59,30 +62,65 @@
         /*
         1 写一个城市列表的 div 放到那，  city-list
 
+
         */
         .location{
+            /* 将左右都浮动起来*/
             float: left;
         }
-        .city-list{
-            position: absolute;
-            width: 300px;
-            height: 400px;
+        
+        .location .city-list{
+            display: none;
+            /* 这里来设置隐藏的那个城市列表*/
+            width: 320px;
+            height: 436px;
+            /* 它的背景 是白色的 */
             background-color: #fff;
+            /* 它是有边框的*/
             border: 1px solid rgb(204,204,204);
-            box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+            /* 并且它的边框是有阴影的 */
+            box-shadow: 0 2 2px rgba(0,0,0,0.2);
+            /* 应该给它开启绝对定位， 使其不占据父元素的的位置
+            它要是都不占据父元素的位置了， 那父元素就只有一个当前城市了， 
+            父元素没有设置宽高， 所有它是被内容撑开的， 内容就一个当前城市
+            所以父元素盒子模型就北京那么大
+            */
+            position: absolute;
+            /* 
+            因为当前城市下移了 要拿自己的下边盖住城市列表 但是他们是兄弟元素
+            导致这个城市列表也下移的，我们为了让它别下移， 于是将它的父元素开启定位， 
+            并将它上移一下， 移动我们认为好的位置。
+            但是我们看到的仍然不是 当前城市盖住城市列表， 
+            因为城市列表开启了定位， 而当前城市没有， 
+            所以当前城市也要开启定位 脱离文档流。 
+            */
+            top: 32px;
+            z-index: 999;
         }
-        .current-city{
-            padding: 0px 10px;
-            border: 1px solid rgba(204,204,204);
-            border-bottom: none;
-            padding-bottom: 2px;
-        }
-        .location:hover >.city-list{
+
+        .location:hover .city-list{
+            /* 鼠标移入父元素的时候， 让 city-list 显示出来*/ 
             display: block;
         }
-        .location:hover >.current-city{
+        /* 为当前城市元素设置一个边距*/
+        .current-city{
+            /* 为当前城市元素设置一个边距*/
+            padding: 0px 10px;
+            /* 在没移入时就有个边框， 但是时隐藏的透明的 有边框 除了下方向都有*/
+            border: 1px solid transparent;
+            border-bottom: none;
+            position: relative;
+            z-index: 9999;
+        }
+        /* 设置当前城市 移入的效果为白色背景的。 */
+        .location:hover .current-city{
             background-color: #fff;
-        } 
+            /* 移入时变成带颜色的边框 */
+            border: 1px solid rgb(204,204,204);
+            border-bottom: none;
+        }
+
+        
         
 
     </style>
