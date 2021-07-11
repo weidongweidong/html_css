@@ -445,9 +445,79 @@ p88
     注意： 
         backgroud-size 必须写在 backgroud-position 后面 并且使用/隔开
         backgroud-origion  backgroud-clip 两个样式， orgin 要在clip的前面设置，
-        
     */
 
 
-p90
-<a href=""></a>
+p90 p91
+<a href="/code/position/p90.html"></a>
+<a href="/code/position/p91.html"></a>
+    /*
+    通过按钮 不同状态 改变的背景图片 ，来 弄处 移入， 点击， 等不同的样子， 
+    但是有一个问题， 就是 在第一次访问的时候， 
+    背景并没有被加载出来， 都是点击的时候， 它才去加载， 
+    这样就导致了，第一次换背景图片的时候， 有个时候，会有个闪白的情况出现
+    这个要怎么才能避免呢？ 
+
+    图片属于网页的外部资源， 
+    外部资源都需要浏览器单独发送请求去加载。 
+        浏览器加载外部资源时是按需加载的， 用则加载，不用就不加载的。 
+    
+    用这个图片的时候，才会去加载
+
+    怎么解决呢？
+    用 雪碧图
+    
+    */
+
+p92
+<a href="/code/position/p92.html"></a>
+雪碧图， 
+就是将几个图片放到一个图片中去， 然后通过偏移量， 决定显示这个图片的哪个部分， 这
+这样就可以解决换图片时闪的问题， 因为要用的图片已经被加载好了， 所以不会闪了， 
+    这个技术在网页中应用的十分广泛，被成为CSS-Sprite ， 叫精灵图， 也叫 雪碧图， 
+
+雪碧图的使用方法
+    1，先确定要使用的图标。
+    2，测量图标的大小。 
+    3，根据测量结果创建一个元素，
+    4，将雪碧图设置为元素的背景图片， packgroud-imge
+    5，设置一个偏移量以显示正确要显示的图片， packgroud-position 
+
+雪碧图的特点 ：
+    一次性将多个图片加载进页面， 降低请求的次数， 加快访问速度， 提升用户的体验
+
+p93
+<a href="/code/position/p93.html"></a>
+线性渐变
+
+p94
+<a href="/code/position/p94.html"></a>
+径向渐变（就是像太阳一样， 发散一样的渐变）
+    /*径向渐变（就是像太阳一样， 发散一样的渐变）
+    放射性的效果
+    radial-gradient(red ,yellow ); 中间是红色的 发散到边上就是黄色了。
+    
+    默认情况下径向渐变的形状 根据元素的形状来计算的。 
+        元素形状        渐变形状
+        正方形   -->    圆形
+        长方形   -->    椭圆形
+    我们也可以手动指定径向渐变的大小
+    radial-gradient(100px 100px, red , yellow);
+    也可以通过两个值， 来指定 渐变的形状， circle 正圆形， ellipse 椭圆形
+        也可以指定渐变的位置
+        语法： 
+            radial-gradient(大小 at 位置， 颜色 位置， 颜色 位置， 颜色 位置);
+                大小： 
+                    circle 圆形
+                    ellipse 椭圆， 
+                    closest-site 近边
+                    closest-corner 近角
+                位置： 
+                    top right center left bottom 
+
+    */
+
+
+p95
+电影卡片的练习
+<a href="/code/exercise/p95.html"></a>

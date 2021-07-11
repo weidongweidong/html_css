@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*线性渐变
+        通过渐变，可以设置一些复杂的背景颜色， 可以实现从一个颜色向其他颜色过渡的一个效果。 
+            渐变是图片， 需要通过backgroud-image 来设置。 
+
+        线性渐变 颜色沿着一条直线发生变化，
+            linear-gradient()
+            linear-gradient(red, yellow) 红色在开头， 黄色在结尾， 中间是过渡区域， 
+            渐变方向可以改变的， 如果想改变的话 就在第一个参数位置写， to left/ to right / to bottom / to top  ，
+            也可以to xx xx ，两个方向
+            或者指定度数， xxxdeg , deg表示度数， 
+            或者turn 表示圈， 
+            向哪边就写哪。 
+        
+            渐变可以同时指定多个颜色， 多个颜色默认情况下平均分布
+                也可以手动指定渐变的分布
+            red 50px
+            后面的这个数字，说的是颜色的起始位置 如果前或后没有其他的颜色，那就是这个颜色了
+            有的话， 就是这那个交界区域 进行过渡。
+            
+        还有一个平铺线性渐变
+            backgroud-image  :repeating-linear-gradient(red 0px , yellow 50px)
+            会对效果进行一个平铺， 重复来展示 但是线性平铺不会， 如果空白的就用纯色来填充了 
+
+        */
+        .box1{
+            width: 200px;
+            height: 200px;
+            /*background-color: #bfa;*/
+            background-image: repeating-linear-gradient(red 0px , yellow 50px)
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

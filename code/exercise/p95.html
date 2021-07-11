@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_2658279_q2gntoktd9k.css">
+    <style>
+        /*电影卡片 练习
+
+        
+        */
+        .outer{
+            /* 设置容器大小*/
+            width: 240px;
+            /* 居中显示*/
+            margin: 100px auto;
+            /* 设置外容器 阴影效果*/
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .inner-img img{
+            /* 让图片占据父元素的百分比百，别出了父元素了就行 */
+            width: 100%;
+            /* 设置图片大小， 并且让它垂直居中 别留有缝隙 */
+            vertical-align:bottom;
+        }
+        .info {
+            padding: 0px 18px;
+            font-size: 14px;
+            color: #acaaaa;
+        }
+        .info .info-title{
+           margin: 13px 0px 15px 0px;
+           color: #717171; 
+           font-size: 18px;
+        }
+        .info .info-location i{
+            margin-right: -2px;
+            margin-left: 4px;
+            font-size: 10px;
+        }
+        .info .info-content{
+            margin: 15px 4px;
+            line-height: 20px;
+        }
+        .bottom{
+            height: 46px;
+            line-height: 46px;
+            padding: 0px 16px;
+            color: #ddd;
+            border-top: 1px red solid;
+        }
+        .star{
+            float: left;
+        }
+        .star li{
+            float: left;
+        }
+        .weibo{
+            float: right;
+        }
+        .bottom .light{
+            color: #b9cb41;
+        }
+       
+        
+
+       
+    </style>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner-img">
+            <img src="https://img.haoyunbang.cn/cooperate_file/images/page_index_jiaoliu01.png" alt="">
+        </div>
+        <div class="info">
+            <h2 class="info-title">不孕不育服务</h2>
+            <h3 class="info-location">
+            <i class="iconfont icon-dizhi" style="color: red;"></i>
+            北京</h3>
+            <p class="info-content">明锐思成（北京）信息科技有限公司提供服务，那服务是相当相当的到位了</p>
+        </div>
+        <div class="bottom">
+            <ul class="star">
+                <li class="iconfont icon-start light"></li>  
+                <li class="iconfont icon-start light"></li>  
+                <li class="iconfont icon-start"></li>  
+                <li class="iconfont icon-start"></li>        
+            </ul>
+            <ul class="weibo">
+                <li class="iconfont icon-weibo"></li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>
