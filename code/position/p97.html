@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*长表格，
+        长表格， 就是比较长的表格，比如 银行流水， 一年的。 很多很多 
+
+        可以将一个表格 分成3个部分， 
+        <thead></thead> 写表格的头， 
+        <tbody></tbody> 写表格的详情
+        <tfoot></tfoot> 写表格的底部
+        th 可以替换到td 用来表示 这是表格的头部， 
+        
+        这个是结构，结构固定之后， 
+        即使我们将tfoot 写到开头， 那它也是在底部展示， 
+
+        没 啥 用 
+        
+        */
+    </style>
+</head>
+<body>
+    <table border="1" width="50%" align="center">
+        <!-- 可以将一个表格 分成3个部分， 
+            <thead></thead> 写表格的头， 
+            <tbody></tbody> 写表格的详情
+            <tfoot></tfoot> 写表格的底部
+            th 可以替换到td 用来表示 这是表格的头部， 
+        -->
+        <tfoot>
+            <tr>
+                <td>总计</td>
+                <td>500</td>
+            </tr>
+        </tfoot>
+        <thead>
+            <tr>
+                <th>日期</th>
+                <th>收入</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2020-12-12</td>
+                <td>500</td>
+            </tr>
+        </tbody>
+       
+
+    </table>
+</body>
+</html>

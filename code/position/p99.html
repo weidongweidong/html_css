@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*表单
+        用于提交数据， 
+        将本地数据提交给远程服务器 
+
+        关闭自动填写 autocomplete="off"
+        readonly 只读， 数据是会提交的，  
+        disabled 禁用   数据是不会被提交的。 
+        
+        */
+    </style>
+</head>
+<body>
+    <form style="margin: 0px auto; width:200px"  action="xxx">
+        <input name="name" type="text" value="陈伟东" disabled><br>
+        <input type="password" value="xxxx"><br>
+        <input type="radio" value="1" name="age">男
+        <input type="radio" value="0" checked name="age">女<br>
+        <input type="checkbox" value="1" name="num">1
+        <input type="checkbox" value="2" name="num">2
+        <input type="checkbox" value="3" name="num">3
+        <input type="checkbox" value="4" name="num">4<br>
+        <select name="slect" id="">
+            <option value="aa">aa</option>
+            <option selected value="bb">bb</option>
+            <option value="cc">cc</option>
+        </select>
+        <br>
+        <input type="submit" value="保存">
+        <input type="button" value="按钮">
+        <input type="reset">
+        <br>
+        <hr>
+        <button type="submit">提交</button>
+        <button type="button">按钮</button>
+        <button type="reset">重置</button>
+        <br>
+        <input type="color" >
+
+
+    </form>
+</body>
+</html>
