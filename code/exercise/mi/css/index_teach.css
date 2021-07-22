@@ -1,0 +1,136 @@
+body{
+    font: 14px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+    color: #333;
+    min-width: 1226px;
+}
+
+/* 设置一个类， 这个类用来表示中间容器的宽度  哪个容器有这个需求直接加上这个 ，就行。 */
+.w{
+    /* 固定容器的宽度 */
+    width: 1226px;
+    /* 设置容器居中 */
+    margin: 0 auto;
+}
+/* 统一设置下 a 标签的文字颜色 */
+.topbar a{
+    color: #b0b0b0;
+    /* 设置超链接为块级元素， 使他能够撑满父元素 */
+    display: block;
+}
+/* a标签的文字在鼠标移入的时候， 显示为白色字体 */
+.topbar a:hover{
+    color: #fff;
+}
+
+.topbar-wrapper{
+    /* 上面的导航栏宽度百分百 */
+    width: 100%;
+    /* 上面导航栏背景颜色 */
+    background-color: #2d2d2d;
+    /* 让里面的元素在高度为30的空间中 垂直居中展示 */
+    /* 设置高度和行高 */
+    height: 40px;
+    line-height: 40px;
+
+}
+.topbar {
+    font-size: 14px;
+    color: #4f4f4f;
+}
+
+/* 浮动 */
+.service ,.topbar li{
+    float: left;
+}
+
+.shop-car ,.user-info{
+    float: right;
+}
+.qrCode{
+    overflow:hidden;
+    color: black;
+    line-height: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    text-align: center;
+    display: block;
+    width: 100px;
+    height: 0px;
+    position: absolute;
+    top: 40px;
+    left: -25px;
+    transition: height 0.2s;
+}
+
+.qrSwarpper::before {
+    content: "";
+    display: none;
+    color: #fff;
+    width: 0;
+    height: 0;
+    top: 32px;
+    left: 12px;
+    position: absolute;
+    z-index: 10;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+}
+.qrCode img{
+    margin-top: 10px;
+    width: 80px;
+}
+.qrSwarpper:hover .qrCode{
+    height: 120px;
+}
+.qrSwarpper:hover::before{
+    display: block;
+}
+
+/* 设置分割线 */
+.topbar .line{
+    font-size: 12px;
+    color: #424242;
+    margin: 0px 8px;
+}
+
+.shop-car{
+    margin-left: 20px;
+    position: relative;
+}
+
+.shop-car a {
+    width: 120px;
+    background-color: #424242;
+    text-align: center;
+}
+/* 给图片字体设置大小，防止它和当前文字大小不一样， */
+.shop-car a i{
+    font-size: 1em;
+}
+
+.shop-car:hover a{
+    background-color: #fff;
+    color: #ff6700;
+} 
+.shop-car .car{
+    position: absolute;
+    z-index: 10;
+    right: 0;
+}
+.shop-car .car-info {
+    display: none;
+    width: 318px;
+    height: 100px;
+    position: absolute;
+    right: 0px;
+    top: 40px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+}
+.shop-car:hover .car-info{
+    display: block;
+}
+
+.qrSwarpper{
+    position: relative;
+}

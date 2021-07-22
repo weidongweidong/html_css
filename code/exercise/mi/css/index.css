@@ -1,0 +1,13 @@
+body{
+    font: 14px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+    color: #333;
+    min-width: 1226px;
+}
+
+/* 设置一个类， 这个类用来表示中间容器的宽度  哪个容器有这个需求直接加上这个 ，就行。 */
+.w{
+    /* 固定容器的宽度 */
+    width: 1226px;
+    /* 设置容器居中 */
+    margin: 0 auto;
+}
