@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2658279_ytph6imii0e.css">
     <style>
         /*
-        
         隐藏元素有多种方法
         1 用dispaly : none ， 但是这种，要是有动态效果的 用这个就不太好了， 
         2 先是将高度设置为0 ， 并且 设置overforw： hidden,  这样可以保留动态效果
@@ -24,6 +23,26 @@
            transition : height 0.2s;  
         */
         
+        
+        .nav-wrapper .nav .goods-info{
+            overflow: hidden;
+            background-color: #fff;
+            height: 0;
+            position: absolute;
+            width: 100%;
+            top: 100px;
+            left: 0;
+            transition: height 0.3s;
+        }
+
+        .nav .goods-info:hover,
+        .nav .showInfo:hover ~ .goods-info{
+            height:228px;
+            border-top: 1px solid rgb(224, 224, 224);
+            box-shadow: 0 5px 3px rgba(0, 0, 0, .2) ;
+        }
+
+
        
 
     </style>
@@ -70,12 +89,14 @@
                   
                 </ul>
                 <!-- 购物车 -->
-                <ul class="shop-car">
-                    <li><a class="car" href="javascript:;">
+                <ul class="shop-car clearfix">
+                    <li class="clearfix"><a class="car" href="javascript:;">
                         <i class="iconfont icon-xiaomigouwuche"></i>
                         购物车（0）
                     </a>
-                    <div class="car-info"></div>
+                    <div class="car-info">
+                        <span>购物车中还没有商品，赶紧选购吧！</span>
+                    </div>
                     </li>
                 </ul>
                 <!-- 用户信息 -->
@@ -90,6 +111,34 @@
             </div>
         </div>
 
+        <!-- 创建一个头部的外部容器 -->
+        <div class="header-warpper">
+            <div class="header w">
+                <h1 class="logo" title="小米官网">
+                    这是小米官网的
+                    <a class="mi" href="#"></a>
+                    <a class="home" href="#"></a>
+                </h1>
+                <!-- 导航条 -->
+                <div class="nav-wrapper clearfix">
+                    <ul class="nav clearfix">
+                        <li><a class="nav_all" href="#">全部商品分类</a></li>
+                        <li class="showInfo"><a href="#">小米手机</a></li>
+                        <li class="showInfo"><a href="#">Redmi 红米</a></li>
+                        <li class="showInfo"><a href="#">电视</a></li>
+                        <li class="showInfo"><a href="#">笔记本</a></li>
+                        <li class="showInfo"><a href="#">家电</a></li>
+                        <li class="showInfo"><a href="#">路由器</a></li>
+                        <li class="showInfo"><a href="#">智能硬件</a></li>
+                        <li><a href="#">服务</a></li>
+                        <li><a href="#">社区</a></li>
+                        <!-- 创建一个弹出层 -->
+                        <div class="goods-info">
 
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
 </body>
 </html>

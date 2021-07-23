@@ -57,6 +57,7 @@ body{
     width: 100px;
     height: 0px;
     position: absolute;
+    z-index: 999;
     top: 40px;
     left: -25px;
     transition: height 0.2s;
@@ -103,6 +104,8 @@ body{
     width: 120px;
     background-color: #424242;
     text-align: center;
+    position: relative;
+    margin-left: 3px;
 }
 /* 给图片字体设置大小，防止它和当前文字大小不一样， */
 .shop-car a i{
@@ -114,7 +117,7 @@ body{
     color: #ff6700;
 } 
 .shop-car .car{
-    position: absolute;
+  
     z-index: 10;
     right: 0;
 }
@@ -122,15 +125,97 @@ body{
     display: none;
     width: 318px;
     height: 100px;
+    line-height: 100px;
     position: absolute;
     right: 0px;
     top: 40px;
+    z-index: 999;
     box-shadow: 0 0 5px rgba(0, 0, 0, .3);
 }
 .shop-car:hover .car-info{
-    display: block;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
 }
 
 .qrSwarpper{
     position: relative;
+}
+
+
+.header-warpper{
+    position: relative;
+    width: 100%;
+}
+.header-warpper .header{
+    height: 100px;
+   
+}
+/* 设置logo的容器 为左浮动 并且开启绝对定位， 为里面的元素 指定定位位置 */
+.logo {
+    float: left;
+    margin-top: 22.5px;
+    width: 55px;
+    height: 55px;
+    position: relative;
+    overflow: hidden;
+    /* 隐藏logo中的文字的一个手段 */
+    text-indent: -9999px;
+    
+}
+/* logo容器中的子元素 设置背景，及定位 */
+/* 设置过渡效果 */
+.logo a{
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    left: 0px;
+    background-size: 55px 55px; 
+    background-position: center;
+    background-image: url(https://img1.baidu.com/it/u=2488361184,308093308&fm=26&fmt=auto&gp=0.jpg);
+    transition: left 0.2s;
+}
+/* 为容器中的home元素 重置下定位位置 */
+.logo .home{
+    left: -55px;
+    background-image: url(https://img0.baidu.com/it/u=625613313,2787896010&fm=26&fmt=auto&gp=0.jpg);
+}
+
+/* 鼠标移入到容器内， 将mi 右移 ， home 右移 */
+.logo:hover .mi{
+    left: 55px;
+}
+.logo:hover .home{
+    left: 0px;
+}
+/* 设置标题栏为浮动， 并且左有间距 */
+.nav-wrapper{
+    float: left;
+    margin-left: 7px;
+}
+
+/* 标题栏设置高度，和行高 */
+.nav-wrapper .nav{
+    padding-left: 58px;
+    height: 100px;
+    line-height: 100px;
+}
+
+.nav-wrapper li{
+    float: left;
+}
+
+/* 让a标签充满父元素 */
+.nav-wrapper li a{
+    display: block;
+    font-size: 16px;
+    margin-right: 20px;
+}
+/* 隐藏元素 ，但是还要占据位置呢*/
+.nav_all{
+    visibility: hidden;
+}
+/* li标签 鼠标移入的时候， 里面字要变成红 */
+.nav-wrapper li a:hover{
+    color: red;
 }
