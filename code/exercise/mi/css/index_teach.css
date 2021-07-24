@@ -118,7 +118,7 @@ body{
 } 
 .shop-car .car{
   
-    z-index: 10;
+    z-index: 99999;
     right: 0;
 }
 .shop-car .car-info {
@@ -129,8 +129,10 @@ body{
     position: absolute;
     right: 0px;
     top: 40px;
-    z-index: 999;
+    z-index: 10;
     box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+    background-color: #fff;
+
 }
 .shop-car:hover .car-info{
     display: table-cell;
@@ -201,7 +203,7 @@ body{
     line-height: 100px;
 }
 
-.nav-wrapper li{
+.nav > li{
     float: left;
 }
 
@@ -219,3 +221,57 @@ body{
 .nav-wrapper li a:hover{
     color: red;
 }
+.nav-wrapper .nav .goods-info{
+    overflow: hidden;
+    background-color: #fff;
+    height: 0;
+    position: absolute;
+    width: 100%;
+    top: 100px;
+    left: 0;
+    transition: height 0.3s;
+    z-index: 9999;
+}
+
+.nav .goods-info:hover,
+.nav .showInfo:hover ~ .goods-info{
+    height:228px;
+    border-top: 1px solid rgb(224, 224, 224);
+    box-shadow: 0 5px 3px rgba(36, 27, 27, 0.2) ;
+}
+
+.serch-wrapper {
+    float: right;
+    width: 296px;
+    height: 50px;
+    margin-top: 25px;
+}
+.serch-wrapper .search-inp{
+    font-size: 16px;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 0px 30px;
+    float: left;
+    width: 242px;
+    border: 1px solid rgb(224, 224, 224);
+    outline: none;  /* 让默认的轮廓线， 不要了 */
+}
+.serch-wrapper .search-inp:focus,
+.serch-wrapper .search-inp:focus + button
+{
+    border-color: #FF6700;/* 让获取焦点的时候 把边框的颜色改成 橙色*/
+}
+.serch-wrapper .search-btn{
+    float: left;
+    height: 50px;
+    width: 52px;
+    font-size: 16px;
+    border: 1px solid rgb(224, 224, 224);
+    border-left: none;
+}
+.serch-wrapper .search-btn:hover{
+    background-color: #ff6700;
+    color: #fff;
+    border: none;
+}
+

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,28 +22,58 @@
            当该属性发生改变时 用后面的时间实现。 
            transition : height 0.2s;  
         */
-        
-        
-        .nav-wrapper .nav .goods-info{
-            overflow: hidden;
-            background-color: #fff;
-            height: 0;
+
+        .all-goods{
+            position: relative;
+        }
+
+        .left-menu{
+            padding: 20px 0px;
+            width: 234px;
+            height: 420px;
+            background-color: rgba(0, 0, 0, 0.6);
             position: absolute;
-            width: 100%;
-            top: 100px;
-            left: 0;
-            transition: height 0.3s;
+            left: -120px;
+            z-index: 999;
+            line-height: 1;
+        }
+        ul.left-menu li a{
+            padding: 0px 30px;
+            display: block;
+            color: white;
+            line-height: 42px;
+            margin-right: 0px;
+
+        }
+        .left-menu li a i{
+            float: right;
+        }
+        .left-menu li a:hover{
+            color: white;
+            background-color: #ff6700;
+        }
+        .ad-info{
+            display: none;
+            width: 990px;
+            height: 460px;
+            background-color:#fff;
+            position: absolute;
+            z-index: 99;
+            left: 235px;
+            top: 1px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            line-height: 460px;
         }
 
-        .nav .goods-info:hover,
-        .nav .showInfo:hover ~ .goods-info{
-            height:228px;
-            border-top: 1px solid rgb(224, 224, 224);
-            box-shadow: 0 5px 3px rgba(0, 0, 0, .2) ;
+        .left-menu li:hover ~ .ad-info,
+        .left-menu .ad-info:hover
+        {
+            display: block;
         }
+        
+        
 
-
-       
 
     </style>
 </head>
@@ -122,7 +152,44 @@
                 <!-- 导航条 -->
                 <div class="nav-wrapper clearfix">
                     <ul class="nav clearfix">
-                        <li><a class="nav_all" href="#">全部商品分类</a></li>
+                        <li class='all-goods'>
+                            <a class="nav_all" href="#">全部商品分类</a>
+                            <ul class="left-menu">
+                                <li><a href="#">手机 电话卡
+                                    <i>></i>
+                                </a></li>
+                                <li><a href="#">手机 电话卡
+                                    <i>></i>
+                                </a></li>
+                                <li><a href="#">手机 电话卡
+                                    <i>></i>
+                                </a></li>
+                                <li><a href="#">手机 电话卡
+                                    <i>></i>
+                                </a></li>
+                                <li><a href="#">手机 电话卡
+                                    <i>></i>
+                                </a></li>
+                                <li><a href="#">手机 电话卡
+                                    <i>></i>
+                                </a></li>
+                                <li><a href="#">手机 电话卡
+                                    <i>></i>
+                                </a></li>
+                                <li><a href="#">手机 电话卡
+                                    <i>></i>
+                                </a></li>
+                                <li><a href="#">手机 电话卡
+                                    <i>></i>
+                                </a></li>
+                                <li><a href="#">手机 电话卡
+                                    <i>></i>
+                                </a></li>
+                                <div class="ad-info">
+                                    <span>暂无商品。。。</span>
+                                </div>
+                            </ul>
+                        </li>
                         <li class="showInfo"><a href="#">小米手机</a></li>
                         <li class="showInfo"><a href="#">Redmi 红米</a></li>
                         <li class="showInfo"><a href="#">电视</a></li>
@@ -134,9 +201,20 @@
                         <li><a href="#">社区</a></li>
                         <!-- 创建一个弹出层 -->
                         <div class="goods-info">
-
+                           
                         </div>
                     </ul>
+                </div>
+
+
+                <!-- 搜索框的容器 -->
+                <div class="serch-wrapper">
+                    <form class="search" action="#">
+                        <input class="search-inp" type="text">
+                        <button class="search-btn">
+                            <i class="iconfont icon-chaxun"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
