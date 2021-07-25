@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/index_teach.css">
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="//at.alicdn.com/t/font_2658279_ytph6imii0e.css">
+    <link rel="icon" href="https://s01.mifile.cn/favicon.ico">
     <style>
         /*
         隐藏元素有多种方法
@@ -22,64 +23,7 @@
            当该属性发生改变时 用后面的时间实现。 
            transition : height 0.2s;  
         */
-        .banner{
-            height: 460px;
-            position: relative;
-        }
 
-        .banner-wrapper .banner .img-list li{
-            position:absolute;
-        }
-        .banner img{
-            width: 100%;
-            vertical-align: top;
-        }
-        .pointer{
-            position: absolute;
-            right: 40px;
-            bottom: 30px;
-        }
-        .pointer a{
-            float: left;
-            width: 6px;
-            height: 6px;
-            background-color: rgba(0, 0, 0, .4);
-            border: 3px solid rgba(255, 255, 255, .4);
-            margin-left: 10px;
-            border-radius: 50%;
-        }
-        .pointer a:hover,
-        .pointer a.active{
-            border-color: rgba(0, 0, 0, .4);
-            background-color:rgba(255, 255, 255, .4);
-        }
-        .prev-next a{
-            position: absolute;
-            top: 0px;
-            bottom: 0px;
-            margin: auto 0px;
-            width: 41px;
-            height: 69px;
-            background: url(//i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat -84px 50%;
-        }
-
-        .prev-next .next{
-            right: 0px;
-            background-position: -126px 0px;
-        }
-        .prev-next .prev:hover{
-            background-position: 0px 0px;
-        }
-        .prev-next .next:hover{
-            background-position: -42px 0px;
-        }
-
-        .prev-next .prev{
-            left: 234px;
-            background-position: -84px 0px;
-        }
-       
-        
          
     </style>
 </head>
@@ -250,5 +194,44 @@
 
             </div>
         </div>
+        <!-- 固定定位的元素 右面的那个框 -->
+        <div class="float-box"></div>
+
+        <!-- 广告图片 -->
+        <div class="ad w">
+            <ul class="shortcut">
+                <li><a href="#">
+                    <i class="iconfont  icon-tian"></i>
+                    小米免费
+                </a></li>
+                <li><a href="#">
+                    <i class="iconfont  icon-tian"></i>
+                    小米免费
+                </a></li>
+                <li><a href="#">
+                    <i class="iconfont  icon-tian"></i>
+                    小米免费
+                </a></li>
+                <li><a href="#">
+                    <i class="iconfont  icon-tian"></i>
+                    小米免费
+                </a></li>
+                <li><a href="#">
+                    <i class="iconfont  icon-tian"></i>
+                    小米免费
+                </a></li>
+                <li><a href="#">
+                    <i class="iconfont  icon-tian"></i>
+                    小米免费
+                </a></li>
+            </ul>
+        <div class="ad-img">
+            <li><a href="#"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5d4298059889417157e8492750328492.jpg?w=632&h=340" alt=""></a></li>
+            <li><a href="#"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b30177d629bfbe2fb42251c1b8538f7b.jpg?w=632&h=340" alt=""></a></li>
+            <li><a href="#"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9f18ac756fa2cedb16ea429b9c0001af.png?w=632&h=340" alt=""></a></li>
+        </div>
+        </div>
+
+
 </body>
 </html>
