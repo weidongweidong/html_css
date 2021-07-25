@@ -275,3 +275,54 @@ body{
     border: none;
 }
 
+
+.all-goods{
+    position: relative;
+}
+
+.left-menu{
+    padding: 20px 0px;
+    width: 234px;
+    height: 420px;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: -120px;
+    z-index: 999;
+    line-height: 1;
+}
+ul.left-menu li a{
+    padding: 0px 30px;
+    display: block;
+    color: white;
+    line-height: 42px;
+    margin-right: 0px;
+
+}
+.left-menu li a i{
+    float: right;
+}
+.left-menu li a:hover{
+    color: white;
+    background-color: #ff6700;
+}
+.ad-info{
+    display: none;
+    width: 990px;
+    height: 460px;
+    background-color:#fff;
+    position: absolute;
+    z-index: 99;
+    left: 235px;
+    top: 0px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    line-height: 460px;
+}
+
+.left-menu li:hover ~ .ad-info,
+.left-menu .ad-info:hover
+{
+    display: block;
+}
+
+

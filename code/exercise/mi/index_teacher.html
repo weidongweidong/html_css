@@ -22,59 +22,65 @@
            当该属性发生改变时 用后面的时间实现。 
            transition : height 0.2s;  
         */
-
-        .all-goods{
+        .banner{
+            height: 460px;
             position: relative;
         }
 
-        .left-menu{
-            padding: 20px 0px;
-            width: 234px;
-            height: 420px;
-            background-color: rgba(0, 0, 0, 0.6);
+        .banner-wrapper .banner .img-list li{
+            position:absolute;
+        }
+        .banner img{
+            width: 100%;
+            vertical-align: top;
+        }
+        .pointer{
             position: absolute;
-            left: -120px;
-            z-index: 999;
-            line-height: 1;
+            right: 40px;
+            bottom: 30px;
         }
-        ul.left-menu li a{
-            padding: 0px 30px;
-            display: block;
-            color: white;
-            line-height: 42px;
-            margin-right: 0px;
-
+        .pointer a{
+            float: left;
+            width: 6px;
+            height: 6px;
+            background-color: rgba(0, 0, 0, .4);
+            border: 3px solid rgba(255, 255, 255, .4);
+            margin-left: 10px;
+            border-radius: 50%;
         }
-        .left-menu li a i{
-            float: right;
+        .pointer a:hover,
+        .pointer a.active{
+            border-color: rgba(0, 0, 0, .4);
+            background-color:rgba(255, 255, 255, .4);
         }
-        .left-menu li a:hover{
-            color: white;
-            background-color: #ff6700;
-        }
-        .ad-info{
-            display: none;
-            width: 990px;
-            height: 460px;
-            background-color:#fff;
+        .prev-next a{
             position: absolute;
-            z-index: 99;
-            left: 235px;
-            top: 1px;
-            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
-            text-align: center;
-            line-height: 460px;
+            top: 0px;
+            bottom: 0px;
+            margin: auto 0px;
+            width: 41px;
+            height: 69px;
+            background: url(//i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat -84px 50%;
         }
 
-        .left-menu li:hover ~ .ad-info,
-        .left-menu .ad-info:hover
-        {
-            display: block;
+        .prev-next .next{
+            right: 0px;
+            background-position: -126px 0px;
         }
-        
-        
+        .prev-next .prev:hover{
+            background-position: 0px 0px;
+        }
+        .prev-next .next:hover{
+            background-position: -42px 0px;
+        }
 
-
+        .prev-next .prev{
+            left: 234px;
+            background-position: -84px 0px;
+        }
+       
+        
+         
     </style>
 </head>
 <body>
@@ -216,6 +222,32 @@
                         </button>
                     </form>
                 </div>
+            </div>
+        </div>
+
+        <!-- 创建banner的容器 -->
+        <div class="banner-wrapper">
+            <div class="banner w">
+                <ul class="img-list">
+                    <li><a href="#"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/793eebbee1dd569fe56a8aaf58f62452.jpg?w=2452&h=920" alt=""></a></li>
+                    <li><a href="#"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1c3e97686468231f3f78048d7f2b7fdc.jpg?thumb=1&w=1226&h=460&f=webp&q=90" alt=""></a></li>
+                    <li><a href="#"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5e896d87c53a449509c14701673098bb.jpg?thumb=1&w=1226&h=460&f=webp&q=90" alt=""></a></li>
+                    <li><a href="#"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/37de2b47154ae899cd31f4dcc291f1a2.jpg?thumb=1&w=1226&h=460&f=webp&q=90" alt=""></a></li>
+                    <li><a href="#"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e6e5ad482c9e0bc0aff2153bca94c0da.jpg?thumb=1&w=1226&h=460&f=webp&q=90" alt=""></a></li>
+                </ul>
+                <div class="pointer">
+                    <a class="active" href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                </div>
+                <!-- 左右两个超链接 -->
+                <div class="prev-next">
+                    <a class="prev" href="javascript:;"></a>
+                    <a class="next" href="javascript:;"></a>
+                </div>
+
             </div>
         </div>
 </body>
