@@ -1,0 +1,72 @@
+
+
+
+p115
+下面来讲 过渡
+就是动画中的那个过渡。 
+<a href="/code/animation/p115.html"></a>
+    /*过渡
+
+    过渡（transition）：
+        通过过渡， 可以指定一个属性发生改变时的切换方式， 
+        通过过渡效果，可以创建一些非常好的效果， 提升用户的体验。 
+    他可以指定某一个属性， 也可以指定 所有属性 transition:  all 0.3s;
+    上面这个是简写， 他以下几个 实际属性名：    
+    transition-property: ;
+        指定我们要过渡的属性 
+        例如： transition-property: width;
+        多个属性的话， 使用， 隔开
+        例如： transition-property: width ,height;
+        大部分属性都是支持过渡效果的： 
+            只要值可以计算的， 都可以过渡。颜色也可以 颜色也是值。  
+            注意过渡时必须是从一个有效数值 向另外一个有效数值进行过渡。但是auto是不行， auto不是一个具体的数值。 
+
+    transition-duration: ;
+        指定过渡效果要持续的时间： 
+        例如： transition-duration : 3s;
+        时间单位： s 和 ms  1s = 1000ms
+        这里还可以分别指定时间， 
+        例如： width: 1s , height : 2s; 
+        transition-duration:  0.4s , 2s; 
+
+    transition-timing-function: ;
+        过渡的时序函数： 指定过渡的执行的方式的;
+        可选值： 
+            ease 默认值慢速开始 ，先加速， 再减速停止。 
+            linear 匀速运动
+            ease-in 加速运动。
+            ease-out 减速运动。 
+            ease-in-out 先加速再减速。 和ease比sase的速度更匀速一些。
+            除了这几个还可以指定自定义的贝塞尔曲线来定位他的速度。 
+            cubic-bezier(0.075, 0.82, 0.165, 1)
+            还可以分步骤 执行
+            steps(3,end);
+            第一个值， 是执行的步骤， 
+            第二个值 可以写 end, start 表示当前步骤时间开始的时候就执行步骤，还是当前步骤时间结束的时候执行步骤。 
+        
+    transition-delay: ;
+        表示过渡效果的延迟， 
+    transition-delay: 2s; 表示延迟一定的时间后再开始过渡。 
+
+
+在实际使用的时候，我们用 transition 简写属性来 设置过渡效果。
+transition 可以同时设置过渡相关的所有属性 ， 只有一个要求， 
+如果要写 持续时间和延迟的话， 则两个时间中第一个是持续时间 后一个是延迟时间。
+transition: 2s margin-left  1s; 意思是 margin-left 变， 持续时间2s ,延迟1s执行。 
+
+    
+
+*/
+
+
+
+p116  米兔练习
+<a href="/code/animation/p116.html"></a>
+
+
+
+p117 动画
+<a href="/code/animation/p117.html"></a>
+刚做的练习 都是得人去交互，它自己不能动， 我们想搞一个自己能动的， 怎么搞
+
+

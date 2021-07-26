@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 132px;
+            height: 276px;
+            margin: 0px auto;
+            background-repeat: no-repeat;
+            background-image: url(https://img-blog.csdnimg.cn/20210209203302939.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDY0NzU1NQ==,size_16,color_FFFFFF,t_70#pic_center);
+            background-position: 0px 0px;
+            transition: all steps(3) 0.2s;  /* 所有属性的有过渡效果， 设置三步完成 用时0.3s */
+        }
+        .box1:hover{
+            /* 将背景图片的位置 由第一个图片 后撤到第4个图片， 中间有3个图片的距离， 所有是 132 * 3  
+            又因为我们要看图片右位置的， 所以值是负数的。 
+            */
+            background-position: -396px 0px;
+        }
+
+
+
+        /* 小人跑步 */
+        .box2{
+            height: 136px;
+            width: 120px;
+            margin: 0px auto;
+            background-position: 0px 0px;
+            background-repeat: no-repeat;
+            background-image: url(https://img-blog.csdnimg.cn/20210209203311354.png#pic_center);
+            transition: 0.3s steps(9) background-position;
+        }
+
+        .box2:hover{
+             background-position: -1080px 0px;
+        }
+        
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+    </div>
+    <!-- <img src="https://img-blog.csdnimg.cn/20210209203302939.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDY0NzU1NQ==,size_16,color_FFFFFF,t_70#pic_center" alt=""> -->
+
+    <div class="box2"></div>
+    <!-- <img src="https://img-blog.csdnimg.cn/20210209203311354.png#pic_center" alt=""> -->
+</body>
+</html>
