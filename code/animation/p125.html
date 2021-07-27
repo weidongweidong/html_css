@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*transform 变形 之 缩放
+        就是元素的放大和缩小。
+        transform: 
+            scaleX(2);   x轴方向 放到2倍， 如果.2 就是缩小。
+            scaleY(2);   y轴方向 放到2倍， 如果.2 就是缩小。
+            scale(2);    如果没写xy, 就是双方向放大 缩小。 
+        还有 scaleZ(2); 但是不常用， 因为z轴只有在3d立体效果中才能看到感受到。
+        
+        变形的原点：
+        transform-orgin  变形的原点
+            默认值 是 center,  就是中心的意思。 
+            可以使用 20px 20px 这种改变的变形原点， 
+            之前学习的变形平移， 都有个原点， 就是通过这个去设置。 
+
+        */
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            transition: 1s;
+            margin: 100px auto;
+        }
+        .box1:hover{
+            transform: scaleY(-2);
+        }
+
+        /* 图片的缩放效果 */ 
+        .img-wrapper{
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 8%;
+        }
+        img{
+            transition: .2s;
+        }
+        .img-wrapper:hover img{
+            /* 图片放到2倍*/
+            transform: scale(2);
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+
+    <div class="img-wrapper">
+        <img src="../imgs/quanhuang_1.jpg" alt="">
+    </div>
+</body>
+</html>

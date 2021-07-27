@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*旋转
+            通过旋转 ，可以使元素沿着x y 或 z 旋转指定的角度
+
+        transform: ;
+            rotateZ(90deg) 
+            rotateX(90deg) 
+            rotateY(90deg)
+        分别对应不同的轴 旋转角度；
+        里面的单位可以是 deg 就是度的意思， 
+                可以是 turn 就是圈的意思， 
+        当旋转了不同的轴后， 其他轴方向就变了， 所以谁先旋转也是有区别的。 要注意下。
+        transform: rotateY(180deg) translateZ(400px);
+
+
+        backface-visibility: 这个意思是这个元素的背面能不能显示。 
+        当发生翻转的时候， 会看到它背面的样子，
+        如果不想显示就用 hidden 
+        显示就用 visible
+            
+        */
+       html{
+           perspective: 800px;
+       }
+       .box1{
+           width: 200px;
+           height: 200px;
+           background-color: #bfa;
+           margin: 100px auto;
+           transition: .5s;
+           backface-visibility: visible;
+       }
+       body:hover .box1{
+          /*transform: rotateZ(0.25turn);
+          transform: rotateY(180deg) translateZ(400px);
+          */
+          transform: rotateY(180deg);
+          
+          
+       }
+    </style>
+</head>
+<body>
+    <div class="box1">11</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+/*
+    这是css的原生注释， 会在生成的css中出现
+*/
+.box1 {
+  width: 100px;
+  height: 100px;
+}
+.box1 .box2 {
+  background-color: #fff;
+}
+.box1 .box3 {
+  color: red;
+}
+.box4 {
+  width: 300px;
+  color: red;
+}
+.box6 {
+  width: 300px;
+  background-image: url("box6/1.png");
+}
+div {
+  height: 8px;
+  width: 6px;
+}
+div5 {
+  color: orange;
+  background-color: orange;
+}

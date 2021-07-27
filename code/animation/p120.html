@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*变形平移
+
+            变形就是指通过css 来改变元素的形状或位置， 
+                变形是不会影响到页面的布局的。 
+            
+            transform  用来设置元素的变形效果。
+                平移： 
+                    translateX() 沿着x轴方向平移  往右走是正的，往左走是负的
+                    translateY() 沿着Y轴方向平移  往下走是正的，往上走是负的
+                    translateZ() 沿着Z轴方向平移  往出走是正的，往里走是负的
+                我们在平移元素时， 可以用px, 也可以用% ， %是相对于 自己来说的。
+
+            
+            可以同时写多个变形 ， 多个变形时 也只能这么写， 如果在写一个，上一个就会被覆盖掉的。
+            transform: translateX(-50%) translateY(-50%);
+        */
+
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            margin: 0px auto;
+            margin-top:  100px;
+            transform: translateY(100px);
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: #baf;
+            margin: 0px auto;
+        }
+        .box3{
+            background-color: orange;
+            position: absolute;
+            /* 
+            定位的那种使元素水平垂直居中的方法，有局限性 ，它只能在元素有宽高的情况下，使用
+                width: 100px;
+                height: 100px;
+                background-color: orange;
+                position: absolute;
+                top: 0px;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+                margin: auto;
+            
+            下面这个可以在没有宽高的情况下使用， 通过变形的方法： 
+                left: 50%;
+                top: 50%;
+                transform: translateX(-50%) translateY(-50%);
+                先偏移父元素的一半， 在平移自己的一半， 正好在水平和垂直中间了就。 
+            */
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        /* 浮出效果的实现 通过平移 + 过渡效果 */
+        .box4,.box5{
+            float: left;
+            width: 200px;
+            height: 300px;
+            background-color: palegoldenrod;
+            margin: 20px 30px;
+            transition: .3s;
+        }
+        .box4:hover,.box5:hover{
+            transform: translateY(-5px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <!-- <div class="box3">1111</div> -->
+    <div class="box4"></div>
+    <div class="box5"></div>
+</body>
+</html>

@@ -68,5 +68,223 @@ p116  米兔练习
 p117 动画
 <a href="/code/animation/p117.html"></a>
 刚做的练习 都是得人去交互，它自己不能动， 我们想搞一个自己能动的， 怎么搞
+    /*动画
+    动画和过渡类似， 都是可以可以实现一些动态的效果。 
+    但是动画不同于过渡， 
+    过渡 要是从一个有效值过渡到另一个有效值的过渡效果，  要属性发生变化时才会触发，
+    但是我们要的动画是 自己就可以一直动，不是要我们触发才行的， 要自动触发动态效果的，
+    所以动画是不能用 transition 的
+
+    
+    设置动画效果 必须要先设置一个关键帧。 
+    关键帧 ，设置了动画执行每一个步骤。
+    如何设置关键帧： 
+        @keyframes text {   text是名字
+            form{   从哪开始  除了用form 还可以用 0%；
+                margin-left: 0px;
+            }
+            to{     到哪结束  和0% 配套的是 100%；
+                margin-left: 400px;
+            }
+        }
+    
+        为属性指定关键帧， 
+            animation-name : xxx, 
+        指定动画的持续时间
+            animation-duration : 3s   持续时间3秒。
+        指定动画的延迟时间
+            animation-delay： 2s  延迟2s执行。 
+        指定动画的运行速度， 
+            animation-timing-function: linear; 匀速运行， 
+        这些属性和过渡效果都是一个意思的。 
+
+    但是动画效果还多出一些属性的。 
+        指定动画执行的次数， 可以重复执行。 
+        animation-iteration-count: 3 重复执行3次。 
+            可选值： 
+                数字，就是次数， 
+                innfinite 无限执行。
+        指定动画运行的方向 
+        animation-direction  
+            默认是normal  从form 向 to 运行 每次都是这样。
+            reverse 从to 向 form 运行 反方向执行。 
+            alternate 从 from 向 to 运行 重复执行动画时反向执行， 
+            alternate-reverse 从 to向form 运行， 重复执行动画时反向执行。 
+            一共这4个可选值， 里面如果alternate 这个单词就是 重复执行时反向执行， 
+                            里面如果🈶️reverse 说的就是 从 to向 form运行。
+        设置动画的执行状态
+        animation-play-state
+            可选值
+            running， 默认值， 动画执行， 
+            paused， 动画暂停
+        animatino-fill-mode ： 动画的填充模式。 
+            可选值： 
+            none, 默认值 动画执行完毕时 元素回到原来的位置。
+            forwards 动画执行完毕 元素会停止在动画结束的位置。
+            backwards 动画延时等待时， 元素就会处于开始位置。 
+            both ,结合了两个可选值的特点， 延时等待时就是处在了开始位置，并且动画执行完毕后 元素停止到动画结束的位置了
+
+        这个也又简写属性 ，animation  就一个限制： 持续时间在延迟时间前面就行 
+        animation: text 2s 3 alternate both;
+        关键帧名字text 持续时间2s 3次， 反复执行时反向运行， 填充模式为both, 停在动画结束位置。
+    */
+
+
+p118
+练习
+<a href="/code/animation/p118.html"></a>
+偏移量用整张图片， 步骤用实际的图片的数量就行
+
+
+p119 
+关键帧
+<a href="/code/animation/p119.html"></a>
+关键帧还可以这么用， form 为0% ， 用百分比来指定动画进行到那个时候应该是什么样的。
+
+@keyframes ball {
+    form{
+        margin-top: 0px;
+    }
+    20%,60%,to{
+        margin-top: 400px;
+    }
+    40%{
+        margin-top: 100px;
+    }
+    80%{
+        margin-top: 300px;
+    }
+}
+
+
+p120
+变形平移
+<a href="/code/animation/p120.html"></a>
+x轴，y轴 平移；
+/*变形平移
+    变形就是指通过css 来改变元素的形状或位置， 
+        变形是不会影响到页面的布局的。 
+    
+    transform  用来设置元素的变形效果。
+        平移： 
+            translateX() 沿着x轴方向平移  往右走是正的，往左走是负的
+            translateY() 沿着Y轴方向平移  往下走是正的，往上走是负的
+            translateZ() 沿着Z轴方向平移  往出走是正的，往里走是负的
+        我们在平移元素时， 可以用px, 也可以用% ， %是相对于 自己来说的。
+
+    
+    可以同时写多个变形 ， 多个变形时 也只能这么写， 如果在写一个，上一个就会被覆盖掉的。
+    transform: translateX(-50%) translateY(-50%);
+*/
+又一种 水平垂直居中方法：
+.box3{
+    background-color: orange;
+    position: absolute;
+    /* 
+    定位的那种使元素水平垂直居中的方法，有局限性 ，它只能在元素有宽高的情况下，使用
+        width: 100px;
+        height: 100px;
+        background-color: orange;
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        margin: auto;
+    
+    下面这个可以在没有宽高的情况下使用， 通过变形的方法： 
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        先偏移父元素的一半， 在平移自己的一半， 正好在水平和垂直中间了就。 
+    */
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+
+p121
+z轴平移
+<a href="/code/animation/p121.html"></a>
+
+/*平移之 z轴平移
+    z轴平移： 调整元素在z轴的位置， 正常情况就是调整元素和人眼之间的距离， 
+    距离越大， 元素离人越近。 
+
+    z轴平移属于立体效果（近大远小), 默认情况下网页是不支持透视的， 如果需要看见效果
+    必须要设置网页的视距。
+    设置当前网页的视距为800px, 人眼距离网页的距离 
+    perspective: 800px;
+
+    我们之所以能看到，变大了， 是因为离我们眼睛近了， 并不是真正的大了， 
+    而且这是没有旋转的情况下 如果旋转了， 可能z轴的方向就不是屏幕到眼睛的方向了，旋转后轴方向可能就变了， 
+*/
+
+
+
+p122
+旋转
+<a href="/code/animation/p122.html"></a>
+ 
+    /*旋转
+        通过旋转 ，可以使元素沿着x y 或 z 旋转指定的角度
+    transform: ;
+        rotateZ(90deg) 
+        rotateX(90deg) 
+        rotateY(90deg)
+    分别对应不同的轴 旋转角度；
+    里面的单位可以是 deg 就是度的意思， 
+            可以是 turn 就是圈的意思， 
+    当旋转了不同的轴后， 其他轴方向就变了， 所以谁先旋转也是有区别的。 要注意下。
+    transform: rotateY(180deg) translateZ(400px);
+
+
+    backface-visibility: 这个意思是这个元素的背面能不能显示。 
+    当发生翻转的时候， 会看到它背面的样子，
+    如果不想显示就用 hidden 
+    显示就用 visible
+        
+    */
+
+
+p123
+做一个表 自己练习
+<a href="/code/animation/p123.html"></a>
+老师想的
+<a href="/code/animation/p123-2.html"></a>
+领悟是：
+1 一样的东西， 能抽离就抽离出来， 
+2 尽量写成百分比的形式，别写死了， 
+
+
+
+p124
+立体3d 正方体的 每面都有图片的那种
+<a href="/code/animation/p124.html"></a>
+
+
+p125
+transform 变形 之 缩放
+<a href="/code/animation/p125.html"></a>
+
+/*transform 变形 之 缩放
+就是元素的放大和缩小。
+transform: 
+    scaleX(2);   x轴方向 放到2倍， 如果.2 就是缩小。
+    scaleY(2);   y轴方向 放到2倍， 如果.2 就是缩小。
+    scale(2);    如果没写xy, 就是双方向放大 缩小。 
+还有 scaleZ(2); 但是不常用， 因为z轴只有在3d立体效果中才能看到感受到。
+
+变形的原点：
+transform-orgin  变形的原点
+    默认值 是 center,  就是中心的意思。 
+    可以使用 20px 20px 这种改变的变形原点， 
+    之前学习的变形平移， 都有个原点， 就是通过这个去设置。 
+
+*/
+
+
+
 
 

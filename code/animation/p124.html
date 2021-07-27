@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            /* 设置视距 不设置视距的话，没有近大远小 看不出来哪个近哪个远*/
+            perspective:800px;
+        }
+        
+        .cate{
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            /* 要开启3d效果， 要不只是个片片*/
+            transform-style: preserve-3d;
+            /* 设置动画效果 动起来*/
+            animation: zhuan 10s linear infinite;
+        }
+        
+        /* 关键帧设置 沿着z 和 x 轴 转动 */
+        @keyframes zhuan {
+            form{
+                transform: rotateX(0deg) rotateZ(0deg);
+            }
+            to{
+                transform: rotateX(360deg) rotateZ(360deg);
+            }
+        }
+
+
+        .cate>div{
+            /* 浮动起来*/
+            position: absolute;
+            /* 为元素设置透明效果*/
+            opacity: .8;
+        }
+        /* 上图片们没有间隙*/
+        .cate>div img{
+            vertical-align: top;
+        }
+        .box1{ /* 作为正方体的右面*/
+            transform:rotateY(90deg) translateZ(100px);
+        }
+        .box2{ /* 作为正方体的左面*/
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+        .box3{  /* 作为正方体的上面*/
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        .box4{  /* 作为正方体的下面*/
+            transform: rotateX(-90deg) translateZ(100px);    
+        }
+        .box5{  /* 作为正方体的后面*/
+            transform: rotateY(-180deg) translateZ(100px);
+        }
+        .box6{  /* 作为正方体的前面*/
+            transform: translateZ(100px);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="cate">
+        <div class="box1">
+            <img src="../imgs/quanhuang_1.jpg" alt="">
+        </div>
+        <div class="box2">
+            <img src="../imgs/quanhuang_2.jpg" alt="">
+        </div>
+        <div class="box3">
+            <img src="../imgs/quanhuang_3.jpg" alt="">
+        </div>
+        <div class="box4">
+            <img src="../imgs/quanhuang_4.jpg" alt="">
+        </div>
+        <div class="box5">
+            <img src="../imgs/quanhuang_5.jpg" alt="">
+        </div>
+        <div class="box6">
+            <img src="../imgs/quanhuang_6.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>

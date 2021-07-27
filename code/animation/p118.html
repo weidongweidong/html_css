@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 米兔走路 */
+        .box1{
+            width: 132px;
+            height: 276px;
+            margin: 0px auto;
+            background-repeat:repeat-x;
+            background-position: 0px 0px;
+            background-image: url(https://img-blog.csdnimg.cn/20210209203302939.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDY0NzU1NQ==,size_16,color_FFFFFF,t_70#pic_center);
+            animation-iteration-count:infinite;
+            animation-name: box1;
+            animation-duration: 2s;
+            animation-timing-function: steps(4);
+            animation-fill-mode: both;
+        
+        }
+
+        @keyframes box1 {
+            form{
+                background-position: 0px 0px;
+            }
+            to{
+                background-position: -528px  0px;
+            }
+        }
+
+
+        /* 小人跑步 */
+        .box2{
+            height: 136px;
+            width: 120px;
+            margin: 0px auto;
+            background-repeat: repeat-x;
+            background-image: url(https://img-blog.csdnimg.cn/20210209203311354.png#pic_center);
+            background-position: 0px 0px;
+            animation-name: box2;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: steps(10);
+        }
+
+        @keyframes box2 {
+            form{
+                background-position: 0px 0px;
+            }
+            to{
+                background-position: -1200px 0px;
+            }
+        }
+
+      
+    </style>
+</head>
+<body>
+    <div class="box1">
+    </div>
+    <!-- <img src="https://img-blog.csdnimg.cn/20210209203302939.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDY0NzU1NQ==,size_16,color_FFFFFF,t_70#pic_center" alt=""> -->
+
+    <div class="box2"></div>
+    <img src="https://img-blog.csdnimg.cn/20210209203311354.png#pic_center" alt="">
+      <!-- <div style="display: flex;justify-content:space-arounds">
+        <img src="https://img-blog.csdnimg.cn/20210209203302939.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDY0NzU1NQ==,size_16,color_FFFFFF,t_70#pic_center" alt="">
+        <img src="https://img-blog.csdnimg.cn/20210209203302939.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDY0NzU1NQ==,size_16,color_FFFFFF,t_70#pic_center" alt="">
+    </div> -->
+</body>
+</html>

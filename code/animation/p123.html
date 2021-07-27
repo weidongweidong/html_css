@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时钟练习</title>
+    <style>
+
+        .box{
+            position: absolute;
+            left: 50%;
+            transform:translateX(-50%) rotateZ(0deg);
+            width: 200px;
+            height: 200px;
+            animation: tron 60s infinite linear;
+        }
+        .box1{
+            position:absolute;
+            left: 50%;
+            transform:translateX(-50%);
+            width: 180px;
+            height: 180px;
+            top: 10px;
+            animation: tron 3600s infinite linear;
+        }
+        .box2{
+            position:absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 160px;
+            height: 160px;
+           /* background-color: rgba(0, 0, 0, 0.2);*/
+            top: 20px;
+            animation: tron 43200s infinite linear;
+        }
+        .second{
+            width: 2px;
+            height: 100px;
+            background-color: red;
+            margin: 0px auto;
+        }
+        @keyframes tron {
+            form{
+                transform: translateX(-50%) ;
+            }
+            to{
+                transform: translateX(-50%) rotateZ(360deg);
+            }
+        }
+
+
+        .minute{
+            width: 2px;
+            height: 90px;
+            background-color: green;
+            margin: 0px auto;
+        }
+
+
+        .hour{
+            width: 2px;
+            height: 80px;
+            background-color: black;
+            margin: 0px auto;
+        }
+
+        .clock{
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+        .clockDial{
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background-size: 100%;
+            background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.soutu123.cn%2Felement_origin_min_pic%2F16%2F11%2F17%2Fb2627bd8984dc10de4134ddb559e1c20.jpg%21%2Ffw%2F700%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue&refer=http%3A%2F%2Fpic.soutu123.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1629963752&t=5e4a2f7f1b8bad750e21ce5ed63f6f2f);
+        }
+        .core{
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: red;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+        .clock{
+            margin: 0px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="clockDial"></div>
+        <div class="box">
+            <div class="second"></div>
+        </div>
+        <div class="box1">
+            <div class="minute"></div>
+        </div>
+        <div class="box2">
+            <div class="hour"></div>
+        </div>
+        <div class="core"></div>
+    </div>
+</body>
+</html>

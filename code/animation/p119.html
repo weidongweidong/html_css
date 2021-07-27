@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*关键帧
+
+        
+        
+        */
+        .outer div{
+            float: left;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #bfa;
+            margin-top: 0px;
+            animation: ball 1s forwards linear infinite;
+        }
+        .outer{
+            height: 500px;
+            border-bottom: 10px solid blueviolet;
+            overflow: hidden;
+            margin: 50px auto;
+        }
+        @keyframes ball {
+            form{
+                margin-top: 0px;
+            }
+            20%,60%,to{
+                margin-top: 400px;
+            }
+            40%{
+                margin-top: 100px;
+            }
+            80%{
+                margin-top: 300px;
+            }
+        }
+        div.box2{
+            background-color: blueviolet;
+            animation-delay: 0.1s;
+        }
+        div.box3{
+            background-color: rgb(104, 159, 16);
+            animation-delay: 0.2s;
+        }
+        div.box4{
+            background-color: rgb(226, 43, 46);
+            animation-delay: 0.3s;
+        }
+        div.box5{
+            background-color: rgb(43, 198, 226);
+            animation-delay: 0.4s;
+        }
+        div.box6{
+            background-color: rgb(157, 157, 157);
+            animation-delay: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="box4"></div>
+        <div class="box5"></div>
+        <div class="box6"></div>
+    </div>
+</body>
+</html>

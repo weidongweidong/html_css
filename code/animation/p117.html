@@ -6,10 +6,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        /*动画
+        动画和过渡类似， 都是可以可以实现一些动态的效果。 
+        但是动画不同于过渡， 
+        过渡 要是从一个有效值过渡到另一个有效值的过渡效果，  要属性发生变化时才会触发，
+        但是我们要的动画是 自己就可以一直动，不是要我们触发才行的， 要自动触发动态效果的，
+        所以动画是不能用 transition 的
+
         
+        设置动画效果 必须要先设置一个关键帧。 
+        关键帧 ，设置了动画执行每一个步骤。
+        如何设置关键帧： 
+            @keyframes text {   text是名字
+                form{   从哪开始  除了用form 还可以用 0%；
+                    margin-left: 0px;
+                }
+                to{     到哪结束  和0% 配套的是 100%；
+                    margin-left: 400px;
+                }
+            }
+        
+            为属性指定关键帧， 
+                animation-name : xxx, 
+            指定动画的持续时间
+                animation-duration : 3s   持续时间3秒。
+            指定动画的延迟时间
+                animation-delay： 2s  延迟2s执行。 
+            指定动画的运行速度， 
+                animation-timing-function: linear; 匀速运行， 
+            这些属性和过渡效果都是一个意思的。 
+
+        但是动画效果还多出一些属性的。 
+            指定动画执行的次数， 可以重复执行。 
+            animation-iteration-count: 3 重复执行3次。 
+                可选值： 
+                    数字，就是次数， 
+                    innfinite 无限执行。
+            指定动画运行的方向 
+            animation-direction  
+                默认是normal  从form 向 to 运行 每次都是这样。
+                reverse 从to 向 form 运行 反方向执行。 
+                alternate 从 from 向 to 运行 重复执行动画时反向执行， 
+                alternate-reverse 从 to向form 运行， 重复执行动画时反向执行。 
+                一共这4个可选值， 里面如果alternate 这个单词就是 重复执行时反向执行， 
+                               里面如果🈶️reverse 说的就是 从 to向 form运行。
+            设置动画的执行状态
+            animation-play-state
+                可选值
+                running， 默认值， 动画执行， 
+                paused， 动画暂停
+            animatino-fill-mode ： 动画的填充模式。 
+                可选值： 
+                none, 默认值 动画执行完毕时 元素回到原来的位置。
+                forwards 动画执行完毕 元素会停止在动画结束的位置。
+                backwards 动画延时等待时， 元素就会处于开始位置。 
+                both ,结合了两个可选值的特点， 延时等待时就是处在了开始位置，并且动画执行完毕后 元素停止到动画结束的位置了
+
+            这个也又简写属性 ，animation  就一个限制： 持续时间在延迟时间前面就行 
+            animation: text 2s 3 alternate both;
+            关键帧名字text 持续时间2s 3次， 反复执行时反向运行， 填充模式为both, 停在动画结束位置。
+        */
+        .box1{
+            width: 500px;
+            height: 500px;
+            background-color: #bfa;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: #baf;
+            margin-left: 0px;
+            animation-name: text;
+            animation-duration: 2s;
+            animation-iteration-count: 3;
+            animation-direction: alternate;
+            animation-fill-mode: both;
+           
+        }
+
+        .box1:hover div{
+            animation-play-state: paused;
+        }
+       
+        @keyframes text {
+            0%{
+                margin-left: 0px;
+            }
+            100%{
+                margin-left: 400px;
+            }
+        }
+
     </style>
 </head>
 <body>
-    
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
 </body>
 </html>

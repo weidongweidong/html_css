@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时钟</title>
+    <style>
+        /* 所有指针都是遵循这个规则来转动的。 */
+        @keyframes tron {
+            form{
+                transform: rotateZ(0deg);
+            }
+            to{
+                transform: rotateZ(360deg);
+            }
+        }
+
+        .clock{
+            position: relative;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background-size: 100%;
+            background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.soutu123.cn%2Felement_origin_min_pic%2F16%2F11%2F17%2Fb2627bd8984dc10de4134ddb559e1c20.jpg%21%2Ffw%2F700%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue&refer=http%3A%2F%2Fpic.soutu123.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1629963752&t=5e4a2f7f1b8bad750e21ce5ed63f6f2f);
+            margin: 0px auto;  
+        }
+        /*  里面的所有div都应该居中 */
+        .clock > div{
+            top: 0px;
+            left: 0px;
+            bottom: 0px;
+            right: 0px;
+            margin: auto;
+        }
+        .hour-wrapper{
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            animation: tron 7200s linear infinite both;
+        }
+        .hour{
+            height: 50%;
+            width: 6px;
+            background-color: #000;
+            margin: 0px auto;
+        }
+        .minute-wrapper{
+            position:absolute;
+            width: 80%;
+            height: 80%;
+            animation: tron 600s steps(60) infinite both;
+        }
+        .minute{
+            height: 50%;
+            width: 4px;
+            background-color:blueviolet;
+            margin: 0px auto;
+        }
+        .second-wrapper{
+            position:absolute;
+            width: 90%;
+            height: 90%;
+            animation: tron 10s steps(60) infinite both;
+        }
+        .second{
+            height: 50%;
+            width: 2px;
+            background-color:red;
+            margin: 0px auto;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <!-- 时针 -->
+        <div class="hour-wrapper">
+            <div class="hour"></div>
+        </div>
+        <!-- 分针 -->
+        <div class="minute-wrapper">
+            <div class="minute"></div>
+        </div>
+        <!-- 秒针 -->
+        <div class="second-wrapper">
+            <div class="second"></div>
+        </div>
+    </div>
+</body>
+</html>
