@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=375, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*完美视口
+        移动端默认的视口大小是 980（css像素）
+            默认情况下， 移动端的像素比就是 980 /移动端宽度（iphone6 是750）
+            如果我们直接在网页中编写移动端代码， 这样在980的视口下
+            像素比是非常不好的， 导致手机网页中的内容会非常非常非常小的。
+
+        所以 编写移动页面 必须要确保又一个比较合理的像素比才行。
+          1个css 像素  对应多个 物理像素 
+          这样出来的东西才不会特别的小。 
+
+        怎么找一个比较好的像素比呢？ 
+        可以通过meta标签来设置视口大小。 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        viewport 就是用来设置视口大小的
+        content 里面设置  width 是 视口宽度， 我们通过设置这个就能调整 css像素与实际像素的比值。
+        比如设置个 980 就是  一个css对应一个物理像素， 但是这样会小
+        设置个 375  375 / 980  就是 完美的 1css : 2物理像素， 
+        好是好， 但是换个设备就不行了， 
+        于是 有了这个  width=device-width 
+        这是浏览器的变量， 设备完美视口的变量， 换设备也能保持完美视口，
+        initial-scale=1.0 这是定义默认不缩放，
+
+
+        结论： 以后写移动端的页面，
+        就把上边那个mate标签先写上， 让他是个完美视口在说。
+        
+
+
+        */
+        .box1{
+            width: 375px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*flex 弹性盒子
+        
+        flex(弹性盒， 伸缩盒)
+            是css中又一种布局手段， 它主要用于代替浮动来完成页面的布局。
+            之前我们用浮动， 浮动主要目的就是让元素可以横着排列， 但是浮动会带来很多问题： 脱离了文档流 还有高度塌陷， 还要清除浮动， 等等， 
+            flex 就在css3中为了解决这些问题 做出来的代替浮动的技术   用了flex的可以不用浮动了， 
+            flex 可以使元素具有弹性， 让元素可以跟随页面的大小的改变而改变。
+            非常的牛逼
+        
+        flex 可以使元素具有弹性， 让元素可以跟随页面的大小的改变而改变。 
+        弹性容器 ：
+            要使用弹性盒 ，必须先将一个元素设置为弹性容器。 
+            我们通过dispaly： 来设置弹性容器。 
+                display: flex, 设置为块级弹性容器。 
+                display: flex-inline ，设置为行内弹性容器。 
+                不同就是块级独占一行， 行内不独占一行， 就这么个区别 。 
+        弹性元素：
+            弹性容器的子元素是弹性元素，（弹性项） ， 子元素是，但是子元素的子元素就不是了， 
+            弹性元素可以同时弹性容器和弹性元素， 就是它的父元素设置了flex ， 它本身也可以设置flex 不冲突；
+
+        跟flex有关的属性都要分给弹性容器设置的还是给弹性元素设置的： 
+        弹性容器的属性： 
+            flex-direction 给容器设置的, 指定容器中弹性元素的排列方式
+                可选值： 
+                    row 默认值， 弹性元素在容器中水平排列（左向右）
+                    row-reverse 弹性元素在容器中反向水平排列（右向左）
+                    column 弹性元素在容器纵向排列 （上向下）
+                    column-reverse 弹性元素在容器中纵向反向排列 （下向上）
+            弹性容器还有两个概念： 
+                主轴； 弹性元素的排列方向称为主轴， 
+                侧轴： 与主轴垂直方向的称为侧轴。
+        
+
+
+
+        弹性元素的属性：
+            flex-grow ,指定弹性元素的伸展的系数，
+            当父元素有多余空间时， 子元素如何伸展
+            父元素的剩余空间， 会按照比例进行分配
+            默认值是 0 ， 不伸展，  
+            不为1时， 为子元素们的伸展比例。每个子元素的伸展份数。
+            值越大， 就越比兄弟元素伸展的多， 有比例的。  
+
+            flex-shrink 指定弹性元素的收缩系数， 
+            当父元素中的空间不足以容纳子元素的时候
+            默认值是 1 ，  等比例收缩。
+            为0 时， 不收缩。
+            值越大， 就越比兄弟元素 收缩的多， 有比例的。 
+
+
+
+
+        */
+        *{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+        ul{
+            width: 400px;
+            border: 5px black solid;
+            display: flex;
+            flex-direction: row;
+        }
+        ul li{
+            font-size: 40px;
+            text-align: center;
+            line-height: 100px;
+            width: 200px;
+            height: 100px;
+            background-color: red;
+            flex-shrink: 1;
+        }
+        ul li:nth-child(2){
+            background-color: greenyellow;
+            flex-shrink: 2;
+        }
+        ul li:nth-child(3){
+            background-color: blue;
+            flex-shrink: 3;
+        }
+
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</body>
+</html>

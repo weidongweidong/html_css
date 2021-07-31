@@ -1,0 +1,362 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+html {
+  font-size: 5.33333333vw;
+}
+.w,
+.top-warpper,
+.ad-list,
+.content .nav,
+.content .articles,
+.content .wendas,
+.img-list,
+.doc-list,
+.video-list {
+  width: 17.5rem;
+  margin: 0rem auto;
+}
+.top-warpper {
+  background-color: #fff;
+  padding: 0px 0.35rem;
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 999;
+  width: 18.75rem;
+  top: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2.25rem;
+  line-height: 2.25rem;
+}
+.top-warpper a {
+  flex-direction: row;
+}
+.top-warpper img {
+  width: 9rem;
+  vertical-align: middle;
+}
+.top-warpper .kuozhan {
+  width: 1.1rem;
+  height: 0.1rem;
+  background-color: black;
+  content: "";
+  position: relative;
+}
+.top-warpper .kuozhan::after {
+  position: absolute;
+  top: 0.25rem;
+  width: 1.1rem;
+  height: 0.1rem;
+  background-color: black;
+  content: "";
+}
+.top-warpper .kuozhan::before {
+  position: absolute;
+  top: -0.25rem;
+  width: 1.1rem;
+  height: 0.1rem;
+  background-color: black;
+  content: "";
+}
+.top-banner {
+  margin-top: 2.25rem;
+  display: flex;
+  overflow: auto;
+}
+.top-banner a {
+  margin-right: 1rem;
+  flex: none;
+  height: 100%;
+}
+.top-banner a:last-child {
+  margin-right: 0;
+}
+.top-banner a img {
+  width: 18.75rem;
+  height: 8rem;
+  vertical-align: bottom;
+}
+.ad-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  height: 9rem;
+  align-content: space-around;
+  justify-content: space-around;
+}
+.ad-list .item a {
+  width: 8.25rem;
+  height: 3.9rem;
+  display: block;
+}
+.ad-list .item a img {
+  width: 100%;
+  height: 100%;
+}
+.content .title {
+  border-bottom: 2px solid #eee;
+  position: relative;
+  text-align: center;
+  color: #333;
+  font-size: 0.75rem;
+}
+.content .title .border {
+  position: absolute;
+  width: 2rem;
+  height: 0.1rem;
+  left: 8.35rem;
+  background-color: #de778a;
+}
+.content .title h2 {
+  position: relative;
+}
+.content .title h2::before {
+  content: "";
+  color: black;
+  width: 1.75rem;
+  height: 1.25rem;
+  background-size: 7.5rem;
+  background-image: url("https://img.haoyunbang.cn/cooperate_file/images/icon_small_imgs_group.png");
+  position: absolute;
+  margin-left: -2rem;
+}
+.content .title h2::after {
+  content: "";
+  color: black;
+  width: 1.75rem;
+  height: 1.25rem;
+  background-size: 7.5rem;
+  background-image: url("https://img.haoyunbang.cn/cooperate_file/images/icon_small_imgs_group.png");
+  position: absolute;
+  margin-left: 0.5rem;
+}
+.content .nav {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  overflow: auto;
+  height: 2.5rem;
+  align-items: center;
+}
+.content .nav li {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  margin: 0px 0.5rem;
+  flex: none;
+}
+.content .nav li a {
+  margin: 0px 0.75rem;
+  display: block;
+  color: #666;
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+.content .nav li.active,
+.content .nav li:active {
+  border-radius: 1rem;
+  background-color: #ed7089;
+}
+.content .nav li.active a,
+.content .nav li:active a {
+  color: #fff;
+}
+.content .articles {
+  display: flex;
+  flex-direction: column;
+}
+.content .articles-item {
+  margin: 0.3rem 0;
+}
+.content .articles-item a {
+  text-decoration: none;
+}
+.content .articles-item .articles-title a {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #333;
+}
+.content .articles-item .content {
+  letter-spacing: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /*要显示的行数*/
+  -webkit-box-orient: vertical;
+  height: 1.75rem;
+  overflow: hidden;
+  line-height: 0.7rem;
+}
+.content .articles-item .content a {
+  font-size: 0.65rem;
+  color: #999;
+}
+.content .wendas {
+  margin-top: 0.5rem;
+}
+.content .wendas a {
+  text-decoration: none;
+}
+.content .wendas .wendas-item {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
+  height: 9rem;
+}
+.content .wendas .wendas-item .wendas-question {
+  position: relative;
+  margin-left: 1.5rem;
+}
+.content .wendas .wendas-item .wendas-question::before {
+  left: -1.45rem;
+  top: 0.25rem;
+  content: "";
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-size: 7rem;
+  background-position: -42px 0px;
+  background-image: url(//img.haoyunbang.cn/cooperate_file/images/icon_small_imgs_group.png);
+}
+.content .wendas .wendas-item .wendas-question a {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #333;
+}
+.content .wendas .wendas-item .wendas-answer {
+  height: 5.5rem;
+  background-color: #f7f5f5;
+}
+.content .wendas .wendas-item .wendas-answer a {
+  font-size: 0.75rem;
+  color: #333;
+}
+.content .wendas .wendas-item .wendas-answer a .content {
+  margin: 0.25rem 0.65rem;
+  line-height: 1.35rem;
+  height: 3rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /*要显示的行数*/
+  -webkit-box-orient: vertical;
+}
+.content .wendas .wendas-item .wendas-answer a .avator-info {
+  color: #9b9b9b;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+}
+.content .wendas .wendas-item .wendas-answer a .avator-info img {
+  margin-left: 0.75rem;
+  width: 1.5rem;
+  border-radius: 50%;
+}
+.content .wendas .wendas-item .wendas-answer a .avator-info span {
+  margin-left: 0.75rem;
+}
+.content .wendas .wendas-item .count {
+  margin-left: 0.8rem;
+}
+.content .wendas .wendas-item .count a {
+  font-size: 0.75rem;
+  color: #333;
+}
+.content .wendas .wendas-item .count span {
+  color: red;
+}
+.img-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+.img-list a {
+  display: block;
+  margin: 0.25rem 0;
+}
+.img-list a img {
+  width: 100%;
+}
+.doc-list .doc-item {
+  border-bottom: 1px solid #eee;
+  display: flex;
+  height: 6.5rem;
+}
+.doc-list .doc-item .doc-img {
+  display: block;
+  width: 10.5rem;
+}
+.doc-list .doc-item .doc-img img {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.doc-list .doc-item .doc-info {
+  margin-left: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.doc-list .doc-item .doc-info a {
+  text-decoration: none;
+  color: #000;
+}
+.doc-list .doc-item .doc-info .hosName,
+.doc-list .doc-item .doc-info span {
+  font-size: 0.75rem;
+  color: #9b9b9b;
+}
+.doc-list .doc-item .doc-info .name {
+  font-weight: bold;
+}
+.doc-list .doc-item .doc-info .name span {
+  margin-left: 0.5rem;
+}
+.doc-list .doc-item .doc-info .info {
+  font-size: 0.75rem;
+  height: 2.25rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /*要显示的行数*/
+  -webkit-box-orient: vertical;
+}
+.video-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.video-list .video-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 8.1rem;
+  height: 8.5rem;
+}
+.video-list .video-item img {
+  width: 100%;
+}
+.video-list .video-item .img {
+  position: relative;
+}
+.video-list .video-item .img::before {
+  content: "";
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  position: absolute;
+  height: 1.5rem;
+  width: 1.5rem;
+  background-size: 8rem;
+  background-position-x: -5.25rem;
+  background-image: url(https://img.haoyunbang.cn/cooperate_file/images/icon_small_imgs_group.png);
+}
+.video-list .video-item a {
+  text-decoration: none;
+  font-size: 0.75rem;
+  color: #333;
+}
+/*# sourceMappingURL=./style.css.map */

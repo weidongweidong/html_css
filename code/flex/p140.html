@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*vw适配
+        
+        我们可以 借助 rem来适配 vw ， 
+        rem 是  跟元素的字体大小，
+       
+
+        100vw = 完美视口宽度的话，
+        下面的px指的都是 设计图上的px, 100vw 指的设备上的屏幕宽度。 
+        那么在  750px的设计图中，  1px 等于多少vw  ?       100vw / 750 px = 0.133333vw
+        也就是说  0.1333vw = 1px， 
+
+        1rem = 1个字体大小， 
+        那如果 我们把计算好的0.1333vw(1px) 设置给font-size 那么是不是下面直接写 1rem 就能表示1px了
+        理论上是可以的。 
+
+        那如果 我们要写 48px * 35px 的div 
+        就直接48rem   35rem 就行了 
+        但是 实际上发现这样是不行的。 html 的 font-size 设置不上 无效
+        因为 网页中字体大小最小设置12px 不能设置一个比12像素还小的字体。 
+        我们的 0.1333333vw 显然是很小了，不行
+        于是我们得将它扩大到 能用， 
+        0.1333333 * 40 = 5.33333vw 
+        这样我们再将 font-size = 5.33333vw， 
+        这样的话 相当于  1rem = 40px， 
+        我们再在页面上如果想要一个 48px 的东西， 那么 就用 48 / 40 看它应该用多少个rem显示， 
+        这样就能达到目的了， 
+
+        也可以将font-size设置 3.33333vw 这是 0.133333 的 25倍， 
+        也就是说 3.3333vw 相当于  设计图25px     
+        就是说 1rem = 25px, 
+
+        font-size 设计多大都行， 只要大于 浏览器承认的大小就行。 
+
+
+
+        
+        
+        */
+        *{
+            padding: 0px;
+            margin: 0px;
+            border: none;
+        }
+        html{
+            font-size: 5.333333vw;
+        }
+        .box{
+            /* 这是计算后的rem， 设计图上 48px *  35px 的元素   */
+            height: 0.875rem;
+            width:  1.2rem;
+            background-color: #bfa;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

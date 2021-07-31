@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*flex 弹性盒子
+        弹性元素的属性： 
+            flex-grow : 弹性增长系数， 
+                当父元素还有空隙的时候， 根据这个的比例去拉伸元素
+            flex-shrink： 弹性缩减系数， 
+                当父元素装不下子元素的时候， 根据这个的比例去压缩子元素。 
+                    缩减系数的计算方式比较复杂， 
+                    缩减多少是根据缩减系数和元素大小来计算的， 基本上就是元素越大， 缩减的越多。 
+            flex-basis： 元素的基础长度， 设置了这个， 那元素原来多长就没有用了， 
+                它指定的是元素在主轴上的基础长度， 
+                如果主轴是横向的，则 该值指定的就是元素的宽度， 
+                如果主轴是纵向的，则 该值指定的就是元素的高度。 
+                    他的默认值是auto， 表示的是参考元素自身的高度或宽度。 
+            这三个属性就相当于 弹簧的静止时长度（flex-basis）， 和拉伸弹性（flex-grow）， 和压缩弹性（flex-shrink）。 
+
+            flex: 这是一个简写属性， 可以指定一个子元素的这三个样式。
+                flex: grow shrink basis;
+                例如： flex: 1 1 auto;
+                    说的是 增长为1 缩减为1 基础长度为auto;
+                这个值也有可选值： 
+                    initial ===  flex :0 1 auto;
+                    auto    ===  flex :1 1 auto;
+                    none    ===  flex :0 0 auto;  这种的话， 弹性元素没有弹性了就。 
+            order: 指定子元素的顺序， order越小， 越在前
+
+
+
+
+
+
+    
+        */
+
+        *{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+        ul{
+            width: 800px;
+            border: 5px black solid;
+            /* 使用flex布局 */
+            display: flex;
+        }
+        ul li{
+            font-size: 40px;
+            text-align: center;
+            line-height: 100px;
+            width: 200px;
+            height: 100px;
+            background-color: red;
+        }
+        ul li:nth-child(1){
+            order: 3;
+        }
+        ul li:nth-child(2){
+            order: 1;
+            background-color: greenyellow;
+        }
+        ul li:nth-child(3){
+            order: 2;
+            background-color: blue;
+        }
+
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</body>
+</html>

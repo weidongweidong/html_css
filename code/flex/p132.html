@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* flex 会动的导航条
+        
+        */
+
+        *{
+            padding: 0px;
+            margin: 0px;
+            border: none;
+        }
+        .nav-top{
+            width: 1210px;
+            height: 48px;
+            line-height: 48px;
+            margin: 50px auto;
+            background-color: #E8e7e3;
+            /* 设置弹性盒布局 */
+            display: flex;
+        }
+        .nav-top li{
+            list-style: none;
+        }
+        .nav-top a{
+            /* 设置伸展系数 */ 
+            flex-grow: 1;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            color: #808080;
+            font-size: 16px;
+        }
+        .nav-top a:hover{
+            background-color: #636363;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+    <ul class="nav-top">
+        <a href="javascript:;"><li>HTML 系列教程</li></a>
+        <a href="javascript:;"><li>服务器脚本</li></a>
+        <a href="javascript:;"><li>编程教程</li></a>
+        <a href="javascript:;"><li>XML</li></a>
+        <a href="javascript:;"><li>建站手册</li></a>
+        <a href="javascript:;"><li>参考手册</li></a>
+        <a href="javascript:;"><li>xx技术</li></a>
+    </ul>
+</body>
+</html>

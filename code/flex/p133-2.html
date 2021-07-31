@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*flex 弹性盒子
+        弹性容器属性： 
+            flex-wrap：
+                设置弹性元素是否在弹性容器中自动换行。 
+                可选值： 
+                    nowrap 默认值， 元素不会自动换行。 
+                    wrap 元素沿着辅轴方向自动换行。 
+                    wrap-reverse; 元素沿着辅轴反方向换行。
+            flex-flow:
+                wrap 和 direction 的简写属性
+                可以这么写： row , wrap，  从左到右排列， 并且自动换行。
+            justity-content:
+                如何分配主轴上的空白空间（主轴上的元素如何来排列）
+                可选值： 
+                    flex-start 元素沿着主轴起边排列。 
+                    flex-end 元素沿着主轴终边排列。 
+                    center 元素居中排列。
+                    space-around 空白分布到元素两侧。
+                    space-between 空白均匀分布到元素间。 
+                    space-eyenly 空白分布到元素的单侧。 
+
+            align-items： 
+                元素在辅轴上的如何对齐 设置的是元素之间的对齐方式。
+                说的是flex子项在当前行中 辅轴上如何对齐， （如果主轴是从左到右的话，那么说的就是元素在垂直方向的对齐方式）
+                可选值：
+                    stretch: 默认值 ， 将同一行的元素的高度设置为相同的值。
+                    flex-start 元素不会拉伸，沿着辅轴起边(辅轴的起点)对齐。 
+                    flex-end 元素不会拉伸， 沿着辅轴终边对齐。
+                    center 不拉伸， 在辅轴中间对齐。 
+                    baseline 基线对齐， 在同一行中沿着文字的基线对齐。 
+            
+            align-content：
+                辅轴空白空间的分布，（主轴的空白空间分布是 justity-content）
+                可选值 和 justity-content 一样。 都一个意思。 
+
+
+        
+        弹性元素的属性
+             align-self: flex-end;
+             用来覆盖当前弹性元素上的 align-items 的
+
+
+        justity....都是设置主轴的 
+        align....  都是设置辅轴的
+        */
+
+        *{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+        ul{
+            width: 600px;
+            height: 800px;
+            border: 5px black solid;
+            /* 使用flex布局 */
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            align-content:space-eyenly;
+        }
+        ul li{
+            font-size: 40px;
+            text-align: center;
+            line-height: 100px;
+            width: 200px;
+            background-color: red;
+            /* 设置不收缩 */
+            flex-shrink: 0;
+        }
+        ul li:nth-child(2){
+            background-color: greenyellow;
+        }
+        ul li:nth-child(3){
+            background-color: blue;
+        }
+        ul li:nth-child(4){
+            background-color: green;
+        }
+        ul li:nth-child(5){
+            background-color:grey;
+        }
+
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>
+            2
+            <div>2</div>
+        </li>
+        <li>
+            3
+            <div>3</div>
+            <div>3</div>
+        </li>
+        <li>1</li>
+        <li>
+            2
+            <div>2</div>
+        </li>
+    </ul>
+</body>
+</html>

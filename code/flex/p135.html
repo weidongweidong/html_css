@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            border: none;
+        }
+        /* 将外部容器宽度设置一下*/
+        .nav{
+            width: 100%;
+        }
+        /* 设置每行容器为 弹性容器*/
+        .nav-inner {
+            /* 我们只想让他里面的元素 横过来就行了  */
+            display: flex;
+            justify-content: space-around;
+        }
+        .nav-inner .item{
+            text-align: center;
+            width: 18%;
+            /*
+            background-color: #bfa; 
+            auto 能增长，能收缩，  用不着这个功能， 所以不用，  
+            flex:auto;*/
+            margin-bottom: 4px;
+        }
+        .item img{
+            width: 100%;
+            vertical-align: top;
+        }
+        .item a {
+            color: black;
+            text-decoration: none;
+            display:block;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <div class="item">
+                <a href="#">
+                    <img src="https://gw.alicdn.com/tfs/TB1OIxTcLc3T1VjSZLeXXbZsVXa-183-144.png?getAvatar=1">
+                    <span>中国国际</span>
+                </a>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <img src="https://gw.alicdn.com/tfs/TB1LvIxVAvoK1RjSZFDXXXY3pXa-183-144.png?getAvatar=1">
+                    <span>中国国际</span>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <img src="https://gw.alicdn.com/tfs/TB19uWKXkCy2eVjSZPfXXbdgpXa-183-144.png?getAvatar=1">
+                    <span>中国国际</span>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <img src="https://gw.alicdn.com/tfs/TB1DaMyVpzqK1RjSZFoXXbfcXXa-185-144.png?getAvatar=1">
+                    <span>中国国际</span>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <img src="https://gw.alicdn.com/tfs/TB1FucwVwHqK1RjSZFgXXa7JXXa-183-144.png?getAvatar=1">
+                    <span>中国国际</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="nav-inner">
+            <div class="item">
+                <a href="#">
+                    <img src="https://gw.alicdn.com/tfs/TB1llI3f4n1gK0jSZKPXXXvUXXa-183-144.png?getAvatar=1">
+                    <span>中国国际</span>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <img src="https://gw.alicdn.com/tfs/TB1O_AyVwHqK1RjSZFPXXcwapXa-183-144.png?getAvatar=1">
+                    <span>中国国际</span>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <img src="https://gw.alicdn.com/tfs/TB19yZJVBLoK1RjSZFuXXXn0XXa-183-144.png?getAvatar=1">
+                    <span>中国国际</span>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <img src="https://gw.alicdn.com/tfs/TB16ZYDk4n1gK0jSZKPXXXvUXXa-183-144.png?getAvatar=1">
+                    <span>中国国际</span>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <img src="https://gw.alicdn.com/tfs/TB19dcwVyrpK1RjSZFhXXXSdXXa-183-144.png?getAvatar=1">
+                    <span>中国国际</span>
+                </a>
+            </div>
+        </div>
+
+    </nav>
+</body>
+
+</html>
