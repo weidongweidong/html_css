@@ -12,9 +12,11 @@ html {
 .content .nav,
 .content .articles,
 .content .wendas,
+.content .questions,
 .img-list,
 .doc-list,
-.video-list {
+.video-list,
+.bottom {
   width: 17.5rem;
   margin: 0rem auto;
 }
@@ -170,7 +172,7 @@ html {
   flex-direction: column;
 }
 .content .articles-item {
-  margin: 0.3rem 0;
+  margin: 0.5rem 0;
 }
 .content .articles-item a {
   text-decoration: none;
@@ -186,7 +188,7 @@ html {
   -webkit-line-clamp: 2;
   /*要显示的行数*/
   -webkit-box-orient: vertical;
-  height: 1.75rem;
+  height: 1.6rem;
   overflow: hidden;
   line-height: 0.7rem;
 }
@@ -212,13 +214,13 @@ html {
 }
 .content .wendas .wendas-item .wendas-question::before {
   left: -1.45rem;
-  top: 0.25rem;
+  top: 0.15rem;
   content: "";
   position: absolute;
   width: 1.25rem;
   height: 1.25rem;
   background-size: 7rem;
-  background-position: -42px 0px;
+  background-position: -2.1rem 0;
   background-image: url(//img.haoyunbang.cn/cooperate_file/images/icon_small_imgs_group.png);
 }
 .content .wendas .wendas-item .wendas-question a {
@@ -237,7 +239,7 @@ html {
 .content .wendas .wendas-item .wendas-answer a .content {
   margin: 0.25rem 0.65rem;
   line-height: 1.35rem;
-  height: 3rem;
+  height: 2.9rem;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -267,6 +269,39 @@ html {
 }
 .content .wendas .wendas-item .count span {
   color: red;
+}
+.content .questions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.content .questions .question-item {
+  margin-top: 0.5rem;
+}
+.content .questions .question-item .question-title {
+  color: #333;
+  display: block;
+  font-weight: bold;
+  font-size: 0.85rem;
+  text-decoration: none;
+  margin-left: 0.5rem;
+}
+.content .questions .question-item .list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  list-style: none;
+}
+.content .questions .question-item .list li {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 8rem;
+}
+.content .questions .question-item .list li a {
+  color: #666;
+  text-decoration: none;
+  font-size: 0.75rem;
 }
 .img-list {
   display: flex;
@@ -358,5 +393,101 @@ html {
   text-decoration: none;
   font-size: 0.75rem;
   color: #333;
+}
+.bottom {
+  margin-top: 1.5rem;
+  margin-bottom: 4.5rem;
+  text-align: center;
+}
+.bottom img {
+  width: 2.5rem;
+  display: inline-block;
+}
+.bottom .kouhao {
+  font-size: 0.7rem;
+}
+.bottom .youshi {
+  font-size: 0.6rem;
+  color: #666;
+}
+.bottom .youlian {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+.bottom .youlian li {
+  list-style: none;
+  margin: 0 0.5rem;
+  font-size: 0.75rem;
+}
+.bottom .youlian li a {
+  color: #ed7189;
+  text-decoration: none;
+}
+.bottom .banquan,
+.bottom .banquan-a {
+  font-size: 0.6rem;
+  color: #666;
+  text-decoration: none;
+}
+.zhichi {
+  position: fixed;
+  z-index: 999;
+  width: 18.75rem;
+  height: 2.25rem;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  display: flex;
+  height: 4rem;
+  box-shadow: 0 -0.05rem 0.5rem rgba(0, 0, 0, 0.3);
+  justify-content: space-between;
+  align-content: space-between;
+}
+.zhichi img {
+  height: 5rem;
+  margin-top: -1.25rem;
+}
+.zhichi .text {
+  font-size: 0.7rem;
+  line-height: 1.25rem;
+  margin-top: 0.8rem;
+  margin-left: -3.05rem;
+}
+.zhichi .text .ok {
+  color: #ee7489;
+}
+.zhichi .text .ok span {
+  display: inline-block;
+  padding: 0px 0.2rem;
+  border-radius: 0.75rem;
+  background-color: #ee7489;
+  color: #fff;
+  font-size: 0.7rem;
+  transform: scale(0);
+  animation: suofang 0.5s linear infinite alternate;
+}
+.zhichi .buttom {
+  font-size: 0.75rem;
+  background-color: #fff0f0;
+  width: 4rem;
+  text-align: center;
+}
+.zhichi .buttom a {
+  text-decoration: none;
+  color: #ee7489;
+}
+.zhichi .buttom i {
+  margin-top: 0.7rem;
+  font-size: 1.5rem;
+  display: block;
+}
+@keyframes suofang {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.5);
+  }
 }
 /*# sourceMappingURL=./style.css.map */

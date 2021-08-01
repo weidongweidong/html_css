@@ -187,7 +187,7 @@ html {
         display: flex;
         flex-direction: column;
         &-item{
-            margin: @px*6  0;
+            margin: @px*10  0;
             a{
                 text-decoration: none;
             }
@@ -206,7 +206,7 @@ html {
                 -webkit-box-orient: vertical;
 
 
-                height: @px * 35 ;
+                height: @px * 32 ;
                 overflow: hidden;
                 line-height: @px * 14;
                 a{
@@ -231,13 +231,13 @@ html {
             position: relative;
             &::before{
                 left: -29*@px;
-                top: @px * 5;
+                top: @px * 3;
                 content: "";
                 position:absolute;
                 width: @px * 25;
                 height: @px * 25;
                 background-size: @px * 140;
-                background-position: -42px 0px;
+                background-position: -42*@px 0;
                 background-image:url(//img.haoyunbang.cn/cooperate_file/images/icon_small_imgs_group.png);
             }
             margin-left: @px * 30;
@@ -256,7 +256,7 @@ html {
                     .content{
                         margin: @px*5 @px *13;
                         line-height: @px * 27;
-                        height: @px * 60;
+                        height: @px * 58;
                         overflow: hidden;
                         display: -webkit-box;
                         -webkit-line-clamp: 2;  /*要显示的行数*/
@@ -290,7 +290,39 @@ html {
             }
         }
     }
-
+    .questions:extend(.w){
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .question-item{
+            margin-top: @px *10;
+            .question-title{
+                color: #333;
+                display: block;
+                font-weight: bold;
+                font-size: @px * 17;
+                text-decoration: none;
+                margin-left: @px * 10;
+            }
+            .list{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                list-style: none;
+                li{
+                    a{
+                        color: #666;
+                        text-decoration: none;
+                        font-size: @px * 15;
+                    }
+                    overflow:hidden;
+                    text-overflow:ellipsis;
+                    white-space:nowrap;
+                    width: @px * 160;
+                }
+            }
+        }
+    }
 
 }
 
@@ -387,5 +419,103 @@ html {
             font-size: @px*15;
             color: #333;
         }
+    }
+}
+
+.bottom:extend(.w){
+    margin-top: @px * 30;
+    margin-bottom: @px * 90;
+    text-align: center;
+    img{
+        width: @px*50;
+        display: inline-block;
+    }
+    .kouhao{
+        font-size: @px * 14;
+    }
+    .youshi{
+        font-size: @px * 12;
+        color: #666;
+    }
+    .youlian{
+        margin: @px * 20 0;
+        display: flex;
+        justify-content: center;
+        li {
+            list-style: none;
+            margin: 0 @px* 10;
+            font-size: @px * 15;
+            a{
+                color: #ed7189;
+                text-decoration: none;
+            }
+        }
+    }
+    .banquan,.banquan-a{
+        font-size: @px * 12;
+        color: #666;
+        text-decoration: none;
+    }
+}
+
+.zhichi{
+    position: fixed;
+    z-index: 999;
+    width: @px * 375;
+    height: @px * 45;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    display: flex;
+    height: @px *80;
+    box-shadow: 0 -1 *@px 10*@px rgba(0, 0, 0, .3);
+    justify-content: space-between;
+    align-content: space-between;
+    img{
+        height: @px * 100;
+        margin-top: @px * -25;
+    }
+    .text{
+        .ok{
+            color: #ee7489;
+            span{
+                display: inline-block;
+                padding: 0px @px*4;
+                border-radius: @px * 15%;
+                background-color: #ee7489;
+                color: #fff;
+                font-size: @px * 14;
+                transform: scale(0);
+                animation: suofang 0.5s linear infinite alternate;
+            }
+        }
+        font-size: @px * 14;
+        line-height: @px * 25;
+        margin-top: @px * 16;
+        margin-left: @px * -61;
+    }
+    .buttom{
+        font-size: @px * 15;
+        background-color: #fff0f0;
+        width: @px * 80;
+        text-align: center;
+        a{
+            text-decoration: none;
+            color: #ee7489;
+        }
+        i{
+            margin-top: @px * 14;
+            font-size: @px * 30;
+            display: block;
+        }
+    }
+}
+
+@keyframes suofang {
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(0.5);
     }
 }
