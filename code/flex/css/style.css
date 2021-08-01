@@ -229,9 +229,9 @@ html {
   -webkit-line-clamp: 2;
   /*要显示的行数*/
   -webkit-box-orient: vertical;
-  height: 1.6rem;
+  height: 2rem;
   overflow: hidden;
-  line-height: 0.7rem;
+  line-height: 1rem;
 }
 .content .articles-item .content a {
   font-size: 0.65rem;
