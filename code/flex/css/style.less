@@ -55,24 +55,68 @@ html {
 
     height: @px*45;
     line-height: @px * 45;
-
+    .nav-list{
+        width: @px * 375;
+        height: @px * 820; 
+        z-index: 9999;
+        background-color: rgba(0, 0, 0, 0);
+        position: absolute;
+        display: none;
+        left: 0px;
+        top: 0px;
+        ul{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-42%,-50%);
+            li{
+                list-style: none;
+                a{
+                    text-decoration: none;
+                    color: #fff;
+                    font-size: @px * 20;
+                }
+            }
+        }
+    }
     .kuozhan {
         .kuantiao();
         position: relative;
-
         &::after {
             position: absolute;
-            top: @px * 5;
+            top: @px * 8;
             .kuantiao();
+            transform-origin: 0px 0px;
+            transition:  all 0.3s;
         }
 
         &::before {
             position: absolute;
-            top: -@px * 5;
+            top: -@px * 8;
             .kuantiao();
+            transform-origin: 0px 0px;
+            transition:  all 0.3s;
         }
+        &:active::before{
+            transform: rotateZ(45deg);
+        }
+        &:active::after{
+            transform: rotateZ(-45deg);
+        }
+        &:active{
+            background-color: #fff;
+        }
+        &:active ~ .nav-list{
+            background-color: rgba(0, 0, 0, 0.8);
+            display: block;
+        }
+       
     }
 }
+
+
+
+
 
 .top-banner{
     margin-top: @px * 45;
@@ -460,7 +504,7 @@ html {
 
 .zhichi{
     position: fixed;
-    z-index: 999;
+    z-index: 99;
     width: @px * 375;
     height: @px * 45;
     bottom: 0;
