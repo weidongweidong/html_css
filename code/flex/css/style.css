@@ -93,10 +93,10 @@ html {
   transition: all 0.3s;
 }
 .top-warpper .kuozhan:active::before {
-  transform: rotateZ(45deg);
+  animation: fanzhuan_up 0.1s alternate both;
 }
 .top-warpper .kuozhan:active::after {
-  transform: rotateZ(-45deg);
+  animation: fanzhuan_down 0.1s alternate both;
 }
 .top-warpper .kuozhan:active {
   background-color: #fff;
@@ -104,6 +104,22 @@ html {
 .top-warpper .kuozhan:active ~ .nav-list {
   background-color: rgba(0, 0, 0, 0.8);
   display: block;
+}
+@keyframes fanzhuan_up {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(45deg);
+  }
+}
+@keyframes fanzhuan_down {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(-45deg);
+  }
 }
 .top-banner {
   margin-top: 2.25rem;
