@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*响应式布局。 
+            就是网页可以根据不同的设备或窗口大小，呈现出不同的效果。 
+            这个和纯纯做一个移动端网页不是一样的，  这种还是pc端页面 只是可以根据窗口大小 变换样式的。 
+            通过响应式布局， 可以使一个网页适用于所有设备。 
+
+            响应式布局的关键， 就是 媒体查询， 
+            通过媒体查询， 可以为不同的设备， 或设备不同状态来分别设置样式。 
+
+            怎么用媒体查询呢 ？
+                语法：  @media  查询规则{}
+                媒体类型： 
+                    all  所有设备
+                    print 打印设备，
+                    screen 带屏幕的设备， 
+                    speech 屏幕阅读器。 
+                    可以使用， 连接多个媒体类型， 这样它们之间就是一个或的关系了， 就写上的都可以了；
+                    也可以这样写， 可以在媒体类型前面加一个only 表示只有。
+                    @media only screen {}
+                    写上 only， 可以兼容一些老版本浏览器， 让老版本不用这个样式， 省的出错， only只有新的浏览器认识，
+
+            这样就可以为不同的设备设置不同的样式了。
+
+        */
+        @media print,screen{
+           body{
+                background-color: #bfa;
+           } 
+        }
+      
+    </style>
+</head>
+<body>
+    
+</body>
+</html>

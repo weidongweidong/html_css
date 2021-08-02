@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*媒体特性
+            除了刚讲的 指定设备的关键字， 
+                还有
+                width 视口高度
+                height 视口宽度
+
+                min-width  视口的最小宽度 ，（视口大于指定）
+                max-width  视口的最大宽度 ，（视口小于指定） 
+               
+        样式切换的分界点， 我们称其为断点， 也就是网页的样式 会在这个点时发生变化， 
+        比如这个例子：   width 500px 就是一个断点。
+        @media (min-width: 500px){  //大于500宽时使用里面的样式。 
+            body{
+                background-color: cadetblue;
+            }
+        }
+        一般比较常用的断点。
+
+        小于768的 超小屏幕     max-width:768px;
+        大于768的 小屏幕      min-width : 768px;
+        大于992的屏幕，       min-width : 992px;
+        大于1200 大屏幕       min-width : 1200px；
+
+        不只可以使用一个条件， 
+        多一个括号就可以多个条件了，比如 想要 大于400 小于500的屏幕使用这个样式， 
+        但是两个括号中间不能，号     ，号的话 两个条件是或的关系
+        如果用and  连接，  两个条件就是  并且的关系。 
+
+        大于400 小于500
+        @media (min-width: 400px) and (max-width: 500px){
+            body{
+                background-color: cadetblue;
+            }
+        }
+
+        
+
+        
+        
+        
+        
+        */
+
+        
+        /* 最完整的就是这样的 带屏幕的，并且  在视口在 400px —— 500px 之间 时使用 里面的样式。 
+        */
+        @media only screen and (min-width: 400px) and (max-width: 500px){
+            body{
+                background-color: cadetblue;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
