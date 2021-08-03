@@ -1,0 +1,154 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
+a{
+    text-decoration: none;
+    color: red;
+    &:hover{
+        color: rgb(197, 196, 197);
+    }
+}
+li{
+    list-style: none;
+}
+.top-bar-wrapper{
+    background-color: #000;
+}
+// 导航条的外部容器
+.top-bar{
+    max-width: 1200px;
+    margin: 0px auto;
+    height: 48px;
+    padding: 0 14px;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+// 设置左侧的导航
+.left-menu{
+    &:hover{
+        .nav{
+            display: block; 
+        }
+    }
+    .nav{
+        display: none;
+        position: absolute;
+        top: 48px;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        background-color: #000;
+        padding-top: 60px;
+        li{
+            width: 80%;
+            margin: 0 auto;
+            border-bottom: 1px solid #989797;
+            a{
+                display: block;
+                line-height: 44px;
+                font-size: 14px;
+            }
+            &:last-child a{
+                display: inline;
+                margin-right: 6px;
+            }
+            span{
+                color: #fff;
+                font-size: 14px;
+            }
+        }
+    }
+
+    .menu-icon{
+        width: 18px;
+        height: 48px;
+        position: relative;
+        li{
+            width: 18px;
+            height: 1px;
+            background-color: #fff;
+            position: absolute;
+            transform-origin: left center;
+            transition: 0.5s;
+        }
+        li:nth-child(1){
+            top: 18px;
+        }
+        li:nth-child(2){
+            top: 24px;
+        }
+        li:nth-child(3){
+            top: 30px;
+        }
+        // 鼠标移入后， 两条线变形 中间隐藏
+        &:hover{
+            li:nth-child(1){
+                transform: rotateZ(40deg);
+            }
+            li:nth-child(2){
+                // 隐藏
+                opacity: 0;
+            }
+            li:nth-child(3){
+                transform: rotateZ(-40deg);
+            }
+        }
+    }
+}
+.user-info a i{
+    float: left !important;
+}
+
+.logo{
+    height: 48px;
+    a{
+        img{
+            height: 80%;
+        }
+    }
+}
+
+@media only screen {
+    @media (min-width:768px){
+       .left-menu{ 
+            &:hover{
+                .nav{
+                    display: flex; 
+                }
+            }
+           flex: auto;
+           order: 2;
+           .menu-icon{
+               display: none;
+           }
+           .nav{
+               display: flex;
+               position: static;
+               padding: 0;
+               justify-content: space-around;
+               li{
+                    width: auto;
+                    border-bottom:none;
+                    margin: 0;
+                    a{
+                        line-height: 48px;
+                    }
+                    span{
+                        display: none;
+                    }
+               }
+           }
+       }
+       .logo{
+           order: 1;
+       }
+       .user-info{
+           order: 3;
+       }
+    }
+}
