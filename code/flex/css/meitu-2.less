@@ -1,0 +1,177 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+a{
+    text-decoration: none;
+    font-size: 14px;
+    color: red;
+}
+li{
+    list-style: none;
+}
+
+.top-bar-wrapper{
+    background-color: #000;
+    
+    .top-bar{
+        margin: 0px auto;
+        padding: 0px 20px;
+        height: 48px;
+        max-width: 1000px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .left-menu{
+            &:hover{
+                .nav{
+                   display: block;
+                }
+            }
+            .nav{
+                display: none;
+                background-color: rgba(0, 0, 0, 0.9);
+                position: absolute;
+                top: 48px;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+                padding-top: 25%;
+                li{
+                    line-height: 50px;
+                    border-bottom: 1px solid rgb(174, 174, 174);
+                    margin: 0px auto;
+                    width: 80%;
+                    a{
+                        display: block;
+                        color: #fff;
+                    }
+                    span{
+                        color: #fff;
+                    }
+                    i{
+                        margin-left: 5px;
+                        margin-right: 10px;
+                    }
+                }
+                span{
+                    color: red;
+                }
+            }
+            .daohang{
+                width: 40px;
+                height: 48px;
+                position: relative;
+                li{
+                    width: 30px;
+                    height: 1px;
+                    background-color: #fff;
+                    position: absolute;
+                    top: 15px;
+                    left: 0px;
+                    right: 0px;
+                    margin: 0px auto;
+                    transition: 0.3s;
+                    transform-origin: left center;
+                }
+                li:nth-child(2){
+                    top: 25px;
+                }
+                li:nth-child(3){
+                    top: 35px;
+                }
+                &:hover{
+                    li:nth-child(1){
+                        transform: rotateZ(43deg);
+                    }
+                    li:nth-child(2){
+                        opacity: 0;
+                    }
+                    li:nth-child(3){
+                        transform: rotateZ(-43deg);
+                    }
+                }
+            }
+        }
+        .logo{
+            height: 48px;
+            h1{
+                position: absolute;
+                text-indent: -1000px;
+            }
+            a {
+                display: table-cell;
+                height: 48px;
+                vertical-align: middle;
+                img{
+                    height: 80%;
+                    vertical-align:middle;
+                }
+            }
+        }
+        .car{
+            a{
+                i{
+                    float: left;
+                    font-size: 29px;
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen {
+    @media (min-width: 768px) {
+        .top-bar-wrapper{
+           .top-bar{
+              .left-menu{
+                &:hover{
+                    .nav{
+                        display: flex;
+                    }
+                }
+                flex: auto;
+                order: 2;
+                .daohang{
+                    display: none;
+                }
+                .nav{
+                    transition: 0s;
+                    opacity: 1;
+                    transform: rotateZ(0deg);
+                    display: flex;
+                    justify-content: space-evenly;
+                    position: static;
+                    padding-top: 0px;
+                    li{
+                        line-height: auto;
+                        width: auto;
+                        margin: 0;
+                        border-bottom: none;
+                        a{
+                            line-height: 48px;
+                        }
+                        span{
+                            display: none;
+                        }
+                    }
+                    &:last-child{
+                        i::before{
+                            position: absolute;
+                            top: 2px;
+                        }
+                    }
+                }
+              }
+              .logo{
+                order: 1;
+              }
+              .car{
+                order: 3;
+              }
+           } 
+        }
+    }
+}
