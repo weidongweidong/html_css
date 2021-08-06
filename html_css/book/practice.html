@@ -1,0 +1,84 @@
+
+p100  开始实践 ，小米官网首页
+<a href="/html_css/code_css/code/exercise/mi/index.html"></a>
+输入框， 不让他有样式， 
+.bottom .top .serach input{
+    outline:none;
+    float:left;
+    width: 250px;
+    height: 50px;
+    border: 1px solid #cfcfcf;
+    padding-left:20px;
+    font-size:14px;
+}
+
+<a href="/html_css/code_css/code/exercise/mi/index_teacher.html"></a>
+
+
+/*
+        
+隐藏元素有多种方法
+1 用dispaly : none ， 但是这种，要是有动态效果的 用这个就不太好了， 
+2 先是将高度设置为0 ， 并且 设置overforw： hidden,  这样可以保留动态效果
+   transition 属性 用于设置 样式设置为过渡效果用的， 
+   属性值： 属性名 时间
+   当该属性发生改变时 用后面的时间实现。 
+   transition : height 0.2s;  
+*/
+
+在页面中，有些不想在页面展示， 但是想让搜索引擎看到的文字， 
+那有个办法就是将文字的设置到浏览器外边去， 就看不到了， 并且搜索引擎又能看到。
+/* 隐藏logo中的文字的一个手段 */
+    首行缩进 
+    text-indent: -9999px;
+
+
+/* 隐藏元素 ，但是还要占据位置呢*/
+    .nav_all{
+        visibility: hidden;
+    }
+
+
+/* 让这个固定定位到右边边框上的第一个方法：
+1  right: calc(50% - 663px);  
+2 , margin-right -663px
+因为 浮动后的水平等式是这样的， 
+left + margin-left + width + margin-right + right  = 视口宽度。
+正常是 left 为 auto 的 ， 
+auto       0      +   固定的  + 0          +  0   
+我们的目的 是将 left 设置位动态的， 
+如果设置了 margin-left 那么  auto 这个值 就会将我们设置的值给补偿回来， 
+我们就白设置了， 达不到 目的， 
+我们应该设置 margi-right , 这样的话， 只有left 才是动态改变的， 
+我们要的就是 left 动态改变 维持浮动块一直在右侧。 所以可以。 
+不信可以试下， 
+另一种 ，就是设置 right 50%
+*/
+
+.float-box {
+    position: fixed;
+    width: 50px;
+    height: 200px;
+    right: 50%;
+    margin-right: -663px;
+    bottom: 200px;
+    background-color: orange;
+}
+
+
+以上 是 小米官网 练习中 需要注意或 值得记录的 问题和技巧 
+下面补充一个 知识点
+就是 如何设置 网站的图标， （在标签栏和收藏栏中显示用的）
+<link rel="icon" href="https://s01.mifile.cn/favicon.ico">
+这种图片ico就是专门用来做图标的， 一般都在网站的根目录下， 
+使用 link rel= icon   就可以设置了。 
+
+
+另一个就是要压缩 
+ CSS 都是压缩了， 才小， 加载才块， 用户用着越好， 
+
+
+
+下面开始新的学习， 
+动画。 
+
