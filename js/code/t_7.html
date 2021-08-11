@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>霸王条款</title>
+    <style>
+        .inner{
+            margin: 0px auto;
+            width: 400px;
+            height: 350px;
+            background-color: #bfa;
+            text-align: right;
+        }
+        .text{
+            border: 1px solid black;
+            height: 300px;
+            overflow: auto;
+        }
+        .buttom{
+            margin-right: 30px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            let inp = document.getElementById("inp");
+            let text =  document.getElementById("text");
+            inp.onclick = function(){
+                let value = this.checked;
+                let text = document.getElementById("text");
+                if((text.scrollHeight - text.scrollTop ) != text.clientHeight && value==true){
+                    alert("请阅读完所有在勾选！")
+                    this.checked = false;
+                }
+            }
+            text.onscroll = function(){
+                if((text.scrollHeight - text.scrollTop ) == text.clientHeight){
+                    inp.checked = true;
+                }else{
+                    inp.checked = false;
+                }
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+    <div class="inner">
+            <p id="text" class="text">
+                使用服务和支持。
+                a. Microsoft 帐户。服务的很多内容需要您具有 Microsoft 帐户才能访问和使用。您的 Microsoft 帐户允许您登录以使用 Microsoft 以及某些 Microsoft 合作伙伴提供的产品、网站和服务。
+                i. 创建帐户。您可以通过在线注册创建 Microsoft 帐户。注册 Microsoft 帐户时，您同意不使用任何虚假、不准确的或误导性信息。在某些情况下，第三方（诸如 Internet 服务提供商）可能会为您分配一个 Microsoft 帐户。如果您是从第三方处收到您的 Microsoft 帐户，则第三方可能对您的 Microsoft 帐户有额外的权限，例如能够访问或删除您的 Microsoft 帐户。请查看第三方提供给您的所有附加条款，因为 Microsoft 对这些附加条款不承担任何责任。如果您代表一个实体（如您的企业或雇主）创建 Microsoft 帐户，则您声明您具有约束该实体遵守这些条款的法定权利。您不得将 Microsoft 帐户凭据转让给其他用户或实体。为保护您的帐户，请对您的帐户详细信息和密码进行保密。您应对您的 Microsoft 帐户下发生的所有活动负责。
+                ii. 帐户使用。您必须使用 Microsoft 帐户以确保其处于活动状态。这意味着您在两年内至少要登录一次，以保证 Microsoft 帐户及其相关服务保持活动状态，除非 Microsoft 帐户活动政策（位于 https://go.microsoft.com/fwlink/p/?linkid=2086738）或服务的付费部分的要约中规定了更长的期限。如果您在该时间范围内没有登录，则我们会假定您的 Microsoft 帐户不活动并将为您关闭该帐户。请参阅第 4.a.iv.2 节了解已关闭 Microsoft 帐户的后续结果。您必须在一年内至少分别登录一次您的 Outlook.com 收件箱和 OneDrive，否则，我们将关闭您的 Outlook.com 收件箱和 OneDrive。为使玩家代号与 Microsoft 帐户保持关联，您必须在五年内至少登录一次 Xbox 服务。如果我们有合理理由认为您的 Microsoft 帐户有遭到第三方欺诈性冒用（例如，帐户被入侵所致）的风险，则 Microsoft 可能会暂停您的帐户，直到您可以重新取回所有权。根据入侵的性质，我们可能需要禁止您访问部分或所有内容。如果您在使用 Microsoft 帐户时遇到问题，请访问以下网址：https://go.microsoft.com/fwlink/?LinkId=238656。
+                iii. 儿童和帐户。创建 Microsoft 帐户或使用服务，即表示您接受并同意受本协议条款的约束以及声明自己达到您居住地的“成人”或“承担法定责任”的年龄，或者您的家长或法定监护人代表您同意接受本协议条款的约束。如果您不知道自己是否达到您居住地的“成人”年龄或“承担法定责任”的年龄，或者不理解此部分，请向您的家长或法定监护人寻求帮助。如果您是未年人的家长或法定监护人，则表示您和该未成年人均接受本协议条款并同意受这些条款的约束，并对所有使用 Microsoft 帐户或服务的活动（包括购买）负责（无论该未年人帐户是现已可供使用，还是之后将被创建）。
+                iv. 关闭您的帐户。
+                1. 您可以出于任何原因随时取消特定的服务或关闭您的 Microsoft 帐户。要关闭微软帐户，请访问 https://account.live.com/closeaccount.aspx。当您要求我们关闭您的 Microsoft 帐户时，您可以选择将该帐户置于暂停状态三十 (30) 天或六十 (60) 天以防您改变想法。在三十 (30) 天或六十 (60) 天后，您的 Microsoft 帐户将关闭。请参阅下面的第 4.a.iv.2 节，了解您的 Microsoft 帐户关闭后的情形。在暂停期限内重新登录，将会重新激活您的 Microsoft 帐户。
+                2. 如果您的 Microsoft 帐户已被关闭（无论被您关闭还是被我们关闭），将会出现以下情形。首先，您使用 Microsoft 帐户访问服务的权利将立即终止。其次，我们将会删除与您的 Microsoft 帐户关联的数据或您的内容，或者切断数据或您的内容与您和 Microsoft 帐户间的关联关系（但法律要求我们进行保留，或者将其返还或转让给您或您指定的第三方的除外）。您应该定期进行备份，因为 Microsoft 无法对已关闭帐户进行关于您的内容或数据的检索。第三，您可能无法再访问您已购买的产品。
+                b. 单位或学校帐户。您可以用单位或学校电子邮件地址登录某些 Microsoft 服务。如果您这样做，即表示您同意与您的电子邮件地址关联的域的所有者可能会收到有关您的 Microsoft 帐户存在之事实及其相关订购的通知，可以控制和管理您的帐户，以及访问和处理您的数据（包括您的通信和文件中的内容），并同意在帐户或数据遭受损害时，Microsoft 可以通知该域的所有者。您进一步同意，您对 Microsoft 服务的使用可能会受到 Microsoft 与您或您的机构所签订的协议的约束，并且本协议可能不适用。如果您已经拥有 Microsoft 帐户，但使用另外的单位或学校的电子邮件地址来访问本协议所涵盖的服务，系统可能会提示您更新与 Microsoft 帐户关联的电子邮件地址以继续访问此类服务。
+                c. 其他设备/数据计划。服务的很多内容需要 Internet 连接和/或流量/手机网络套餐才能使用。您可能还需要其他设备，例如耳机、相机或麦克风。您负责提供使用服务所需的所有连接、套餐和使用服务所需设备，并应负责向您的连接、套餐和设备的提供商支付相应费用。这些费用并不包含在您向我们支付的服务费用之中，我们不会补偿您支付的上述费用。请向您的提供商确认是否会向您收取这种费用。
+                d. 服务通知。如有关于您所使用的服务的重要事项需要通知您，我们将会向您发送服务通知。如果您提供了与您的 Microsoft 帐户关联的电子邮件地址或电话号码，那么我们可能会通过电子邮件或 SMS（短信）向您发送服务通知，包括在注册您的手机号码之前验证您的身份及在您购买时进行验证。我们也可能通过其他方式向您发送服务通知（例如，通过产品内信息）。当通过 SMS 接收通知时，可能需要支付流量或短信费用。
+                e. 支持。如需获取某些服务的客户支持，请访问：https://support.microsoft.com。根据 www.microsoft.com/support-service-agreement 中的条款的规定，某些服务可能会提供单独或附加的客户支持，但另有规定的除外。功能或服务的预览或 beta 版本可能无法获取支持。服务可能与第三方提供的软件或服务不兼容，您应负责自行了解兼容性要求。
+                f. 终止您的服务。如果您的服务已被取消（无论被您取消还是被我们取消），首先，您访问服务的权利将立即停止，您的与服务相关的软件的许可也将终止。其次，我们将会删除与您的服务关联的数据或您的内容，或者切断数据或您的内容与您和 Microsoft 帐户间的关联关系（但法律要求我们进行保留，或者将其返还或转让给您或您指定的第三方的除外）。这样一来，您可能无法再访问任何服务（或您在这些服务上存储的内容）。您应制定定期备份计划。第三，您可能无法再访问您已购买的产品。如果您已取消了您的 Microsoft 帐户，并且没有其他可访问服务的帐户，则您的服务可能会被立即取消。
+            </p>
+        <div class="buttom">
+            <input type="checkbox" id="inp" value="我同意">我同意
+        </div>
+    </div>
+</body>
+</html>

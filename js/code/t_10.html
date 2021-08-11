@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color: yellowgreen;
+        }
+        #s1{
+            background-color: yellow;
+        }
+        
+    </style>
+    <script type="text/javascript">
+        window.onload = function(){
+            console.log("1");
+            let s = document.getElementById("s1");
+            let body = document.body;
+            let div =  document.getElementById("box1");
+            s.onclick = function(event){
+                event = event || window.event;
+                alert("我是span标签");
+                event.cancelBubble = true;
+            }
+            div.addEventListener("click",function(){
+                alert("1");
+            })
+            div.addEventListener("click",function(){
+                alert("2");
+            })
+        }
+
+    </script>
+</head>
+<body>
+    <div id="box1">
+        我是s0
+        <span id="s1">我是s1</span>
+    </div>
+</body>
+</html>

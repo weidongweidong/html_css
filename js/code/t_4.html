@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>za</title>
+    <style>
+        .inner{
+            width: 500px;
+            height: 500px;
+            margin: 0px auto;
+            text-align: center;
+        }
+        .addUser{
+            margin: 0px auto;
+            width: 300px;
+            height: 240px;
+            border: 1px solid black;
+        }
+        #table {
+            width: 300px;
+            margin: 20px auto 20px auto;
+        }
+        
+    </style>
+    <script>
+        let arr = [{name : "陈伟东", Email : "xxxx" , Salary:"100" } ,
+                    {name : "冯小康", Email : "zzzzz" , Salary:"99" }];
+        window.onload = function(){
+            let table = document.getElementById("table");
+            for(let i = 0 ; i < arr.length ; i++){
+                add(arr[i],i);
+            }
+
+
+            // 为提交绑定事件
+            let but = document.getElementById("submit");
+            but.onclick = function(){
+                let name = document.getElementById("name").value;
+                let email = document.getElementById("email").value;
+                let salary = document.getElementById("salary").value;
+                if(!name || !email || !salary){
+                    return alert("请填写完整～！")
+                }
+                let object = {name:name,Email:email,Salary:salary};
+                arr.push(object);
+                add(object, arr.length);
+            }
+            
+        }
+        function de(i){
+            arr.splice(i,1);
+            let tr = document.getElementById(i);
+            tr.parentNode.removeChild(tr);
+        }
+
+        function add(object,i){
+                let tr = document.createElement("tr");
+                tr.id = i;
+                let tdname = document.createElement("td");
+                tdname.innerHTML = object.name;
+                let tdEmail = document.createElement("td");
+                tdEmail.innerHTML = object.Email;
+                let tdSalary = document.createElement("td");
+                tdSalary.innerHTML = object.Salary;
+                let tdDe = document.createElement("td");
+                tdDe.innerHTML = '<td><a onclick="de('+i+')" href="javascript:;">Delete</a></td>';
+
+                tr.appendChild(tdname);
+                tr.appendChild(tdEmail);
+                tr.appendChild(tdSalary);
+                tr.appendChild(tdDe);
+                table.appendChild(tr);
+        }
+
+    </script>
+</head>
+<body>
+    <div class="inner">
+        <table id="table" border="1" cellspacing="0" cellpadding="0"> 
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Salary</th>
+                <th></th>
+            </tr>
+        </table>
+        <div class="addUser">
+            <h2>添加新员工</h2>
+            name:
+            <input id="name" type="text"><br>
+            email:
+            <input id="email" type="text"><br>
+            salary:
+            <input id="salary" type="number"><br>
+            <input type="button" id="submit" value="提交">
+        </div>
+    </div>
+</body>
+</html>

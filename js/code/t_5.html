@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 140px;
+            height: 100px;
+            background-color: #baf;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            document.getElementById("btn").onclick = function(){
+                // 获取方块
+               let box = document.querySelector(".box1");
+               console.log(box);
+               // box.style.windth 只能读取内敛样式， 如果想要读取 样式表中的样式的话
+               console.log(getComputedStyle(box,null).backgroundColor);
+            }
+
+        }
+
+        function  getStyle (obj , name ){
+            if(getComputedStyle){
+                return getComputedStyle(obj,null)[name];
+            }else{
+                return obj.currentStyle[name];
+            }
+        }
+        
+
+    </script>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <div class="box1">
+
+    </div>
+</body>
+</html>

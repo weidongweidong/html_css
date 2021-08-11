@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 1000px;
+        }
+       
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            let box = document.getElementById("box1");
+            document.onmousemove = function(event){
+                let st = document.documentElement.scrollTop || document.body.scrollTop;
+                let sz = document.documentElement.scrollLeft || document.body.scrollLeft;
+                box.style.left = ((event.clientX - getComputedStyle(box,null).width.replace("px","") / 2) + sz ) + "px";
+                box.style.top =  ((event.clientY - getComputedStyle(box,null).height.replace("px","") / 2) + st ) + "px";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="box1" class="box1"></div>
+</body>
+</html>

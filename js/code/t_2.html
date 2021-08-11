@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全选</title>
+    <script>
+        window.onload = function(){
+            let inps = document.getElementsByName("chek");
+            document.getElementById("quanxuan").onclick = function(){
+                for(let i =0 ;  i < inps.length ; i++){
+                    let inp = inps[i];
+                    inp.checked = true;
+                }
+                document.getElementById("orxuan").checked =true;
+            }
+            document.getElementById("quanbuxuan").onclick = function(){
+                for(let i =0 ;  i < inps.length ; i++){
+                    let inp = inps[i];
+                    inp.checked = false;
+                }
+                document.getElementById("orxuan").checked =false;
+            }
+            document.getElementById("fanxuan").onclick = function(){
+                for(let i =0 ;  i < inps.length ; i++){
+                    let inp = inps[i];
+                    inp.checked = !inp.checked;
+                }
+                document.getElementById("orxuan").checked =true;
+                let cheks =  document.getElementsByName("chek");
+                cheks.forEach(item=>{
+                    if(!item.checked){
+                        document.getElementById("orxuan").checked =false;
+                        return;
+                    }
+                })
+            }
+            document.getElementById("tijiao").onclick = function(){
+                let arr =[];
+                for(let i =0 ;  i < inps.length ; i++){
+                    let inp = inps[i];
+                    if(inp.checked){
+                        arr.push(inp.value);
+                    }
+                }
+                alert(arr.join(","));
+            }
+            document.getElementById("orxuan").onclick = function(){
+                let arr =[];
+                for(let i =0 ;  i < inps.length ; i++){
+                    let inp = inps[i];
+                    inp.checked = this.checked
+                }
+            }
+            let cheks =  document.getElementsByName("chek");
+            for(let i =0 ; i < cheks.length ; i++){
+                cheks[i].onclick = function(){
+                    document.getElementById("orxuan").checked = true;
+                    let cheks =  document.getElementsByName("chek");
+                    cheks.forEach(item=>{
+                        if(!item.checked){
+                            document.getElementById("orxuan").checked = false;
+                            return;
+                        }
+                    })
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <div class="innter">
+        <form id="form" action="javascript:;">
+           <p>你最喜欢的运动是什么 ？</p>
+           <input type="checkbox"id="orxuan">全选/全不选 <br>
+            <input type="checkbox" name="chek" value="足球" id="zuqiu">足球
+            <input type="checkbox" name="chek" value="篮球" id="lanqiu">篮球
+            <input type="checkbox" name="chek" value="羽毛球" id="yumaoqiu">羽毛球
+            <input type="checkbox" name="chek" value="溜溜" id="liuliu">溜溜  <br>
+            <button id="quanxuan">全选</button> <button id="quanbuxuan">全不选</button> <button id="fanxuan">反选</button> <button id="tijiao">提交</button>
+        </form>
+    </div>
+</body>
+</html>

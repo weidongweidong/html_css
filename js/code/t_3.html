@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    window.onload = function(){
+        // 创建h1 节点；
+       let li =  document.createElement("li");
+       // 创建一个文本节点， 根据内容创建出来
+       let text =  document.createTextNode("吉林");
+       // 向一个父节点中 添加一个新的子节点
+       li.appendChild(text);
+       // 添加到ul中去。后面的就行  
+       //document.getElementById("ul").appendChild(li);
+
+       // 添加到北京前面去
+       let beiji = document.getElementById("bj");
+       // insertBefore 是 父节点调用的， 在指定的子节点前插入新的节点
+       //document.getElementById("ul").insertBefore(li ,beiji );
+        
+       // 替换节点
+       //document.getElementById("ul").replaceChild(li,beiji);
+
+       // 删除子节点
+       //document.getElementById("ul").removeChild(beiji)
+       // 更常用的方法，  删除自己 ， 
+       //beiji.parentNode.removeChild(beiji);
+
+       
+       //let bj =  document.getElementById("bj");
+       // 通过这种方式 ，将北京变成通州
+       //bj.innerHTML = "通州"
+       // 当然也可以通过这种方式， 改变里面的东西， 这种方法方便是方便，但是不是特别好， 因为这样的 ， 相当于 把整个父级都
+       // 删除了， 在加进来， 整个父级都是新的， 如果父级绑定了事件的话， 那就都丢了， 
+       //let ul = document.getElementById("ul");
+       //ul.innerHTML += "<li>朝阳</li>";
+
+       // 最后是这样做： 
+       let aa =  document.createElement("li");
+       aa.innerHTML = "泰国";
+       document.getElementById("ul").appendChild(aa);
+
+    }
+</script>
+<body>
+   <ul id="ul">
+        <li id="bj">北京</li>
+        <li>上海</li>
+        <li>广州</li>
+        <li>天津</li>
+   </ul>
+</body>
+</html>

@@ -1,0 +1,268 @@
+
+
+
+宿主对象 
+有两种对象，bom   dom 
+
+
+dom对象
+DOM   Document Object Model 
+js 通过 dom对象 来对html文档进行操作， 
+    文档： 文档表示的就是整个的html网页文档
+    对象： 对象表示将网页中的每一个部分都转换为了一个对象
+    模型： 使用模型来表示对象之间的关系， 这样方便我们获取对象 就是Dom树  谁是谁子节点， 谁是谁父节点。
+
+节点： 
+    节点也叫node ， 是构成网页最基本的组成部分，每一个部分都可以称为是一个节点。
+    节点是有不同类型的。 
+    类型不同，属性和方法也不尽相同。 
+    常用节点分为4类：                       nodeName       nodeType        nodeValue
+        文档节点： 整个html文档，           #document          9              null
+        元素节点： html文档中的html标签，     标签名             1              null
+        属性节点： 元素的属性，               属性名             2              属性值
+        文本节点： html标签中的文本内容        #text             3             文本内容
+
+dom 就是用来操作网页的。 
+document 就是文档对象， 是window的属性， 
+    通过节点id获取元素
+    var  btn =  document.getElementById("id");
+
+document有是三个方法： 
+    document.getElementById()
+    document.getElementByName();
+    documnet.getElementsByTagName();
+    document.getElementsByClassName();
+
+通过具体的元素节点调用的： 
+    getElementsByTagName()  后代节点
+    childnodes 表示当前节点的所有子节点
+    firstChild 表示当前节点的第一个子节点。 
+    lastChild 表示当前节点的最后一个子节点。
+    parentNode 获取当前节点的父节点。
+    previousSibling 表示当前节点的前一个兄弟节点
+    nextSibling 表示当前节点的后一个兄弟节点
+
+
+<a href="../code/t_1.html"></a>
+<a href="../code/t_2.html"></a>
+获取body , 用  document.body;
+获取html 用 document.documentElement;
+获取所有元素，  用 document.all;
+<a href="../code/t_3.html"></a>
+一个强大的用 document 根据css选择器的方法获取元素的方法， 
+document.querySelector();  但是他只找一个  就算符合的多个， 那也返回一个
+如果有多个， 就用  document.querySelectorAll();  
+例子：  document.querySelectorAll("div");
+这个就是多个， 返回的是数组 
+
+
+下面是增删改的方法： 
+创建节点的方法： 
+<a href="../code/t_3.html"></a>
+ document.createElement("li");
+ // 创建h1 节点；
+ let li =  document.createElement("li");
+ // 创建一个文本节点， 根据内容创建出来
+ let text =  document.createTextNode("吉林");
+ // 向一个父节点中 添加一个新的子节点
+ li.appendChild(text);
+ // 添加到ul中去。后面的就行  
+ //document.getElementById("ul").appendChild(li);
+
+ // 添加到北京前面去
+ let beiji = document.getElementById("bj");
+ // insertBefore 是 父节点调用的， 在指定的子节点前插入新的节点
+ //document.getElementById("ul").insertBefore(li ,beiji );
+  
+ // 替换节点
+ //document.getElementById("ul").replaceChild(li,beiji);
+
+ // 删除子节点
+ //document.getElementById("ul").removeChild(beiji)
+ // 更常用的方法，  删除自己 ， 
+ //beiji.parentNode.removeChild(beiji);
+
+ 
+ //let bj =  document.getElementById("bj");
+ // 通过这种方式 ，将北京变成通州
+ //bj.innerHTML = "通州"
+ // 当然也可以通过这种方式， 改变里面的东西， 这种方法方便是方便，但是不是特别好， 因为这样的 ， 相当于 把整个父级都
+ // 删除了， 在加进来， 整个父级都是新的， 如果父级绑定了事件的话， 那就都丢了， 
+ //let ul = document.getElementById("ul");
+ //ul.innerHTML += "<li>朝阳</li>";
+
+ // 最后是这样做： 
+ let aa =  document.createElement("li");
+ aa.innerHTML = "泰国";
+ document.getElementById("ul").appendChild(aa);
+
+
+p103
+练习
+添加删除员工表
+<a href="../code/t_4.html"></a>
+
+<a href="../code/t_5.html"></a>
+通过js 去修改 样式
+例子: 
+box.style.width = "300px";
+通过js 的 style属性设置的样式都是内联样式， 而内联样式有较高的优先级， 所以通过js修改的样式往往会立即显示
+通过js 设置的是内敛样式，  读取的时候也是内敛样式， 
+内敛样式读取是 ，   alert(box.style.width);
+
+
+
+p108 
+读取样式表里面的样式：
+
+getComputedStyle(box,null).backgroundColor)
+box.currentStyle  IE8 有效别的不行， 
+getComputedStyle(box,null).backgroundColor) IE不行 ，别的都行， 
+那我们定义一个函数， 用来返回样式值的， 
+function  getStyle (obj , name ){
+    if(window.getComputedStyle){
+        return getComputedStyle(obj,null)[name];
+    }else{
+        return obj.currentStyle[name];
+    }
+}
+通过以上方式读到的样式都是只读的， 不能修改，如果要修改， 只能用  box.stype.width = "100px"; 的形式。
+注意， 变量没有会报错， 但是对象的属性没有不会报错， 会返回 undefined
+
+
+p110 
+其他样式操作的属性
+<a href="../code/t_6.html"></a>
+属性的 可见高度，  可见宽度 
+box.clientHeight
+box.clientWidth;
+这俩是  元素的内容区 + 内边距，  不含边框的。 
+都是只读的， 不能修改 。 改的话， 只能   box.style.width = "120px";
+box.offsetHeight  
+box.offsetWidth   
+元素的内容区 + 内边距 + 边框， 
+box.offsetParent ， 
+用来获取当前元素的定位父元素， 离当前元素最近的开启了定位的祖先元素 ， 如果所有祖先元素都没开定位 那就是body了。 
+box.offsetLeft  相对于定位父元素的的水平偏移量 
+box.offsetTop 相对于定位父元素的的水平偏移量 
+就提供这俩， 这俩就够用了。 
+
+box.scrollHeight  元素内如果设置了overflow:auto ， 当里面的元素溢出时就会有滚动条了， 
+这个属性说的就是 滚动时能看到里面的高度， 也就是里面元素的那个高度， 
+box.scrollWidth ， 滚动宽度。 
+box.scrollLeft  获取水平滚动条滚动的距离。 
+box.scrollTop   获取垂直滚动条滚动的距离。 
+
+有两个等式： 
+当满足 scrollHeight - scrollTop = clientHeight 的时候 垂直滚动条滚动到底了， 
+当满足 scrollWidth - scrollLeft = clientWidth 的时候， 水平滚动条滚动到最右侧了
+
+模拟你把协议都看了才能勾选同意 
+<a href="../code/t_7.html"></a>
+
+显示鼠标在元素中的坐标
+<a href="../code/t_8.html"></a>
+div 随着鼠标 去移动
+<a href="../code/t_9.html"></a>
+
+
+p113
+<a href="../code/t_10.html"></a>
+事件冒泡: 
+    所谓的事件冒泡，
+      指的就是事件的向上传导， 当后代元素上的事件被触发时， 其祖先元素的同类的事件也会被触发， 
+      如果不希望事件冒泡的话， 可以通过事件对象来取消冒泡
+      event.cancelBubble = true;
+      取消就不会往后后面传了    
+    例子： 
+    s.onclick = function(event){
+        event = event || window.event;
+        alert("我是span标签");
+        event.cancelBubble = true;
+    }
+
+事件的委派:
+  是指事件统一绑定给元素的共同的祖先元素 ， 这样当后代元素上的事件触发时，会一直冒泡到祖先元素上，
+  从而通过祖先元素的响应式函数来处理事件。在事件中， 通过event.target看是不是目标元素触发的事件
+
+
+事件的绑定: 
+    绑定一个会绑， 绑定多个事件怎么绑定呢？
+    如果还通过 box.onclick = fucntion (){} ; 的方法 无法绑定多个， 后面的会将前面的覆盖掉；
+    绑定过个应该用  addEventLisitener 这个函数， 
+    参数1 事件的字符串， 不要on, 
+    参数2 回调函数， 当事件触发时该函数会被调用，
+    参数3 是否在捕获阶段触发事件 ， 一般都是fasle , 就行。   
+    可以同时为一个元素的相同事件同时绑定多个响应函数，这样当事件被触发时，响应函数将会按照函数的绑定顺序执行
+    div.addEventListener("click",function(){
+        alert("1");
+    })
+    div.addEventListener("click",function(){
+        alert("2");
+    })
+
+    IE 8 用的是    attachEvent();  但是这个方式 是倒着执行， 后绑定的 ，先执行;
+
+于是这个是 通用的绑定事件的函数：
+function bind(obj ,eventName ,callback ){
+    if(obj.addEventListener){
+        obj.addEventListener(eventName,callback,false);
+    }else{
+        obj.attachEvent("on"+eventName,function(){
+            callback.call(obj);
+        });
+    }
+}
+
+<a href="../code/t_11.html"></a>
+
+
+
+
+
+
+
+
+
+    
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
