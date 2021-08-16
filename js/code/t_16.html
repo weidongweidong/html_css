@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul li{
+            list-style: none;
+        }
+        .lunbo{
+            margin: 50px auto;
+            width: 470px;
+            height: 320px;
+            background-color: sandybrown;
+            overflow: hidden;
+            position: relative;
+        }
+        .imgs{
+            list-style: none;
+            padding: 10px 0;
+            position: absolute;
+        }
+        .imgs li a img{
+            width: 450px;
+            height: 300px;
+        }
+        .imgs li{
+            margin: 0px 10px;
+            float: left;
+        }
+        .buttom{
+            position: absolute;
+            bottom: 20px;
+        }
+        .buttom li{
+            float: left;
+            margin: 0 5px;
+            background-color: #fff;
+        }
+        .buttom li a{
+            display: block;
+            width: 15px;
+            height: 15px;
+        }
+        .buttom li a:hover{
+            background-color: red;
+        }
+
+        
+    </style>
+    <script src="../js/tools.js"></script>
+    <script>
+        window.onload = function(){
+
+            // 调整ul的宽度， 
+            let lis =  document.getElementsByClassName("img");
+            let lunbo=  document.getElementById("lunbo");
+            let ul = document.getElementById("imgs");
+            let buttom = document.getElementById("buttom");
+            let buts =  buttom.getElementsByTagName("li");
+            ul.style.width = lis.length * 470 + "px";
+            let timer;
+
+            // 跳转控制按钮的偏移量， 
+            buttom.style.left = (lunbo.offsetWidth - buttom.offsetWidth)/2 + "px";
+            
+            //默认显示的图片的索引， 
+            let index = 0;
+            buts[index].style.backgroundColor = "red";
+
+            autoChange();
+            // 让点击每个but, 显示对应的图片去。 
+            for(let i=0 ;i < buts.length ; i++){
+                // 标记这是第几个按钮， 
+                buts[i].index = i;
+                buts[i].onclick = function(){
+                    //关闭定时轮播
+                    clearInterval(timer);
+                    //获取
+                    index  = this.index; 
+                    setAcolor();
+                    // 切换图片
+                    move(ul, "left", (index * -470), 100, function(){
+                        autoChange();
+                    });
+                }
+            }
+
+            function setAcolor(){
+                // 判断当前索引是否是最后一张图片
+                if(index >= lis.length -1){
+                    // 则将index设置为0
+                    index = 0;
+                    ul.style.left = "0px";
+                }
+                for(let i =0  ; i < buts.length ;i++){
+                    buts[i].style.backgroundColor = "";
+                }
+                buts[index].style.backgroundColor = "red";
+            }
+
+            
+            function autoChange(){
+                timer = setInterval(function(){
+                    //使索引自增。
+                    index++;
+                    if(index >= ul.length){
+                        index = 0;
+                    }
+                    move(ul, "left", (index * -470), 20, function(){
+                        //修改导航按钮
+                        setAcolor();
+                    });
+                },3000);
+            }
+
+        }
+
+
+
+
+    </script>
+</head>
+<body>
+        <div class="lunbo" id="lunbo">
+            <ul class="imgs" id="imgs">
+                <li class="img"><a href="#"><img src="https://pic.netbian.com/uploads/allimg/180826/113958-1535254798fc1c.jpg" alt=""></a></li>
+                <li class="img"><a href="#"><img src="https://pic.netbian.com/uploads/allimg/210811/235939-162869757951bd.jpg" alt=""></a></li>
+                <li class="img"><a href="#"><img src="https://pic.netbian.com/uploads/allimg/210812/233254-1628782374e5c7.jpg" alt=""></a></li>
+                <li class="img"><a href="#"><img src="https://pic.netbian.com/uploads/allimg/210812/233912-16287827523096.jpg" alt=""></a></li>
+                <li class="img"><a href="#"><img src="https://pic.netbian.com/uploads/allimg/210805/235010-1628178610d501.jpg" alt=""></a></li>
+                <li class="img"><a href="#"><img src="https://pic.netbian.com/uploads/allimg/180826/113958-1535254798fc1c.jpg" alt=""></a></li>
+            </ul>
+            <ul class="buttom" id="buttom">
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+        </div>
+</body>
+</html>

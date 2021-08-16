@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .b2{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+
+    </style>
+    <script>
+
+        window.onload = function(){
+            console.log("init");
+            let box = document.getElementById("box");
+            let btn = document.getElementById("btn");
+            // 点击按钮后 ，修改box的样式
+            btn.onclick = function(){
+                //box.style.width = "200px";
+                //box.style.height = "200px";
+                //box.style.backgroundColor = "yellow";
+                // 但是上面这种方式 ， 没改一个就要重新渲染一次， 3个就要渲染三次，不太好。 而且这修改多个样式 不太方便呀， 
+                // 不建议这么用， 这样js 和css  就混一起了， 不好维护了就
+                // 其实我们再写一个类， 类里写新样式， 然后直接改元素的类名 ， 这样新样式不就直接落到元素上了嘛。
+                // 而且通过这种方式， 我们可以使表现和行为进一步的分离开。 
+                // 比如有一天我们想让变的样式再夸张一些， 我们直接改变后的类的样式就好了；不用再改js了。 
+                //addClass(box,"b2");
+                //removeClass(box,"box");
+                toggleClass(box,"b2");
+
+            }
+        }
+
+        // 为指定元素加上新类名
+        function addClass(obj,className){
+            if(!hasClass(obj,className)){
+                obj.className += " "+ className;
+            }
+        }
+        
+        // 删除指定元素上的类名
+        function removeClass(obj, className){
+            var reg = new RegExp("[\\s]*\\b" + className + "\\b");
+            obj.className = obj.className.replace(reg,"");
+        }
+
+        // 切换一个类， 有就删除 ， 没有就添加， 
+        function toggleClass(obj ,className){
+            if(hasClass(obj,className)){
+                removeClass(obj,className);
+            }else{
+                addClass(obj,className);
+            }
+        }
+
+        // 判断该元素是否已经有了该类
+        function hasClass(obj, name){
+            var reg = new RegExp("\\b" + name + "\\b");
+	        return reg.test(obj.className);
+        }
+        
+    </script>
+</head>
+<body>
+    <button id="btn">修改上方方块的样式</button>
+    <div id="box" class="box b2"></div><br><br>
+  
+</body>
+</html>

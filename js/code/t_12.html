@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            left: 200px;
+            position: absolute;
+        }
+
+    </style>
+    <script>
+        window.onload = function(){
+            let box1 =  document.getElementById("box1");
+            let box2 =  document.getElementById("box2");
+            // 按下目标
+            drag(box1);
+            drag(box2);
+
+
+            function drag(obj){
+                obj.onmousedown = function(even){
+                    // 移动鼠标 给目标元素加偏移量。 
+                    // 在 document 中移动时 
+                    document.onmousemove = function(event){
+                        event =  event || window.event;
+                        obj.style.left = (event.clientX - even.offsetX) + "px";
+                        obj.style.top = (event.clientY - even.offsetY)+"px";
+                    }
+                    // 在document 松开鼠标时
+                    document.onmouseup = function(){
+                        // 取消鼠标移动事件
+                        document.onmousemove = null;
+                        // 取消在document 松开事件
+                        document.onmouseup = null;
+                    }
+                    return false;
+                }
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <div id="box1" class="box1"></div>
+    <div id="box2" class="box2"></div>
+</body>
+</html>

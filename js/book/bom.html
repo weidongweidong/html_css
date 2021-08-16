@@ -1,0 +1,75 @@
+bom
+ 
+
+dom  是  文档对象模型， 
+bom  是  浏览器对象模型。 
+
+
+bom  通过 js 操作浏览器的。 
+
+有 ， Window  代表整个浏览器窗口， 同时 window 也是网页中的全局对象 ， 
+  Navigator, 代表当前浏览器信息，通过该对象可以来识别不同的浏览器， 
+  Location  代表浏览器的地址栏信息。  操作浏览器跳转页面，
+  History , 浏览器的访问历史记录， 可以通过该对象 操作浏览器的历史记录。 
+            由于隐私原因， 该对象不能获取 到具体的历史记录， 只能操作前进 后退。 该操作只在当次反问有效
+  Screen,  
+
+这几个对象是通过window对象的属性来 保存的， 
+就可以通过 window 来调用， 当然也可以直接使用。 
+
+
+
+Navigator
+navigator 我们一般通过这个对象来判断浏览器是不是IE  
+一般用 userAgent 来判断， IE在里面有 MSIE ,  但是IE11看不出来了， 
+于是我们用 if("ActiveXObject" in window) 来判断是否是IE11 只有IE 在window 里面有这个属性。 
+
+
+history
+前进 ， 后退， 
+back()  ，回退一步， 
+forword() ， 前进一步， 
+go() ,  参数 是 数字，  1 表示向前跳1 ， 2 表示向后跳1 。 
+
+
+location 
+如果直接将location 属性 修改为一个完整的路径，或 相对路径 
+则会跳转过去， 并生成历史记录。 
+
+location.reload(true) 刷新页面。
+
+location.replace("baidu")  替换页面， 跳转过去，且没有历史记录。 
+
+
+
+<a href="../code/t_14.html"></a>
+^~ /aa/
+
+下面来看，定时调用 ：
+let b = setInterval(fucntion(){},1000);
+clearInterva(b);
+
+
+<a href="../code/t_15.html"></a>
+
+
+完成轮播图练习
+<a href="../code/t_16.html"></a>
+
+
+类的操作： 
+p137
+<a href="../code/t_17.html"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+

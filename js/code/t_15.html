@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            left: 100px;
+            top: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload =function(){
+
+            let box = document.getElementById("box");
+            let speed = 30;
+            let dir = 0;
+            setInterval(function(){
+                //let left =  getComputedStyle(box,null).left.replace("px","");
+                //let top =  getComputedStyle(box,null).top.replace("px","");
+                let left =  box.offsetLeft;
+                let top = box.offsetTop;
+                switch (dir) {
+                    case 38:
+                        box.style.top =  (top - speed )+ "px";
+                        break;
+                    case 39:
+                        box.style.left =  (left + speed )+ "px";
+                        break;
+                    case 40:
+                        box.style.top =  (top + speed )+ "px";
+                        break;
+                    case 37:
+                        box.style.left =  (left - speed )+ "px";
+                        break;
+                }
+            },100);
+           
+            document.onkeydown = function(event){
+                dir = event.keyCode;
+                if(event.shiftKey){
+                    speed = 100;
+                }else{
+                    speed = 30;
+                }
+            }
+
+            document.onkeyup = function(){
+                dir  = 0 ;
+            }
+
+
+        }
+
+    </script>
+</head>
+<body>
+    <div id="box" class="box"></div>
+</body>
+</html>
