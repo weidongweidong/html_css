@@ -653,16 +653,213 @@ function fun(n , o){
 // 0
 // 1
 // 1
---------------
+---
 
 
 
+对象创建模式
+
+方式一： Object构造函数模式
+    套路： 先创建空object对象， 再动态添加属性/方法
+    适用场景： 起始时不确定对象内部数据
+    问题： 语句太多
+
+例子： 
+let obj = new Object()
+obj.name = "xxx"
+obj.age = 18
 
 
 
+方式二： 对象字面量
+    套路： 使用{}创建对象，同时指定属性/方法 
+    适用场景： 起始时对象内部数据时确定的
+    问题： 如果创建多个对象， 有重复代码
+
+例子： 
+let obj = {
+    name : "xxx"
+    age : 18
+}
+
+方式三： 工厂模式
+    套路： 通过工厂函数动态创建对象并返回
+    适用场景： 需要创建多个对象
+    问题 ： 对象没有一个具体的类型 ， 都是object 类型
+
+例子
+funciton createXXX(name ,age){
+    let object = {
+        name :name ,
+        age : age ,
+        setName : fucntion(name){
+            this.name = name 
+        }
+    }
+    return object
+}
+
+let p1 = createXXX('tom' , 14)
+let p2 = createXXX('boob', 18)
+
+方式四： 自定义构造函数模式去创建对象
+    套路： 自定义构造函数， 通过new 创建对象
+    适用场景： 需要创建多个类型确定的对象
+    问题： 每个对象都有相同的数据，浪费内存
+fucntion Person(name ,age ){
+    this.name = name
+    this.age  = age 
+    this.setName = funciton(name){
+        this.name  = name 
+    }
+}
+var p = new Person('tom', 16)
+
+fucntion Dog(name ,age ){
+    this.name = name
+    this.age  = age 
+    this.setName = funciton(name){
+        this.name  = name 
+    }
+}
+var d = new Dog('tom', 16)
+
+虽然是两个不同的类型的对象了， 但是里面有相同的方法， setName   多个相同的方法会浪费，
+我们应该想办法让他们用一个方法
+
+方式六： 构造函数+ 原型的组合模式
+    套路： 自定义构造函数+ 原型的 组合模式
+    适用场景： 需要创建多个类型确定的对象
+
+例子：
+function Person(name , age){
+    this.name = name
+    this.age = age 
+}
+function Dog(  name , height ){
+    this.name = name
+    this.hieght = height
+}
+var setName = function(name){
+    this.name = name
+}
+Person.prototype.setName = setName 
+Dog.prototype.setName = setName 
+
+
+let  p  = new Person("p1", "18")
+let  d  = new Dog('d1' , 2)
+p.setName('p2')
+d.setName('d2')
+console.log(p, d)
 
 
 
+继承模式：
+   方式一： 原型链继承
+        1 套路
+            1 定义父类型构造函数
+            2 给父类型的原型添加方法
+            3 定义子类型的构造函数
+            4 创建父类型的对象赋值给子类型的原型
+            5 将子类型原型的构造属性为子类型
+            6 给子类型原型添加方法
+            7 创建子类型的对象： 可以调用父类型的方法
+        2 关键
+            1 子类型的原型为父类型的一个实例对象
+        例子：
+
+        function Father (name,age ){
+            this.name = name 
+            this.age = age 
+        }
+        Father.prototype.work = function(){
+            console.log("干活")
+        }
+        
+        
+        function Son (name, age){
+            this.name = name 
+            this.age = age 
+        }
+        //继承的重点： 子类型的原型为父类型的一个实例对象
+        Son.prototype = new Father()
+        Son.prototype.cat = function(){
+            console.log("喝奶")
+        }
+        
+        let son = new Son('哪吒', 8)
+        son.cat()
+        son.work()
+
+        说一个问题， 就是在上面的例子中 有个地方是不太对的，  
+        就是 子类实例对象的  constructor  这个属性是指向实例对象的构造函数的，  
+        但是上面son.constructor 指向的不是 Son  而是 Father!
+        这是因为constructor 是在原型对象中存储着的 ， 但是son 的原型对象已经改变成 Father 实例对象了， 
+        查找这个属性时 会先去 Father 实例对象上Father对象上找， Father实例对象上没有， 于是找 Father实例对象的原型上找， 
+        Fahter 的原型上有这个属性， 但是这个属性指向是 Fahter的构造函数， 于是 son.constructor 结果是 Father， 
+        这是不对的， 我们如果想改正， 就要在
+        Son.prototype = new Father() 后在加上一句
+        Son.prototype.constructor = Son  这样才能保证这个属性指向正确。
+
+
+    方式二： 借用构造函数继承（假的）
+        1 套路： 
+            1 定义父类型构造函数
+            2 定义子类型构造函数
+            3 在子类型构造函数中调用父类型构造
+        2 关键： 
+            1 在子类型构造函数中通过 call() 调用父类型构造函数 
+        例子： 
+        function Person(name , age ){
+            this.name = name 
+            this.age = age 
+        }
+        
+        function Student(name ,age , price){
+            Person.call(this,name,age)
+            this.price = price
+        }
+        var s = new Student('tom',18, 19999)
+        console.log(s)
+
+
+ 
+    方法三： 组合继承  原型链 + 借用构造函数的组合继承
+        1 利用原型链实现对父类型对象的方法继承
+        2 利用call() 借用父类型构造函数初始化相同属性
+
+
+    例子：
+    function Person(name , age ){
+        this.name = name 
+        this.age = age 
+    }
+    Person.prototype.setName = function(name) {
+        this.name = name 
+    }
+    
+    function Student(name ,age , price){
+        Person.call(this,name,age)  //  为了得到属性  就是借用父类型构造函数初始化属性而已
+        this.price = price
+    }
+    
+    Student.prototype = new Person()  //  为了能够看到父类型的方法
+    Student.prototype.constructor= Student      // 修正constructor属性
+    Student.prototype.setPrice = function (price){
+        this.price = price
+    }
+    var s = new Student('tom',18, 19999)
+    console.log(s)
+    
+    
+复习：
+    a.b 
+  找变量和 找 对象属性是不一样的 ，  
+  找变量是沿着作用域链找，找不到是要报错的，  
+  但是 找对象属性是沿着 原型链上找， 找不到返回的是 undefiend 不报错
+
+  
 
 
 
