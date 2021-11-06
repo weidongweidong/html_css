@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>吉林省青年大学习</title>
+    <link rel="stylesheet" type="text/css" href="/jltw/css/wechat/currency.css">
+
+    <script type="text/javascript" src="/jltw/js/wechat/zepto.min.js"></script>
+    <script type="text/javascript" src="/jltw/js/wechat/zepto.weui.js"></script>
+    <script type="text/javascript" src="/jltw/js/wechat/mobile.js"></script>
+</head>
+<body class="wap">
+
+    <div class="title">
+        <a href="javascript:void(0);"><img src="/jltw/img/weChat/title.png" ></a>
+    </div>
+    <div class="cont_tit">
+        <span>欢迎学霸君</span>
+        <p>anonymous</p>
+        再次归来！
+    </div>
+    <div  class="cont">
+        <ul class="cont_ul1">
+            <li><a href="javascript:void(0);" style="color: #432b24;"><img src="/jltw/img/weChat/icon.png" >电话：</a></li>
+            <li><a href="javascript:void(0);" style="color: #432b24;"><img src="/jltw/img/weChat/icon.png" >分类：</a></li>
+            <li><a href="javascript:void(0);" style="color: #432b24;"><img src="/jltw/img/weChat/icon.png" >积分：</a></li>
+        </ul>
+        <ul class="cont_ul2">
+            <li><a href="javascript:void(0);" style="color: #432b24;">18234509808</a></li>
+            <li><a href="javascript:void(0);" style="color: #432b24;">待接转团支部</a></li>
+            <li><a href="javascript:void(0);" style="color: #432b24;">4</a></li>
+        </ul>
+    </div>
+    <div class="link">
+        <a href="javascript:void(0);" onclick="gotoCurrentCourses();" id="gotoCurrentCourses">签到学习</a>
+        <a href="javascript:void(0);" onclick="gotoPreviousCourses();">往期学习</a>
+        <a href="javascript:void(0);" onclick="updateStudentInfo();">更改信息</a>
+    </div>
+    <div class="foot">
+        <img src="/jltw/img/weChat/foot.png" >
+    </div>
+
+<script type="text/javascript">
+    /*<![CDATA[*/
+    var studentInfo = {"toEmptyValueList":[],"id":2459032,"openid":"otB5ys-UOqI4Td1ESW8b1wnMp-Bs","name":"\u9648\u4F1F\u4E1C","telNum":"18234509808","typeInfoId":23602,"nickname":"anonymous","sex":"1","headimgurl":null,"unionid":null,"integral":"4","gmtCreate":"2020-12-21T16:43:53.000+08:00","activeFlag":"1","typeInfoName":null};
+    var studySettings = {"toEmptyValueList":[],"id":701,"settingsTypeId":null,"name":null,"url":"https:\/\/h5.cyol.com\/special\/daxuexi\/byw1m1kn1s\/m.html","gmtCreate":null,"currentFlag":null,"activeFlag":null,"settingsTypeName":null};
+    var ctxPath = "\/jltw\/"
+    /*]]>*/
+    function updateStudentInfo(){
+        // window.location = ctxPath+"wechat/updateStudentInfo/"+;
+        // $.fn.ax_post(, ,false,function(result){
+        //     document.write(result);
+        //     console.log("1")
+        // });
+        $.ajax({
+            type: "post",
+            data: {"openid_u":studentInfo.openid},
+            url:ctxPath+"wechat/updateStudentInfo",
+            dataType : "html",
+            beforeSend: function () {
+                    $.showLoading();
+            },
+            success: function (result) {
+                // console.log("1")
+                document.write(result);
+                document.close();
+            },
+            complete: function () {
+                    $.hideLoading();
+            },
+        });
+    }
+    function gotoCurrentCourses(){
+        $("#btn").attr("disabled",true).css("pointer-events","none");
+        var data = new Object();
+        data["openid"]= studentInfo["openid"];
+        data["studySettingId"]= studySettings["id"];
+        data["typeInfoId"] = studentInfo["typeInfoId"];
+        data["studentInfoId"] = studentInfo["id"];
+        $.fn.ax_post(ctxPath+"wechat/editStudyRecord", data,false,function(result){
+            if(result["code"]===_successCode){
+                setTimeout(
+                    function(){
+                        $("#gotoCurrentCourses").attr("disabled",false).css("pointer-events","auto");
+                        window.location = studySettings.url;
+                    }, 0);
+            }else{
+                $("#gotoCurrentCourses").attr("disabled",false).css("pointer-events","auto");
+                $.toptip(result["msg"]);
+            }
+        });
+    }
+    function gotoPreviousCourses(){
+        window.location = ctxPath+"wechat/coursesType/";
+    }
+</script>
+</body>
+</html>
