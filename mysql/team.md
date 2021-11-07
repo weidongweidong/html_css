@@ -293,15 +293,55 @@ mysql> select * from salgrade;
 
 8、取得比普通员工(员工代码没有在mgr字段上出现的)的最高薪水还要高的领导人姓名
 
-select 
-    *
+
+1,  取出普通员工的最高薪水
+
+select
+    * 
 from 
-    emp e 
-left join 
-    emp e1
-on
-    e.mgr = e1.empno
-不会
+    emp 
+where                                   /* 这个条件其实不用，因为 */ 
+                                        /* 比普通员工的薪水还高的一定是领导， */ 
+                                            empno in (
+                                                    /* 查出所有领导人编号 */
+                                                    select 
+                                                        mgr 
+                                                    from 
+                                                        emp
+                                                    where 
+                                                        mgr  is not  null 
+                                                    ) 
+                                            and 
+    sal > (
+            /* 这个普通员工的最高薪水 */
+            select
+                max(sal)
+            from 
+                emp 
+            where 
+                empno not in (
+                                /* 领导人的编号 */
+                                select 
+                                    distinct mgr 
+                                from 
+                                    emp 
+                                where
+                                    mgr is not null 
+                            )
+          );
+
+    +-------+-------+-----------+------+------------+---------+------+--------+
+    | EMPNO | ENAME | JOB       | MGR  | HIREDATE   | SAL     | COMM | DEPTNO |
+    +-------+-------+-----------+------+------------+---------+------+--------+
+    |  7566 | JONES | MANAGER   | 7839 | 1981-04-02 | 2975.00 | NULL |     20 |
+    |  7698 | BLAKE | MANAGER   | 7839 | 1981-05-01 | 2850.00 | NULL |     30 |
+    |  7782 | CLARK | MANAGER   | 7839 | 1981-06-09 | 2450.00 | NULL |     10 |
+    |  7788 | SCOTT | ANALYST   | 7566 | 1987-04-19 | 3000.00 | NULL |     20 |
+    |  7839 | KING  | PRESIDENT | NULL | 1981-11-17 | 5000.00 | NULL |     10 |
+    |  7902 | FORD  | ANALYST   | 7566 | 1981-12-03 | 3000.00 | NULL |     20 |
+    +-------+-------+-----------+------+------------+---------+------+--------+
+    6 rows in set (0.00 sec)
+
 
 
 
@@ -364,7 +404,7 @@ mysql> select ename 员工姓名, hiredate 入职时间  from emp order by hired
 12、取得每个薪水等级有多少员工
 
 select
-    s.GRADE  薪水等级 , count(e.ename) 员工人数 
+    s.GRADE  薪水等级 , count(*) 员工人数 
 from 
     emp e
 left join 
@@ -552,8 +592,6 @@ left join
     emp e2
 on
     e1.mgr = e2.empno 
-group by 
-    e1.ename,e1.mgr
 
     +--------------+--------------+
     | 员工姓名     | 领导名称     |
@@ -580,30 +618,30 @@ group by
 15 列出受雇日期早于其直接上级的所有员工的编号,姓名,部门名称
 
 select
-    e1.empno 员工编号, e1.ename 员工姓名, t.dname 部门名称
+     e1.ename 员工姓名, e1.HIREDATE 入职日期 , e2.ename 领导姓名 , e2.hiredate 领导入职日期 , t.dname 员工部门名称 
 from 
     emp e1 
+join 
+    emp e2 
+on 
+    e1.mgr = e2.empno
 left join 
     dept t
 on 
     e1.deptno = t.deptno
-join 
-    emp e2 
-on  
-    e1.mgr = e2.empno
 where
    e1.HIREDATE < e2.HIREDATE;
 
-+-------+-------+------------+
-| empno | ename | dname      |
-+-------+-------+------------+
-|  7369 | SMITH | RESEARCH   |
-|  7499 | ALLEN | SALES      |
-|  7521 | WARD  | SALES      |
-|  7566 | JONES | RESEARCH   |
-|  7698 | BLAKE | SALES      |
-|  7782 | CLARK | ACCOUNTING |
-+-------+-------+------------+
++--------------+--------------+--------------+--------------------+--------------------+
+| 员工姓名     | 入职日期     | 领导姓名     | 领导入职日期       | 员工部门名称       |
++--------------+--------------+--------------+--------------------+--------------------+
+| SMITH        | 1980-12-17   | FORD         | 1981-12-03         | RESEARCH           |
+| ALLEN        | 1981-02-20   | BLAKE        | 1981-05-01         | SALES              |
+| WARD         | 1981-02-22   | BLAKE        | 1981-05-01         | SALES              |
+| JONES        | 1981-04-02   | KING         | 1981-11-17         | RESEARCH           |
+| BLAKE        | 1981-05-01   | KING         | 1981-11-17         | SALES              |
+| CLARK        | 1981-06-09   | KING         | 1981-11-17         | ACCOUNTING         |
++--------------+--------------+--------------+--------------------+--------------------+
 6 rows in set (0.00 sec)
 
 
@@ -612,7 +650,7 @@ where
 16、列出部门名称和这些部门的员工信息,同时列出那些没有员工的部门.
 
 select 
-    d.dname 部门名称 , e.ename 员工信息 
+    d.dname 部门名称 , e.* 
 from 
     emp e
 right join 
@@ -621,49 +659,45 @@ on
     e.deptno = d.deptno;
 
 
-+--------------+--------------+
-| 部门名称     | 员工信息     |
-+--------------+--------------+
-| RESEARCH     | SMITH        |
-| SALES        | ALLEN        |
-| SALES        | WARD         |
-| RESEARCH     | JONES        |
-| SALES        | MARTIN       |
-| SALES        | BLAKE        |
-| ACCOUNTING   | CLARK        |
-| RESEARCH     | SCOTT        |
-| ACCOUNTING   | KING         |
-| SALES        | TURNER       |
-| RESEARCH     | ADAMS        |
-| SALES        | JAMES        |
-| RESEARCH     | FORD         |
-| ACCOUNTING   | MILLER       |
-| OPERATIONS   | NULL         |
-+--------------+--------------+
++--------------+-------+--------+-----------+------+------------+---------+---------+--------+
+| 部门名称     | EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
++--------------+-------+--------+-----------+------+------------+---------+---------+--------+
+| RESEARCH     |  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
+| SALES        |  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600.00 |  300.00 |     30 |
+| SALES        |  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
+| RESEARCH     |  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 2975.00 |    NULL |     20 |
+| SALES        |  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
+| SALES        |  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850.00 |    NULL |     30 |
+| ACCOUNTING   |  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
+| RESEARCH     |  7788 | SCOTT  | ANALYST   | 7566 | 1987-04-19 | 3000.00 |    NULL |     20 |
+| ACCOUNTING   |  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
+| SALES        |  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500.00 |    0.00 |     30 |
+| RESEARCH     |  7876 | ADAMS  | CLERK     | 7788 | 1987-05-23 | 1100.00 |    NULL |     20 |
+| SALES        |  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950.00 |    NULL |     30 |
+| RESEARCH     |  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
+| ACCOUNTING   |  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
+| OPERATIONS   |  NULL | NULL   | NULL      | NULL | NULL       |    NULL |    NULL |   NULL |
++--------------+-------+--------+-----------+------+------------+---------+---------+--------+
 15 rows in set (0.00 sec)
 
 
 17、列出至少有5个员工的所有部门
 
 select
-    d.dname , count(e.empno)
+    e.deptno , count(e.empno)
 from 
-    dept d
-left join 
     emp e
-on
-    d.deptno = e.deptno
 group by
-    d.deptno
+    e.deptno
 having
     count(e.empno) >= 5;
 
-+----------+----------------+
-| dname    | count(e.empno) |
-+----------+----------------+
-| RESEARCH |              5 |
-| SALES    |              6 |
-+----------+----------------+
++--------+----------------+
+| deptno | count(e.empno) |
++--------+----------------+
+|     20 |              5 |
+|     30 |              6 |
++--------+----------------+
 2 rows in set (0.00 sec)
 
 
@@ -736,13 +770,13 @@ where
 20、列出最低薪金大于1500的各种工作及从事此工作的全部雇员人数.
 
 select 
-    job , count(empno)
+    job , count(*)
 from 
-    emp 
-where 
-    sal > 1500
+    emp
 group by 
-    job;
+    job
+having 
+    min(sal) > 1500;
 
 
 +-----------+--------------+
