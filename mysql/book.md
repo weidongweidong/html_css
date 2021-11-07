@@ -2680,3 +2680,15 @@ Mysql days03
 
 
 
+在mysql 中 怎么计算两个日期的 年差？ 差了多少年？ 
+    timeStampDiff( 间隔类型， 前一个日期， 后一个日期)
+    间隔类型：
+        second
+        minute
+        hour 
+        day
+        week
+        month
+        quarter 
+        year
+    都行

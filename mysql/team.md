@@ -871,16 +871,16 @@ left join
 on
     emp.deptno = dept.deptno
 where 
-    emp.job = (select e.job from emp e where e.ename = 'scott');
+    emp.job = (select e.job from emp e where e.ename = 'scott')  and emp.ename <> 'scott';
 
 
 
 +-------+---------+----------+
 | ename | job     | dname    |
 +-------+---------+----------+
-| SCOTT | ANALYST | RESEARCH |
 | FORD  | ANALYST | RESEARCH |
 +-------+---------+----------+
+
 2 rows in set (0.00 sec)
 
 
@@ -888,7 +888,24 @@ where
 24、列出薪金等于部门30中员工的薪金的其他员工的姓名和薪金.
 看不懂
 
+select 
+    ename , sal 
+from 
+    emp
+where 
+    sal in (
+            select 
+                distinct sal 
+            from 
+                emp 
+            where 
+                deptno = 30
+            )
+and
+    deptno <> 30;
 
+
+Empty set (0.00 sec)
 
 
 25、列出薪金高于在部门30工作的所有员工的薪金的员工姓名和薪金.部门名称.
@@ -903,12 +920,14 @@ left join
 on
     e1.deptno = d.deptno
 where
-    e1.sal > (select 
-    max(sal) max_sal
-from 
-    emp e 
-where
-    deptno = 30);
+    e1.sal > (
+        select 
+            max(sal) max_sal
+        from 
+            emp e 
+        where
+            deptno = 30
+        );
 
 
 +-------+---------+------------+
@@ -926,23 +945,40 @@ where
 26、列出在每个部门工作的员工数量,平均工资和平均服务期限     不会
 
 select 
-    e.deptno , count(e.ename) , avg(e.sal) , avg(select datediff(e.HIREDATE, now()))
-from
+    d.deptno , count(e.empno) count_empno , ifnull(avg(e.sal),0) avg_sal , ifnull( avg(timestampdiff(year, e.hiredate , now())) , 0) avgserviceTime
+from 
     emp e
-group by
-    e.deptno
-having
-    to_days(now());
+right join   
+    dept d
+on
+    e.deptno = d.deptno
+group by 
+    d.deptno
 
 
-+--------+-------------+---------------+
-| deptno | avg(sal)    | avg(HIREDATE) |
-+--------+-------------+---------------+
-|     20 | 2175.000000 | 19832752.8000 |
-|     30 | 1566.666667 | 19810663.6667 |
-|     10 | 2916.666667 | 19813949.6667 |
-+--------+-------------+---------------+
-3 rows in set (0.00 sec)
++--------+-------------+-------------+----------------+
+| deptno | count_empno | avg_sal     | avgserviceTime |
++--------+-------------+-------------+----------------+
+|     20 |           5 | 2175.000000 |        37.4000 |
+|     30 |           6 | 1566.666667 |        39.8333 |
+|     10 |           3 | 2916.666667 |        39.3333 |
+|     40 |           0 |    0.000000 |         0.0000 |
++--------+-------------+-------------+----------------+
+
+在mysql 中 怎么计算两个日期的 年差？ 差了多少年？ 
+    timeStampDiff( 间隔类型， 前一个日期， 后一个日期)
+    间隔类型：
+        second
+        minute
+        hour 
+        day
+        week
+        month
+        quarter 
+        year
+    都行
+
+
 
 
 
