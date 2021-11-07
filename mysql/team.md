@@ -293,8 +293,14 @@ mysql> select * from salgrade;
 
 8、取得比普通员工(员工代码没有在mgr字段上出现的)的最高薪水还要高的领导人姓名
 
-select p.ename from emp p where p.sal > (select max(sal) max_sal from emp where mgr not in (select ename from emp));
-
+select 
+    *
+from 
+    emp e 
+left join 
+    emp e1
+on
+    e.mgr = e1.empno
 不会
 
 
