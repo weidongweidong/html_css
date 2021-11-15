@@ -39,5 +39,11 @@
     解释 ，说明...
 *** 
 
+## timestampdiff
+    mysql 中用来计算 时间的相差数的函数
+    timestampdiff(时间类型 ， 时间1 ， 时间2 )
+***
+
+
 
     

@@ -7,16 +7,11 @@
     <title>Document</title>
 </head>
 <script>
-    var name = "The Window"
-    var object = {
-    name : 'My Object',
-    getNameFunc: function(){
-        return function(){
-            return this.name
-        }
-    }
-}
-console.log(object.getNameFunc()())   // ?
+    let a = "";
+    console.log(a.__proto__ == String.prototype);
+    console.log(a instanceof String);
+   
+
 </script>
 <body>
     

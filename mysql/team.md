@@ -1044,7 +1044,7 @@ group by
 29、列出各种工作的最低工资及从事此工作的雇员姓名
 
 select 
-    em.*
+    em.job ,  em.ename , em.sal 
 from 
     emp em
 join 
@@ -1059,78 +1059,53 @@ join
 on
     em.job = t.e_job and em.sal = t.min_sal
 
-+-------+--------+-----------+------+------------+---------+---------+--------+
-| EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
-+-------+--------+-----------+------+------------+---------+---------+--------+
-|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800.00 |    NULL |     20 |
-|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250.00 |  500.00 |     30 |
-|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250.00 | 1400.00 |     30 |
-|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450.00 |    NULL |     10 |
-|  7788 | SCOTT  | ANALYST   | 7566 | 1987-04-19 | 3000.00 |    NULL |     20 |
-|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5000.00 |    NULL |     10 |
-|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
-+-------+--------+-----------+------+------------+---------+---------+--------+
++-----------+--------+---------+
+| job       | ename  | sal     |
++-----------+--------+---------+
+| CLERK     | SMITH  |  800.00 |
+| SALESMAN  | WARD   | 1250.00 |
+| SALESMAN  | MARTIN | 1250.00 |
+| MANAGER   | CLARK  | 2450.00 |
+| ANALYST   | SCOTT  | 3000.00 |
+| PRESIDENT | KING   | 5000.00 |
+| ANALYST   | FORD   | 3000.00 |
++-----------+--------+---------+
+
 7 rows in set (0.00 sec)
 
 
 
 30、列出各个部门的MANAGER(领导)的最低薪金
 
-
-select 
-    deptno , mgr 
-from 
+select
+    deptno , min(sal)
+from    
     emp
-group by 
-    deptno , mgr
-
-select 
-    t.deptno , min(e.sal)
-from 
-    emp e
-right join
-    (
-        select 
-            deptno , mgr 
-        from 
-            emp
-        group by 
-            deptno , mgr
-    ) t
-on
-    e.empno = t.mgr 
+where 
+    job = 'manager'
 group by
-    t.deptno 
+    deptno
 
 
-    +--------+------------+
-    | deptno | min(e.sal) |
-    +--------+------------+
-    |     20 |    2975.00 |
-    |     30 |    2850.00 |
-    |     10 |    2450.00 |
-    +--------+------------+
-    3 rows in set (0.00 sec)
++--------+----------+
+| deptno | min(sal) |
++--------+----------+
+|     20 |  2975.00 |
+|     30 |  2850.00 |
+|     10 |  2450.00 |
++--------+----------+
+3 rows in set (0.00 sec)
 
 
 
 31、列出所有员工的年工资,按年薪从低到高排序
 
 select 
-    t.*
+    empno , ename ,  (sal+ ifnull(comm,0))*12  allsal
 from 
-    emp e
-left join 
-    (
-    select 
-        empno , ename ,  sal * 12 allsal
-    from 
-        emp
-    ) t
-on
-    e.empno = t.empno
+    emp
 order by 
-    t.allsal 
+    allsal asc;
     
 
 +-------+--------+----------+
@@ -1139,18 +1114,20 @@ order by
 |  7369 | SMITH  |  9600.00 |
 |  7900 | JAMES  | 11400.00 |
 |  7876 | ADAMS  | 13200.00 |
-|  7521 | WARD   | 15000.00 |
-|  7654 | MARTIN | 15000.00 |
 |  7934 | MILLER | 15600.00 |
 |  7844 | TURNER | 18000.00 |
-|  7499 | ALLEN  | 19200.00 |
+|  7521 | WARD   | 21000.00 |
+|  7499 | ALLEN  | 22800.00 |
 |  7782 | CLARK  | 29400.00 |
+|  7654 | MARTIN | 31800.00 |
 |  7698 | BLAKE  | 34200.00 |
 |  7566 | JONES  | 35700.00 |
 |  7788 | SCOTT  | 36000.00 |
 |  7902 | FORD   | 36000.00 |
 |  7839 | KING   | 60000.00 |
 +-------+--------+----------+
+14 rows in set (0.00 sec)
+
 
 
 32、求出员工领导的薪水超过3000的员工名称与领导名称
@@ -1183,36 +1160,39 @@ where
 
 
 select 
-    e.deptno , sum(e.sal) , count(e.empno)
+    d.deptno ,d.dname , ifnull(sum(e.sal),0) , count(e.empno)
 from 
     emp e
 right join
-    (
-        select 
-            deptno
-        from 
-            dept
-        where
-            dname like '%s%'
-    ) t
+    dept d
 on
-    t.deptno = e.deptno
+    d.deptno = e.deptno
+where 
+    d.dname like '%s%'
 group by
-    e.deptno 
+    d.deptno ,d.dname 
 
 
 
-+--------+------------+----------------+
-| deptno | sum(e.sal) | count(e.empno) |
-+--------+------------+----------------+
-|     20 |   10875.00 |              5 |
-|     30 |    9400.00 |              6 |
-|   NULL |       NULL |              0 |
-+--------+------------+----------------+
++--------+------------+----------------------+----------------+
+| deptno | dname      | ifnull(sum(e.sal),0) | count(e.empno) |
++--------+------------+----------------------+----------------+
+|     20 | RESEARCH   |             10875.00 |              5 |
+|     30 | SALES      |              9400.00 |              6 |
+|     40 | OPERATIONS |                 0.00 |              0 |
++--------+------------+----------------------+----------------+
 3 rows in set (0.00 sec)
 
 
 
 34、给任职日期超过30年的员工加薪10%.
 
+update
+    emp2 
+set
+    sal = sal * 1.1
+where 
+    timestampdiff(year, hiredate , now()) > 30 ; 
 
+
+ 
